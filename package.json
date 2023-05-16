@@ -1,0 +1,43 @@
+{
+  "name": "project-3---werkstuk-bernardus-portaal",
+  "version": "1.0.0",
+  "description": "Okan administration portal for students, teachers and other.",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon ./src/app.js --config nodemon.json",
+    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --coverage"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pgmgent-atwork2/project-3---werkstuk-bernardus-portaal.git"
+  },
+  "keywords": [
+    "Okan",
+    "Administration",
+    "School",
+    "Student",
+    "ExpressJS",
+    "Handlebars"
+  ],
+  "author": "Teynur Yuseinov, Anna-Yodit Olsen, Tiba Abbas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pgmgent-atwork2/project-3---werkstuk-bernardus-portaal/issues"
+  },
+  "homepage": "https://github.com/pgmgent-atwork2/project-3---werkstuk-bernardus-portaal#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "express-handlebars": "^7.0.7",
+    "handlebars": "^4.7.7",
+    "sqlite": "^4.2.0",
+    "sqlite3": "^5.1.6",
+    "swagger-ui-express": "^4.6.3",
+    "typeorm": "^0.3.16"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0"
+  }
+}
