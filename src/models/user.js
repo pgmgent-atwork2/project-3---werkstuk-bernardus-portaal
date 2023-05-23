@@ -52,13 +52,23 @@ relations: {
       },
       inverseSide: 'user',
    },
-   subjects: {
-      target: 'Subject',
-      type: 'many-to-one',
+   Class: {
+      target: 'Class',
+      type: 'one-to-many',
       joinColumn: {
-         name: 'subject_id',
+         name: 'class_id',
       },
-      inverseSide: 'Subjects',
+      inverseSide: 'class',
+   },
+   Subjects: {
+      target: 'Subject',
+      type: 'many-to-many',
+      joinTable: {
+         name: 'teachers_subjects',
+      },
+      cascade: true,
    },
 },
 });
+
+
