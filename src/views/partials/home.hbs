@@ -1,0 +1,12 @@
+<h1>Welcome, {{ user.email }}</h1>
+
+You are
+{{#ifEquals user.role.label "reader" }}
+a reader.
+{{/ifEquals}}
+{{#ifEquals user.role.label "admin" }}
+an admin.
+{{/ifEquals}}
+{{#ifEquals user.role.label "user" }}
+an user.
+{{/ifEquals}}
