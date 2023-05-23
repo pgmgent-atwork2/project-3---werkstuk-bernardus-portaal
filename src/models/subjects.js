@@ -23,5 +23,13 @@ relations: {
    cascade: true,
    inverseSide: 'user',
    },
+   teachers: {
+      target: 'User',
+      type: 'many-to-many',
+      joinTable: {
+         name: 'subjects_teachers',
+      },
+      cascade: true,
+   },
 },
 });
