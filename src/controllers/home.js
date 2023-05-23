@@ -1,13 +1,13 @@
 import DataSource from "../lib/DataSource.js";
 import { PUBLIC_PATH, BASE_URL } from "../consts.js";
 import path from "path";
+import user from "../models/user.js";
 
 export const home = async (req, res) => {
    const userRepository = DataSource.getRepository('User');
    const users = await userRepository.find();
-   if(!req.user) {
-      res.redirect('/login');
-      return;   }
+
+
    const userRole = req.user.role.label;
 
    if (userRole === "Admin") {
@@ -31,7 +31,7 @@ export const home = async (req, res) => {
          users,
       });
    } else {
-      res.render("Home", {
+      res.render("home", {
          user: req.user,
          users,
       });

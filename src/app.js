@@ -8,8 +8,10 @@ import { VIEWS_PATH } from "./consts.js";
 import DataSource from "./lib/DataSource.js";
 import cookieParser from "cookie-parser";
 
-import validation from './middleware/validation/validAuthentication.js';
+import loginAuthentication from './middleware/validation/loginAuthentication.js';
+
 import { jwtAuth } from "./middleware/jwtAuth.js";
+
 
 	
 dotenv.config();
@@ -42,6 +44,7 @@ const app = express();
 app.use(express.static("public"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDefinition));
 	
 app.use(cookieParser());
@@ -56,16 +59,16 @@ app.engine("hbs", hbs.engine);
 app.set("view engine", "hbs");
 app.set("views", VIEWS_PATH);
 
-app.get("/", home);
-
-app.get('/login', ...validation, postLogin, login);
-app.get('/logout', logout);
-
-app.get("/", (req, res) => {
+app.get("/",jwtAuth, (req, res) => {
    res.sendFile(path.resolve("src", "views", "index.html"));
 });
 
+app.get('/', jwtAuth, home);
 
+app.get("/login", login);
+app.post("/login", loginAuthentication, postLogin, login);
+
+app.get('/logout', logout);
 
 app.get('/api/users',jwtAuth,getUsers);
 app.post('/api/user', jwtAuth, postUser);
