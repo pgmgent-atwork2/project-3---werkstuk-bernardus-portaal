@@ -1,0 +1,82 @@
+.login-bg {
+    display: none;
+}
+
+@media (min-width: 37.5rem) {
+    .article-login {
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    .login-bg {
+        width: 70%;
+        display: block;
+        & .bg-img {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+        }
+    }
+}
+
+.login_content {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.logo {
+    margin-top: 15%;
+    margin-bottom: 5rem;
+}
+
+.form-login, .login-bottom {
+    margin: 0 auto;
+}
+
+.form-login div:not(:nth-child(2n)) {
+    margin-bottom: 3.125rem;
+}
+
+.form-login div:nth-child(2n) {
+    margin-bottom: .62rem;
+}
+
+.input-container, .login-bottom {
+    display: flex;
+    flex-direction: column;
+    & .btn-login {
+        border: none;
+        background-color: hsl(228, 100%, 15%);
+        color: hsl(0, 0%, 100%);
+        font-size: 1.12rem;
+        width: 100%;
+        padding: .12rem;
+    }
+}
+
+.password-forget {
+    color: hsl(265, 15%, 65%);
+    text-decoration: none;
+    border-bottom: .06rem solid hsl(265, 15%, 65%);
+    margin-top: -0.62rem;
+}
+
+.login-bottom {
+    margin-top: 1.87rem;
+    & p {
+        color: hsl(0, 0%, 80%);
+    }
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.875rem;
+}
+
+.line {
+    height: .06rem;
+    width: 35%;
+    background-color: hsl(0, 0%, 80%);
+}

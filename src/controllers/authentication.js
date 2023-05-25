@@ -14,13 +14,6 @@ const formErrors = req.formErrors ? req.formErrors : [];
 // input fields
 const inputs = [
 {
-name: 'userName',
-label: 'Username',
-type: 'text',
-value: req.body?.userName ? req.body.userName : '',
-error: req.formErrorField?.userName ? req.formErrorField.userName : '',
-},
-{
 name: 'email',
 label: 'E-mail',
 type: 'text',
@@ -29,7 +22,7 @@ error: req.formErrorField?.email ? req.formErrorField.email : '',
 },
 {
 name: 'password',
-label: 'Password',
+label: 'Wachtwoord',
 type: 'password',
 value: req.body?.password ? req.body.password : '',
 error: req.formErrorField?.password ? req.formErrorField.password : '',
@@ -77,7 +70,6 @@ const hashedPassword = bcrypt.hashSync(req.body.password, 12);
 
 // create a new user
 await userRepository.save({
-userName: req.body.userName,
 email: req.body.email,
 password: hashedPassword,
 roles: req.body.role,
@@ -98,14 +90,14 @@ const formErrors = req.formErrors ? req.formErrors : [];
 const inputs = [
 {
 name: 'userName',
-label: 'Username',
+label: 'Gebruikersnaam',
 type: 'text',
 value: req.body?.userName ? req.body.userName : '',
 error: req.formErrorField?.userName ? req.formErrorField.userName : '',
 },
 {
 name: 'password',
-label: 'Password',
+label: 'Wachtwoord',
 type: 'password',
 value: req.body?.password ? req.body.password : '',
 error: req.formErrorField?.password ? req.formErrorField.password : '',
