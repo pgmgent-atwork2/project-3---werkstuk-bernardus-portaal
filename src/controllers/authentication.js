@@ -1,183 +1,212 @@
-/**
- * A Register Controller
- */
 
-import { getConnection } from 'typeorm';
-import { validationResult } from 'express-validator';
-import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
+      /**
+       * An authentication Controller
+       */
 
-export const register = async (req, res) => {
-// errors
-const formErrors = req.formErrors ? req.formErrors : [];
+      import { validationResult } from "express-validator";
+      import jwt from "jsonwebtoken";
+      import DataSource from "../lib/DataSource.js";
+      import bcrypt from "bcrypt";
 
-// input fields
-const inputs = [
-{
-name: 'email',
-label: 'E-mail',
-type: 'text',
-value: req.body?.email ? req.body.email : '',
-error: req.formErrorField?.email ? req.formErrorField.email : '',
-},
-{
-name: 'password',
-label: 'Wachtwoord',
-type: 'password',
-value: req.body?.password ? req.body.password : '',
-error: req.formErrorField?.password ? req.formErrorField.password : '',
-},
-];
+      export const register = async (req, res) => {
+      // errors
+      const formErrors = req.formErrors;
 
-// get the roles
-const roleRepository = getConnection().getRepository('Role');
-const roles = await roleRepository.find();
+      // input fields
+      const inputs = [
+      {
+            name: "email",
+            label: "E-mail",
+            type: "text",
+            value: req.body?.email ? req.body.email : "",
+            error: req.formErrorFields?.email ? req.formErrorFields.email : null,
+      },
+      {
+            name: "password",
+            label: "Password",
+            type: "password",
+            password: req.body?.password ? req.body.password : "",
+            error: req.formErrorFields?.password
+            ? req.formErrorFields.password
+            : null,
+      },
+      ];
 
-// render the register page
-res.render('register', {
-layout: 'authentication',
-inputs,
-formErrors,
-roles,
-});
-};
+      // get the roles
+      const roleRepository = await DataSource.getRepository("Role");
+      const roles = await roleRepository.find();
 
-export const postRegister = async (req, res, next) => {
-try {
-const errors = validationResult(req);
-if (!errors.isEmpty()) {
-req.formErrorField = {};
-errors.array().forEach(({ msg, param }) => {
-      req.formErrorField[param] = msg;
-});
-return next();
-}
-// get the user repo
-const userRepository = getConnection().getRepository('User');
+      // render the register page
+      res.render("register", {
+      layout: "authentication",
+      inputs,
+      formErrors,
+      roles,
+      });
+      };
 
-// validate if the user exists
-const user = await userRepository.findOne({
-where: { email: req.body.email },
-});
+      export const login = async (req, res) => {
+      // errors
+      const formErrors = req.formErrors;
 
-// check if we found a user
-if (user) {
-req.formErrors = [{ message: 'Gebruiker bestaat reeds.' }];
-next();
-}
-// hash the password
-const hashedPassword = bcrypt.hashSync(req.body.password, 12);
+      // input fields
+      const inputs = [
+      {
+            name: "email",
+            label: "E-mail",
+            type: "text",
+            value: req.body?.email ? req.body.email : "",
+            error: req.formErrorFields?.email ? req.formErrorFields.email : null,
+      },
+      {
+            name: "password",
+            label: "Password",
+            type: "password",
+            password: req.body?.password ? req.body.password : "",
+            error: req.formErrorFields?.password
+            ? req.formErrorFields.password
+            : null,
+      },
+      ];
 
-// create a new user
-await userRepository.save({
-email: req.body.email,
-password: hashedPassword,
-roles: req.body.role,
-});
+      // render the login page
+      res.render("login", {
+      layout: "authentication",
+      // toevoegen van data aan de view
+      inputs,
+      formErrors,
+      });
+      };
 
-// go to login page
-res.redirect('/login');
-} catch (error) {
-next(error.message);
-}
-};
+      export const postRegister = async (req, res, next) => {
+      try {
+      const errors = validationResult(req);
 
-export const login = async (req, res) => {
-// errors
-const formErrors = req.formErrors ? req.formErrors : [];
+      // if we have validation errors
+      if (!errors.isEmpty()) {
+            // create an object with the error fields
+            const errorFields = {};
+            // iterate over the errors
+            errors.array().forEach((error) => {
+            errorFields[error.param] = error.msg;
+            });
+            // put the errorfields in the current request
+            req.formErrorFields = errorFields;
 
-// input fields
-const inputs = [
-{
-name: 'userName',
-label: 'Gebruikersnaam',
-type: 'text',
-value: req.body?.userName ? req.body.userName : '',
-error: req.formErrorField?.userName ? req.formErrorField.userName : '',
-},
-{
-name: 'password',
-label: 'Wachtwoord',
-type: 'password',
-value: req.body?.password ? req.body.password : '',
-error: req.formErrorField?.password ? req.formErrorField.password : '',
-},
-];
+            return next();
+      } else {
+            // make user repository instance
+            const userRepository = await DataSource.getRepository("User");
+            const roleRepository = await DataSource.getRepository("Role");
 
-// render the login page
-res.render('login', {
-layout: 'authentication',
-inputs,
-formErrors,
-});
-};
+            const userExists = await userRepository.findOne({
+            where: {
+            email: req.body.email,
+            },
+            });
 
-export const postLogin = async (req, res, next) => {
-try {
-const errors = validationResult(req);
-if (!errors.isEmpty()) {
-req.formErrorField = {};
-errors.array().forEach(({ msg, param }) => {
-      req.formErrorField[param] = msg;
-});
-return next();
-}
-// get the user repo
-const userRepository = getConnection().getRepository('User');
+            const role = await roleRepository.findOne({
+            where: {
+            label: req.body.role,
+            },
+            });
 
-// validate if the user exists
-const user = await userRepository.findOne({
-where: { userName: req.body.userName },
-relations: ['roles'],
-});
+            if(!role) {
+            req.formErrors = [{ message: "Rol bestaat niet." }];
+            return next();
+            }
 
-// check if we found a user
-if (!user) {
-req.formErrors = [{ message: 'Gebruiker is onbekend' }];
-return next();
-}
+            if (userExists) {
+            req.formErrors = [{ message: "Gebruiker bestaat al." }];
+            return next();
+            }
 
-const roles = getConnection().getRepository('Role');
-const role = await roles.findOne({
-where: { id: user.roles.id },
-});
+            const hashedPassword = bcrypt.hashSync(req.body.password, 10);
 
-// check if incoming password is equal with the one in our database
-const isEqual = bcrypt.compareSync(req.body.password, user.password);
+            // create a new user
+            const user = await userRepository.create({
+            email: req.body.email,
+            password: hashedPassword,
+            role
+            });
 
-// if not equal, send out some errors
-if (!isEqual) {
-req.formErrors = [{ message: 'Wachtwoord is onjuist.' }];
-return next();
-}
+            // save the user
+            await userRepository.save(user);
 
-// create a webtoken
-const token = jwt.sign(
-{
-      userId: user.id,
-      username: user.userName,
-      role: role.label,
-      roleId: role.id,
-},
-process.env.TOKEN_SALT,
-{ expiresIn: '1h' }
-);
+            res.redirect("/login");
+      }
+      } catch (e) {
+      next(e.message);
+      }
+      };
 
-// add the cookie to the response
-res.cookie('token', token, { httpOnly: true });
+      export const postLogin = async (req, res, next) => {
+      try {
+      const errors = validationResult(req);
 
-// redirect to home page
-res.redirect('/');
-} catch (error) {
-next(error.message);
-}
-};
+      // if we have validation errors
+      if (!errors.isEmpty()) {
+            // create an object with the error fields
+            const errorFields = {};
+            // iterate over the errors
+            errors.array().forEach((error) => {
+            errorFields[error.param] = error.msg;
+            });
+            // put the errorfields in the current request
+            req.formErrorFields = errorFields;
+            console.log('Error:', errorFields);
+            return next();
+      } else {
+            // get the user
+            const userRepository = await DataSource.getRepository("User");
+            // change email to lowercase letters
+            const lwEmail = req.body.email.toLowerCase();
 
-export const logout = async (req, res, next) => {
-try {
-res.clearCookie('token');
-return res.redirect('/login');
-} catch (error) {
-next(error.message);
-}
-};
+            // get a user with a specific email adress
+            const user = await userRepository.findOne({
+            where: {
+            email: lwEmail,
+            },
+            });
+
+            // authentication validation
+            if (!user) {
+            req.formErrors = [{ message: "Gebruiker bestaat niet." }];
+            console.log('Error!', req.formErrors);
+            return next();
+            }
+
+            // compare hashed password with saved hashed password
+            console.log(req.body.password, bcrypt.hashSync(req.body.password, 10));
+            const givenPassword = req.body.password; // supersecret
+            const dbPassword = user.password; //$2b$10$9sWBzAraG2EQHZs62uyVdeH2dJxDAM4aWwlcNKWHAX.m2ZUjneEQa
+            const isAMatch = bcrypt.compareSync(givenPassword, dbPassword); // true or false
+
+            // password check
+            if (!isAMatch) {
+            req.formErrors = [{ message: "Wachtwoord is niet correct." }];
+            return next();
+            }
+            console.log(user)
+            // create the JWT web token, aka our identity card
+            const token = jwt.sign(
+            { id: user.id, email: req.body.email},
+            process.env.TOKEN_SALT,
+            { expiresIn: "1h" }
+            );
+
+            // create a cookie and add this to the response
+            res.cookie("token", token, { httpOnly: true });
+
+            // redirect to our root
+            res.redirect("/");
+      }
+      } catch (e) {
+      next(e.message);
+      }
+      };
+
+      export const logout = async (req, res) => {
+      res.clearCookie("token");
+      res.redirect("/login");
+      };
