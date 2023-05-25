@@ -1,15 +1,14 @@
 <h1>Welcome, {{ user.email }}</h1>
 
-You are 
-{{#ifEquals user.role.label "teacher" }}
-a teacher.
+{{#ifEquals user.role.label "Teacher"}}
+You are a teacher.
 {{/ifEquals}}
-{{#ifEquals user.role.label "admin" }}
-an admin.
+{{#ifEquals user.role.label "Admin"}}
+You are an admin.
 {{/ifEquals}}
-{{#ifEquals user.role.label "coach" }}
-an coach.
+{{#ifEquals user.role.label "Coach"}}
+You are a coach.
 {{/ifEquals}}
-{{#ifEquals user.role.label "student" }}
-an student.
+{{#ifEquals user.role.label "Student"}}
+You are a student.
 {{/ifEquals}}

@@ -7,12 +7,11 @@ export const jwtAuth = async (req, res, next) => {
     try {
         // get the payload data out of the token
         const { id } = jwt.verify(token, process.env.TOKEN_SALT);
-
-        console.log(id);
+        
 
         // get the user out of the database
         const userRepository = DataSource.getRepository("User");
-        const user = await userRepository.findOne({ where: { id }, relations: ["roles"], });
+        const user = await userRepository.findOne({ where: { id }, relations: ["role"], });
 
         // remove the password from the user object
         // so we don't send it to the client, ever, ever, ever
@@ -23,6 +22,7 @@ export const jwtAuth = async (req, res, next) => {
         // go to the next chain
         next();
     } catch (e) {
+        // console.log('er ging iets mis', e); return;
         res.clearCookie("token");
         return res.redirect("/login");
     }

@@ -59,9 +59,6 @@ app.engine("hbs", hbs.engine);
 app.set("view engine", "hbs");
 app.set("views", VIEWS_PATH);
 
-app.get("/",jwtAuth, (req, res) => {
-   res.sendFile(path.resolve("src", "views", "index.html"));
-});
 
 app.get('/', jwtAuth, home);
 
