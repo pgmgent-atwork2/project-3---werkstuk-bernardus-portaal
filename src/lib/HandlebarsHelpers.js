@@ -1,44 +1,29 @@
-
-   import Handlebars from "handlebars";
-
-   export default {
-   em: (options) => `<em>${options.fn()}</em>`,
-
-   bold: (options) => `<strong>${options.fn({ firstname: "Tim" })}</strong>`,
-
-   link: (text, url, target) => `<a href="${url}" target="${target}">${text}</a>`,
-
-   button: (use, options) => {
-
-      const validUse = ["primary", "secondary", "tertiary"];
-
-      if(validUse.includes(use)) {
-         return `<button class="${use}" type="button">${options.fn()}</button>`
-      } else {
-         console.log(options)
-         // return `<button type="button">${options.fn()}</button>`
-      }
+export default {
+   bold: function(text) {
+      return `<strong>${text}</strong>`;
+   },
+   ifEquals: function(arg1, arg2, options) {
+      return arg1 == arg2 ? options.fn(this) : options.inverse(this);
    },
 
-   sum: (a, b) => a + b,
-
-   customIf: (condtion, options) => {
-      if(condtion) {
-         return options.fn();
-      } else {
-         return options.inverse();
+   button(type, className, options) {
+      return `<button type="${type}" class="${className}">${options.fn(
+         this
+      )}</button>`;
+   },
+   modalButton(type, className, data, options) {
+      return `<button type="${type}" class="${className}" data-open="${data}">${options.fn(
+         this
+      )}</button>`;
+   },
+   admin(role, options) {
+      if (role === 'admin') {
+         return `${options.fn()}`;
       }
    },
-
-   isEq: (a, b) => a === b,
-
-   isGt: (a, b) => a > b,
-
-   customEach: (list, options) => {
-      const renderedHtml = [];
-      for(const item of list) {
-         renderedHtml.push(options.fn(item));
+   editor(role, options) {
+      if (role === 'editor' || role === 'admin') {
+         return `${options.fn()}`;
       }
-      return renderedHtml.join('');
-   }
-   }
+   },
+};

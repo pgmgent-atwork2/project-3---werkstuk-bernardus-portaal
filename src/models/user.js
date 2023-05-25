@@ -44,7 +44,7 @@ columns: {
    }
 },
 relations: {
-   roles: {
+   role: {
       target: 'Role',
       type: 'many-to-one',
       joinColumn: {

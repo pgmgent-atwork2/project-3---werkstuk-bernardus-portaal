@@ -17,11 +17,11 @@ columns: {
 },
 
 relations: {
-   user: {
+   users: {
    target: 'User',
    type: 'one-to-many',
    cascade: true,
-   inverseSide: 'user',
+   inverseSide: 'users',
    },
 },
 });
