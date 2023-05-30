@@ -1,0 +1,134 @@
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/inter-v12-latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    src: url('../fonts/inter-v12-latin-600.woff2') format('woff2');
+}
+
+:root {
+    --light-blue: hsl(228, 100%, 97%);
+    --darker-blue: hsl(228, 100%, 33%);
+    --dark-blue: hsl(228, 100%, 15%);
+    --white: hsl(0, 0%, 100%);
+}
+
+span {
+    font-family: 'Inter';
+}
+
+main {
+    display: flex;
+}
+
+aside {
+    background-color: var(--darker-blue);
+    height: 100vh;
+    width: 20%;
+    color: var(--white);
+}
+
+@media (min-width: 28.12rem) {
+    aside {
+        width: 30%;
+    }
+}
+
+@media (min-width: 43.75rem) {
+    aside {
+        max-width: 15.62rem;
+    }
+}
+
+a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+.section-profile {
+    padding: 1.25rem;
+    & .profile_name {
+        display: none;
+    }
+}
+
+@media (min-width: 46.87rem) {
+    .section-profile {
+        display: flex;
+        align-items: center;
+        gap: .62rem;
+        padding-top: 1.87rem;
+        padding-right: .62rem;
+        & .profile_name {
+            display: flex;
+            font-size: 1.25rem;
+            gap: .31rem;
+        }
+    }
+}
+
+.nav {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 85vh;
+    justify-content: space-between;
+    & .nav_item {
+        list-style: none;
+        padding-bottom: 1.25rem;
+        & .item_title {
+            display: none;
+        }
+    }
+}
+
+@media (min-width: 28.12rem){
+    .nav {
+        align-items: flex-start;
+        & ul {
+            margin-left: 1.25rem;
+            & .item_link {
+                display: flex;
+                gap: .62rem;
+                align-items: center;
+                justify-content: flex-start;
+                & svg {
+                    width: 1.5rem;
+                }
+                & .item_title {
+                    display: block;
+                    font-size: 1.12rem;
+                }
+            }
+        }
+    }
+}
+
+/* item_link */
+
+@media (min-width: 43.75rem) {
+    .nav ul {
+        margin-left: 1.25rem;
+    }
+}
+
+.logout_title {
+    display: none;
+}
+
+@media (min-width: 28.12rem) {
+    .logout_link {
+        display: flex;
+        gap: .625rem;
+        & .logout_title {
+            display: block;
+        }
+    }
+}
