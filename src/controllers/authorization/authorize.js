@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 export const home = async (req, res) => {
 const userRole = req.user.role.label;
    if (userRole === "Admin") {

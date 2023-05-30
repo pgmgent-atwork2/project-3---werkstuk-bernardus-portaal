@@ -1,43 +1,45 @@
+/* eslint-disable import/order */
+/* eslint-disable prettier/prettier */
       /**
        * An authentication Controller
        */
 
-      import { validationResult } from "express-validator";
-      import jwt from "jsonwebtoken";
-      import DataSource from "../lib/DataSource.js";
-      import bcrypt from "bcrypt";
+      import { validationResult } from 'express-validator';
+      import jwt from 'jsonwebtoken';
+      import DataSource from '../lib/DataSource.js';
+      import bcrypt from 'bcrypt';
 
       export const register = async (req, res) => {
       // errors
-      const formErrors = req.formErrors;
+      const {formErrors} = req;
 
       // input fields
       const inputs = [
       {
-            name: "email",
-            label: "E-mail",
-            type: "text",
-            value: req.body?.email ? req.body.email : "",
+            name: 'email',
+            label: 'E-mail',
+            type: 'text',
+            value: req.body?.email ? req.body.email : '',
             error: req.formErrorFields?.email ? req.formErrorFields.email : null,
       },
       {
-            name: "password",
-            label: "Password",
-            type: "password",
-            password: req.body?.password ? req.body.password : "",
-            error: req.formErrorFields?.password
-            ? req.formErrorFields.password
-            : null,
+      name: 'password',
+      label: 'Password',
+      type: 'password',
+      password: req.body?.password ? req.body.password : null,
+      error: req.formErrorFields?.password
+        ? req.formErrorFields.password
+        : null,
       },
       ];
 
       // get the roles
-      const roleRepository = await DataSource.getRepository("Role");
+      const roleRepository = await DataSource.getRepository('Role');
       const roles = await roleRepository.find();
 
       // render the register page
-      res.render("register", {
-      layout: "authentication",
+      res.render('register', {
+      layout: 'authentication',
       inputs,
       formErrors,
       roles,
@@ -46,22 +48,22 @@
 
       export const login = async (req, res) => {
       // errors
-      const formErrors = req.formErrors;
+      const {formErrors} = req;
 
       // input fields
       const inputs = [
       {
-            name: "email",
-            label: "E-mail",
-            type: "text",
-            value: req.body?.email ? req.body.email : "",
+            name: 'email',
+            label: 'E-mail',
+            type: 'text',
+            value: req.body?.email ? req.body.email : '',
             error: req.formErrorFields?.email ? req.formErrorFields.email : null,
       },
       {
-            name: "password",
-            label: "Password",
-            type: "password",
-            password: req.body?.password ? req.body.password : "",
+            name: 'password',
+            label: 'Password',
+            type: 'password',
+            password: req.body?.password ? req.body.password : '',
             error: req.formErrorFields?.password
             ? req.formErrorFields.password
             : null,
@@ -69,8 +71,8 @@
       ];
 
       // render the login page
-      res.render("login", {
-      layout: "authentication",
+      res.render('login', {
+      layout: 'authentication',
       // toevoegen van data aan de view
       inputs,
       formErrors,
@@ -93,10 +95,10 @@
             req.formErrorFields = errorFields;
 
             return next();
-      } else {
+      } 
             // make user repository instance
-            const userRepository = await DataSource.getRepository("User");
-            const roleRepository = await DataSource.getRepository("Role");
+            const userRepository = await DataSource.getRepository('User');
+            const roleRepository = await DataSource.getRepository('Role');
 
             const userExists = await userRepository.findOne({
             where: {
@@ -111,12 +113,12 @@
             });
 
             if(!role) {
-            req.formErrors = [{ message: "Rol bestaat niet." }];
+            req.formErrors = [{ message: 'Rol bestaat niet.' }];
             return next();
             }
 
             if (userExists) {
-            req.formErrors = [{ message: "Gebruiker bestaat al." }];
+            req.formErrors = [{ message: 'Gebruiker bestaat al.' }];
             return next();
             }
 
@@ -132,8 +134,8 @@
             // save the user
             await userRepository.save(user);
 
-            res.redirect("/login");
-      }
+            res.redirect('/login');
+      
       } catch (e) {
       next(e.message);
       }
@@ -155,9 +157,9 @@
             req.formErrorFields = errorFields;
             console.log('Error:', errorFields);
             return next();
-      } else {
+      } 
             // get the user
-            const userRepository = await DataSource.getRepository("User");
+            const userRepository = await DataSource.getRepository('User');
             // change email to lowercase letters
             const lwEmail = req.body.email.toLowerCase();
 
@@ -170,7 +172,7 @@
 
             // authentication validation
             if (!user) {
-            req.formErrors = [{ message: "Gebruiker bestaat niet." }];
+            req.formErrors = [{ message: 'Gebruiker bestaat niet.' }];
             console.log('Error!', req.formErrors);
             return next();
             }
@@ -178,12 +180,12 @@
             // compare hashed password with saved hashed password
             console.log(req.body.password, bcrypt.hashSync(req.body.password, 10));
             const givenPassword = req.body.password; // supersecret
-            const dbPassword = user.password; //$2b$10$9sWBzAraG2EQHZs62uyVdeH2dJxDAM4aWwlcNKWHAX.m2ZUjneEQa
+            const dbPassword = user.password; // $2b$10$9sWBzAraG2EQHZs62uyVdeH2dJxDAM4aWwlcNKWHAX.m2ZUjneEQa
             const isAMatch = bcrypt.compareSync(givenPassword, dbPassword); // true or false
 
             // password check
             if (!isAMatch) {
-            req.formErrors = [{ message: "Wachtwoord is niet correct." }];
+            req.formErrors = [{ message: 'Wachtwoord is niet correct.' }];
             return next();
             }
             console.log(user)
@@ -191,21 +193,21 @@
             const token = jwt.sign(
             { id: user.id, email: req.body.email},
             process.env.TOKEN_SALT,
-            { expiresIn: "1h" }
+            { expiresIn: '1h' }
             );
 
             // create a cookie and add this to the response
-            res.cookie("token", token, { httpOnly: true });
+            res.cookie('token', token, { httpOnly: true });
 
             // redirect to our root
-            res.redirect("/");
-      }
+            res.redirect('/');
+      
       } catch (e) {
       next(e.message);
       }
       };
 
       export const logout = async (req, res) => {
-      res.clearCookie("token");
-      res.redirect("/login");
+      res.clearCookie('token');
+      res.redirect('/login');
       };
