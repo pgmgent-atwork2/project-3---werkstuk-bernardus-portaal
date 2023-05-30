@@ -19,7 +19,7 @@
     --white: hsl(0, 0%, 100%);
 }
 
-span {
+* {
     font-family: 'Inter';
 }
 
