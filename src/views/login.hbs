@@ -1,13 +1,35 @@
 <section class="auth-container login">
-   <h4>Login</h4>
-   {{>form-errors this}}
-   <form method="post" action="login">
-      {{#each inputs}}
-      {{>form-input this}}
-      {{/each}}
-      <div class="footer-container">
-         <input type="reset" class="btn btn-tertiary" value="Clear">
-         <input type="submit" class="btn btn-primary" value="Login">
-      </div>
-   </form>
 </section>
+
+<article class="article-login">
+   <section class="login-bg">
+      <img class="bg-img" src="/images/Login-bg.png" alt="Achtergrond foto">
+   </section>
+   <section class="section-login">
+      <div class="logo">
+         <img src="/images/bernardusokan.png" alt="Bernardus okan logo">
+      </div>
+      <div class="login_content">
+         {{>form-errors this}}
+         <form class="form-login" method="post" action="login">
+            {{#each inputs}}
+            {{>form-input this}}
+            {{/each}}
+            <div class="div-password">
+               <a class="password-forget" href="">Wachtwoord vergeten</a>
+            </div>
+            <div class="login-bottom">
+               <input type="submit" class="btn-login" value="Aanmelden">
+            </div>
+         </form>
+         <div class="login-bottom">
+            <div class="divider">
+               <div class="line"></div>
+               <span>OF</span>
+               <div class="line"></div>
+            </div>
+            <input type="submit" class="btn-login" value="Microsoft">
+         </div>
+      </div>
+   </section>
+</article>

@@ -208,6 +208,6 @@
       };
 
       export const logout = async (req, res) => {
-      res.clearCookie('token');
-      res.redirect('/login');
+      res.clearCookie("token");
+      res.redirect("/login");
       };
