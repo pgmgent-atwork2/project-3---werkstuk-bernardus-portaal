@@ -1,16 +1,24 @@
+/* eslint-disable prettier/prettier */
 import DataSource from "../../lib/DataSource.js";
+
 export const getUsers = async (req, res, next) => {
    try {
 
       // get the user repository
-      const userRepository = DataSource.getRepository('Users');
+      const userRepository = DataSource.getRepository('User');
 
       // send back to client
-      res.status(200).json(await userRepository.find());
+      res.status(200).json(await userRepository.find({
+            where: { id: req.user },
+            relations: ['Subjects', 'Class'],
+      }));
    } catch (error) {
       next(error.message);
    }
 };
+
+
+
 
 export const postUser = async (req, res, next) => {
       try {

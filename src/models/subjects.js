@@ -18,17 +18,11 @@ columns: {
 },
 
 relations: {
-   user: {
-   target: 'User',
-   type: 'one-to-many',
-   cascade: true,
-   inverseSide: 'user',
-   },
-   teachers: {
+   users: {
       target: 'User',
       type: 'many-to-many',
       joinTable: {
-         name: 'subjects_teachers',
+         name: 'subjects_users'
       },
       cascade: true,
    },
