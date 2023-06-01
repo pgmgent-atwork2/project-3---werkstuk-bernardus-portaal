@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable prefer-destructuring */
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-unused-vars */
@@ -19,21 +20,29 @@ export const getSubjects = async (req, res) => {
     },
     relations: ['subjects'],
   });
+
   const userSubjects = userData.subjects;
   console.log(userSubjects);
-  // const subjectsRepository = DataSource.getRepository('Subject');
 
-  // // eslint-disable-next-line prefer-destructuring
-
-  // const subjects = await subjectsRepository.find({
-  //   where: {
-  //     usersId: user.id,
-  //   },
-  // });
-  // console.log(subjects);
   res.render('subjects', {
     layout: 'subjects',
     user: userData,
     subjects: userSubjects,
+  });
+};
+
+export const getSubjectDetails = async (req, res) => {
+  const subjectRepository = DataSource.getRepository('Subject');
+
+  const subjectId = req.params.id;
+  const subjectData = await subjectRepository.findOne({
+    where: {
+      id: subjectId,
+    },
+  });
+
+  res.render('subject-detail', {
+    layout: 'subjects',
+    subject: subjectData,
   });
 };

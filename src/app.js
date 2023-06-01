@@ -28,6 +28,7 @@ import {
 
 import {
   getSubjects,
+  getSubjectDetails,
 } from './controllers/subjects.js';
 
 
@@ -54,7 +55,9 @@ app.set('view engine', 'hbs');
 app.set('views', VIEWS_PATH);
 
 app.get('/', jwtAuth, home);
+
 app.get('/subjects', jwtAuth, getSubjects);
+app.get('/subjects/:id', jwtAuth, getSubjectDetails);
 
 app.get('/login', login);
 app.post('/login', loginAuthentication, postLogin, login);
