@@ -1,74 +1,74 @@
+/* eslint-disable prettier/prettier */
 import { EntitySchema } from 'typeorm';
 
 export default new EntitySchema({
-name: 'User',
-tableName: 'users',
-columns: {
-   id: {
+  name: 'User',
+  tableName: 'users',
+  columns: {
+    id: {
       primary: true,
       type: 'int',
       generated: true,
-   },
-   email: {
+    },
+    email: {
       type: 'varchar',
-   },
-   firstname: {
+    },
+    firstname: {
       type: 'varchar',
-   },
-   lastname: {
+    },
+    lastname: {
       type: 'varchar',
-   },
-   username: {
+    },
+    username: {
       type: 'varchar',
-   },
-   password: {
+    },
+    password: {
       type: 'varchar',
-   },
-   age: {
+    },
+    age: {
       type: 'int',
-   },
-   phone: {
+    },
+    phone: {
       type: 'int',
-   },
-   address: {
+    },
+    address: {
       type: 'varchar',
-   },
-   country: {
+    },
+    country: {
       type: 'varchar',
-   },
-   city: {
+    },
+    city: {
       type: 'varchar',
-   },
-   level: {
+    },
+    level: {
       type: 'varchar',
-   }
-},
-relations: {
-   role: {
+    },
+  },
+  relations: {
+    role: {
       target: 'Role',
       type: 'many-to-one',
       joinColumn: {
-         name: 'role_id',
+        name: 'role_id',
       },
       inverseSide: 'user',
-   },
-   Class: {
+    },
+    Class: {
       target: 'Class',
-      type: 'one-to-many',
-      joinColumn: {
-         name: 'class_id',
+      type: 'many-to-many',
+      joinTable: {
+        name: 'class_id',
       },
       inverseSide: 'class',
-   },
-   Subjects: {
+    },
+    subjects: {
       target: 'Subject',
       type: 'many-to-many',
       joinTable: {
-         name: 'teachers_subjects',
-      },
+         name: 'subjects_users'
+      }, 
       cascade: true,
    },
-},
+  
+  },
 });
-
-

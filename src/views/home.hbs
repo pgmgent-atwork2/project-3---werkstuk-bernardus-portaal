@@ -1,14 +1,51 @@
-<h1>Welcome, {{ user.email }}</h1>
-
-{{#ifEquals user.role.label "Teacher"}}
-You are a teacher.
-{{/ifEquals}}
-{{#ifEquals user.role.label "Admin"}}
-You are an admin.
-{{/ifEquals}}
-{{#ifEquals user.role.label "Coach"}}
-You are a coach.
-{{/ifEquals}}
-{{#ifEquals user.role.label "Student"}}
-You are a student.
-{{/ifEquals}}
+<div class="home-page">
+    <article class="article-task">
+        <div>
+            {{> search}}
+        </div>
+        <div class="task-container">
+            <h2>Laatste opdrachten</h2>
+            <ul class="task-list">
+                <li class="task-item">
+                    <a class="task">
+                        <img src="/images/folder-blue.svg" alt="Map icon">
+                        <div class="task-info">
+                            <h3 class="task_subject">Nederlands</h3>
+                            <p class="task_title">Toets</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="task-item">
+                    <a class="task">
+                        <img src="/images/folder-blue.svg" alt="Map icon">
+                        <div class="task-info">
+                            <h3 class="task_subject">Nederlands</h3>
+                            <p class="task_title">Toets</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="task-item">
+                    <a class="task">
+                        <img src="/images/folder-blue.svg" alt="Map icon">
+                        <div class="task-info">
+                            <h3 class="task_subject">Nederlands</h3>
+                            <p class="task_title">Toets</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </article>
+    <article class="extra-info">
+        <div class="calendar">
+            <img src="/images/kalender.svg" alt="Kalender">
+        </div>
+        <hr>
+        <div class="microsoft-tools">
+            <img src="/images/word.svg" alt="Word icon">
+            <img src="/images/powerpoint.svg" alt="PowerPoint icon">
+            <img src="/images/excel.svg" alt="Excel icon">
+            <img src="/images/onedrive.svg" alt="Onedrive icon">
+        </div>
+    </article>
+</div>

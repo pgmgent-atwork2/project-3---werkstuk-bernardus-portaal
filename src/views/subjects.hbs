@@ -6,3 +6,10 @@
       {{> vak}}
    </section>
 </article>
+
+<h1>Subjects, of {{ user.email }}</h1>
+<ul>
+{{#each subjects}}
+    <li><a href="/subjects/{{ id }}">{{ name }}</a></li>
+{{/each}}
+</ul>
