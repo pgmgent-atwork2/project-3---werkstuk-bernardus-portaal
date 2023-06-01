@@ -10,7 +10,3 @@ node_modules
 
 # Comment this out to exclude .env
 # .env
-
-# Database
-bernardus.sqlite3
-*.sqlite3
