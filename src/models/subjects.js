@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import typeorm from 'typeorm';
 
 const { EntitySchema } = typeorm;
