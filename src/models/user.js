@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { EntitySchema } from 'typeorm';
 
 export default new EntitySchema({
@@ -60,13 +61,14 @@ export default new EntitySchema({
       },
       inverseSide: 'class',
     },
-    Subjects: {
+    subjects: {
       target: 'Subject',
       type: 'many-to-many',
       joinTable: {
-        name: 'teachers_subjects',
-      },
+         name: 'subjects_users'
+      }, 
       cascade: true,
-    },
+   },
+  
   },
 });

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 // import statements
 import express from 'express';
 // import path from 'path';
@@ -25,6 +26,11 @@ import {
   deleteUserById,
 } from './controllers/api/user.js';
 
+import {
+  getSubjects,
+} from './controllers/subjects.js';
+
+
 dotenv.config();
 
 // import login and register
@@ -48,17 +54,21 @@ app.set('view engine', 'hbs');
 app.set('views', VIEWS_PATH);
 
 app.get('/', jwtAuth, home);
+app.get('/subjects', jwtAuth, getSubjects);
 
 app.get('/login', login);
 app.post('/login', loginAuthentication, postLogin, login);
 
 app.get('/logout', logout);
 
-app.get('/api/users', jwtAuth, getUsers);
+// API routes
+app.get('/api/users',jwtAuth, getUsers);
 app.post('/api/user', jwtAuth, postUser);
 app.put('/api/user', jwtAuth, updateUser);
 app.get('/api/user/:id', jwtAuth, getUserById);
 app.delete('/api/user/:id', jwtAuth, deleteUserById);
+
+
 
 DataSource.initialize()
   .then(() => {
