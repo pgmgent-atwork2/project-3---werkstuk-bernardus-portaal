@@ -26,19 +26,8 @@ import {
   deleteUserById,
 } from './controllers/api/user.js';
 
-import {
+import { getSubjects, getSubjectDetails } from "./controllers/subjects.js";
 
-   getUsers,
-   postUser,
-   updateUser,
-   getUserById,
-   deleteUserById,
-} from './controllers/api/user.js';
-import { getSubjects, getSubjectsDetail } from "./controllers/subject.js";
-
-  getSubjects,
-  getSubjectDetails,
-} from './controllers/subjects.js';
 
 
 
@@ -83,7 +72,7 @@ app.get('/api/user/:id', jwtAuth, getUserById);
 app.delete('/api/user/:id', jwtAuth, deleteUserById);
 
 
-app.get('/subject-detail', jwtAuth, getSubjectsDetail);
+app.get('/subject-detail', jwtAuth, getSubjectDetails);
 
 DataSource.initialize()
   .then(() => {
