@@ -1,3 +1,131 @@
+
+body {
+    background-color: #F0F3FF;
+ }
+ 
+ main {
+     display: flex;
+ }
+ 
+ .aside {
+     width: 30%;
+ }
+ 
+ article {
+     width: 100%;
+ }
+ 
+ .right_title {
+     & h1 {
+         margin-top: 2rem;
+         border-bottom: 2px solid #0022A8;
+         width: 90%;
+     }
+ }
+ 
+ .subject {
+    margin-top: 2rem;
+    height: 290px;
+    width: 290px;
+    margin-left: 4rem;
+    border: 2px solid #0022A8;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    background-color: white;
+ }
+ 
+ .subject_img img {
+    width: 8rem;
+     padding-left: 2.5rem;
+     margin-top: 2.5rem;
+     border-right: 1px solid #0022A8;
+     padding-right: 5px;
+ }
+ 
+ .subject_vak h3 {
+    margin-top: 3.5rem;
+    color: #0022A8;
+    margin-left: 3.5rem;
+    font-size: 2rem;
+ }
+ 
+ .subject_naam {
+     color: #0022A8;
+     margin-left: 3.5rem;
+     font-size: 1.50rem;
+ }
+ 
+
+/*subject-detail*/
+
+.right_title_detail{
+    margin-top: 2rem;
+    border-bottom: 2px solid #0022A8;
+    width: 70%;
+    margin-left: 1rem;
+}
+
+button {
+    border: none;
+    background-color: #0022A8;
+    color: white;
+    padding: 15px;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+button:hover {
+   background-color: #cbd6ff;
+   color: black;
+}
+
+.punten_document {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.punten_document img {
+margin-right: 0.5rem;
+}
+
+.detail {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem;
+}
+
+.button_button{
+    padding-left: 1rem;
+    padding-top: 1rem;
+    /* width: 8rem;*/
+}
+
+.button_punten h3 {
+    text-align: end;
+}
+
+.punten_document {
+   padding-left: 2rem;
+}
+
+.upload {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-container {
+    display: flex;
+}
+
+
 @font-face {
     font-family: 'Inter';
     font-style: normal;
@@ -279,3 +407,4 @@ a {
 .search_input::placeholder {
     color: var(--dark-blue);
 }
+

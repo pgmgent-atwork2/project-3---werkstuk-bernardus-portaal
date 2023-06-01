@@ -27,9 +27,19 @@ import {
 } from './controllers/api/user.js';
 
 import {
+
+   getUsers,
+   postUser,
+   updateUser,
+   getUserById,
+   deleteUserById,
+} from './controllers/api/user.js';
+import { getSubjects, getSubjectsDetail } from "./controllers/subject.js";
+
   getSubjects,
   getSubjectDetails,
 } from './controllers/subjects.js';
+
 
 
 dotenv.config();
@@ -56,6 +66,7 @@ app.set('views', VIEWS_PATH);
 
 app.get('/', jwtAuth, home);
 
+
 app.get('/subjects', jwtAuth, getSubjects);
 app.get('/subjects/:id', jwtAuth, getSubjectDetails);
 
@@ -72,6 +83,7 @@ app.get('/api/user/:id', jwtAuth, getUserById);
 app.delete('/api/user/:id', jwtAuth, deleteUserById);
 
 
+app.get('/subject-detail', jwtAuth, getSubjectsDetail);
 
 DataSource.initialize()
   .then(() => {
