@@ -30,6 +30,8 @@ import { getSubjects, getSubjectDetails } from "./controllers/subjects.js";
 
 import { getFeedbacks } from "./controllers/feedback.js";
 
+import { getPoints } from "./controllers/rapport.js";
+
 import { profile } from "./controllers/profile.js";
 
 
@@ -63,7 +65,10 @@ app.get('/subjects/:id', jwtAuth, getSubjectDetails);
 
 app.get('/feedback', jwtAuth, getFeedbacks);
 
+
+
 app.get('/profile', jwtAuth, profile);
+app.get('/rapport', jwtAuth, getPoints);
 
 app.get('/login', login);
 app.post('/login', loginAuthentication, postLogin, login);
