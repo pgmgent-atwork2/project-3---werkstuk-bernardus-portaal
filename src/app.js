@@ -27,6 +27,7 @@ import {
 } from './controllers/api/user.js';
 
 import { getSubjects, getSubjectDetails } from "./controllers/subjects.js";
+import { getAbsence } from './controllers/absence.js';
 
 
 
@@ -54,6 +55,7 @@ app.set('view engine', 'hbs');
 app.set('views', VIEWS_PATH);
 
 app.get('/', jwtAuth, home);
+app.get('/absence', getAbsence);
 
 
 app.get('/subjects', jwtAuth, getSubjects);

@@ -13,12 +13,12 @@ if (
    userRole === 'Student' ||
    userRole === 'Coach'
 ) {
-   res.render('home', {
+   res.render('home',{
    user: req.user,
    users,
    });
 } else {
-   res.render('home', {
+   res.render('home',{
    user: req.user,
    users,
    });

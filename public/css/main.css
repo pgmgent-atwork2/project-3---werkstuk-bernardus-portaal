@@ -1,29 +1,16 @@
-
 body {
     background-color: #F0F3FF;
- }
- 
- main {
-     display: flex;
- }
- 
- .aside {
-     width: 30%;
- }
- 
- article {
-     width: 100%;
- }
- 
- .right_title {
-     & h1 {
-         margin-top: 2rem;
-         border-bottom: 2px solid #0022A8;
-         width: 90%;
-     }
- }
- 
- .subject {
+}
+
+.aside {
+    width: 30%;
+}
+
+article {
+    width: 100%;
+}
+
+.subject {
     margin-top: 2rem;
     height: 290px;
     width: 290px;
@@ -34,53 +21,62 @@ body {
     border-top-right-radius: 1rem;
     border-bottom-right-radius: 1rem;
     background-color: white;
- }
- 
- .subject_img img {
+}
+
+.subject_img img {
     width: 8rem;
-     padding-left: 2.5rem;
-     margin-top: 2.5rem;
-     border-right: 1px solid #0022A8;
-     padding-right: 5px;
- }
- 
- .subject_vak h3 {
+    padding-left: 2.5rem;
+    margin-top: 2.5rem;
+    border-right: 1px solid #0022A8;
+    padding-right: 5px;
+}
+
+.subject_vak h3 {
     margin-top: 3.5rem;
     color: #0022A8;
     margin-left: 3.5rem;
     font-size: 2rem;
- }
- 
- .subject_naam {
-     color: #0022A8;
-     margin-left: 3.5rem;
-     font-size: 1.50rem;
- }
- 
+}
+
+.subject_naam {
+    color: #0022A8;
+    margin-left: 3.5rem;
+    font-size: 1.50rem;
+}
+
 
 /*subject-detail*/
 
-.right_title_detail{
+.page-title{
     margin-top: 2rem;
     border-bottom: 2px solid #0022A8;
-    width: 70%;
+    width: 95%;
     margin-left: 1rem;
+    & h1 {
+        font-size: 25px;
+    }
+}
+
+@media (min-width: 800px) {
+    .page-title h1 {
+        font-size: 32px;
+    }
 }
 
 button {
     border: none;
     background-color: #0022A8;
     color: white;
-    padding: 15px;
-    border-top-left-radius: 1rem;
-    border-bottom-left-radius: 1rem;
-    border-top-right-radius: 1rem;
-    border-bottom-right-radius: 1rem;
+    padding: 10px;
+    border-radius: .75rem;
+    & p {
+        color: var(--white);
+    }
 }
 
 button:hover {
-   background-color: #cbd6ff;
-   color: black;
+    background-color: #cbd6ff;
+    color: black;
 }
 
 .punten_document {
@@ -106,19 +102,14 @@ margin-right: 0.5rem;
     /* width: 8rem;*/
 }
 
-.button_punten h3 {
-    text-align: end;
-}
-
 .punten_document {
-   padding-left: 2rem;
+    padding-left: 2rem;
 }
 
 .upload {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
     align-items: center;
+    gap: 5px;
 }
 
 .button-container {
@@ -162,9 +153,10 @@ body {
 
 main {
     width: 100%;
+    padding: 0px 20px;
 }
 
-h2, h3, p{
+main h1, h2, h3, p{
     color: var(--dark-blue);
 }
 
@@ -323,12 +315,8 @@ a {
     .home-page {
         display: flex;
         & .article-task {
-            width: 60%;
             border-right: 3px solid hsl(227, 100%, 94%);
             height: 100vh;
-        }
-        & .article-calender {
-            width: 40%;
         }
     }
 }
@@ -382,29 +370,90 @@ a {
 /* search */ 
 .form-search {
     display: flex;
-    margin-top: 40px;
+    margin-top: 2.5rem;
     & .search_input, button {
         background-color: #C7D2FF;
         border: none;
-        padding: 10px;
+        padding: .62rem;
     } 
     & button {
-        border-radius: 0px 10px 10px 0px;
+        border-radius: 0rem .62rem .62rem 0rem;
     }
 }
 
 .search_input {
-    border-radius: 10px 0px 0px 10px;
+    border-radius: .62rem 0rem 0rem .62rem;
     width: 73%;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 50rem) {
     .search_input {
         width: 40%;
     }
 }
 
-.search_input::placeholder {
-    color: var(--dark-blue);
+/* Absence page */
+
+.section-absence {
+    margin: 1.56rem 1.25rem;
+    & .article-form-absence {
+        margin-top: 1.25rem;
+    }
 }
 
+.absence-img img{
+    height: 15.62rem;
+}
+
+.form-bg-white {
+    background-color: var(--white);
+    padding: 1.25rem;
+    border-radius: 10px;
+    & .absence-date {
+        display: flex;
+        gap: 1.87rem;
+        margin-bottom: .93rem;
+        & input {
+            width: 4.68rem;
+        }
+    }
+    & input , textarea {
+        background-color: var(--light-blue);
+        border: .06rem solid var(--dark-blue);
+        border-radius: .31rem;
+        padding: .12rem .31rem;
+    }
+    & textarea {
+        width: 100%;
+    }
+}
+
+.button-send {
+    display: flex;
+    margin-top: .62rem;
+    justify-content: flex-end;
+    & .send {
+        background-color: var(--darker-blue);
+        border: none;
+        border-radius: .75rem;
+        color: var(--white);
+        padding: .62rem;
+    }
+}
+
+@media (min-width: 50rem) {
+    .form-absence{
+        margin: 0rem 2.5rem;
+    }
+    .section-absence {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (min-width: 100rem) {
+    .absence-img img{
+        height: 100%;
+    }
+}

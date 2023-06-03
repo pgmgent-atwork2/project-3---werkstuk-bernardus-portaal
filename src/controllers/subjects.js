@@ -25,7 +25,6 @@ export const getSubjects = async (req, res) => {
   console.log(userSubjects);
 
   res.render('subjects', {
-    layout: 'subjects',
     user: userData,
     subjects: userSubjects,
   });
@@ -42,7 +41,6 @@ export const getSubjectDetails = async (req, res) => {
   });
 
   res.render('subject-detail', {
-    layout: 'subjects',
     subject: subjectData,
   });
 };
