@@ -28,7 +28,9 @@ import {
 
 import { getSubjects, getSubjectDetails } from "./controllers/subjects.js";
 
+import { getFeedbacks } from "./controllers/feedback.js";
 
+import { profile } from "./controllers/profile.js";
 
 
 dotenv.config();
@@ -58,6 +60,10 @@ app.get('/', jwtAuth, home);
 
 app.get('/subjects', jwtAuth, getSubjects);
 app.get('/subjects/:id', jwtAuth, getSubjectDetails);
+
+app.get('/feedback', jwtAuth, getFeedbacks);
+
+app.get('/profile', jwtAuth, profile);
 
 app.get('/login', login);
 app.post('/login', loginAuthentication, postLogin, login);

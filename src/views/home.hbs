@@ -1,51 +1,32 @@
 <div class="home-page">
-    <article class="article-task">
-        <div>
-            {{> search}}
-        </div>
-        <div class="task-container">
-            <h2>Laatste opdrachten</h2>
-            <ul class="task-list">
-                <li class="task-item">
-                    <a class="task">
-                        <img src="/images/folder-blue.svg" alt="Map icon">
-                        <div class="task-info">
-                            <h3 class="task_subject">Nederlands</h3>
-                            <p class="task_title">Toets</p>
-                        </div>
-                    </a>
-                </li>
-                <li class="task-item">
-                    <a class="task">
-                        <img src="/images/folder-blue.svg" alt="Map icon">
-                        <div class="task-info">
-                            <h3 class="task_subject">Nederlands</h3>
-                            <p class="task_title">Toets</p>
-                        </div>
-                    </a>
-                </li>
-                <li class="task-item">
-                    <a class="task">
-                        <img src="/images/folder-blue.svg" alt="Map icon">
-                        <div class="task-info">
-                            <h3 class="task_subject">Nederlands</h3>
-                            <p class="task_title">Toets</p>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </article>
-    <article class="extra-info">
-        <div class="calendar">
-            <img src="/images/kalender.svg" alt="Kalender">
-        </div>
-        <hr>
-        <div class="microsoft-tools">
-            <img src="/images/word.svg" alt="Word icon">
-            <img src="/images/powerpoint.svg" alt="PowerPoint icon">
-            <img src="/images/excel.svg" alt="Excel icon">
-            <img src="/images/onedrive.svg" alt="Onedrive icon">
-        </div>
-    </article>
+    {{> up-nav}}
+    <div class="underside">
+            <article class="article-task">
+                <div class="task-container">
+                    <h2>Laatste opdrachten</h2>
+                    {{> vak-home}}
+                </div>
+                <div class="recent">
+                    <h2>Recent feedback</h2>
+                    <ul class="feedback_recent">
+                        {{#each feedbacks}}
+                        <li>
+                            {{> post-home}}
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </article>
+            <article class="extra-info">
+                <h2>Agenda</h2>
+                    {{> calender}}
+                <hr>
+                <div class="microsoft-tools">
+                    <img src="/images/word.svg" alt="Word icon">
+                    <img src="/images/powerpoint.svg" alt="PowerPoint icon">
+                    <img src="/images/excel.svg" alt="Excel icon">
+                    <img src="/images/onedrive.svg" alt="Onedrive icon">
+                </div>
+            </article>
+    </div>
 </div>

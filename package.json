@@ -40,6 +40,7 @@
     "handlebars": "^4.7.7",
     "jsonwebtoken": "^9.0.0",
     "prettier": "^2.8.8",
+    "sql.js": "^1.8.0",
     "sqlite": "^4.2.0",
     "sqlite3": "^5.1.6",
     "swagger-ui-express": "^4.6.3",

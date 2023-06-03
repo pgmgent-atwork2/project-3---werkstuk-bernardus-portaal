@@ -40,6 +40,10 @@ export default new EntitySchema({
     city: {
       type: 'varchar',
     },
+    gender: {
+      type: 'varchar',
+      nullable: true,
+    },
     level: {
       type: 'varchar',
     },
@@ -65,10 +69,17 @@ export default new EntitySchema({
       target: 'Subject',
       type: 'many-to-many',
       joinTable: {
-         name: 'subjects_users'
+        name: 'subjects_users'
       }, 
       cascade: true,
-   },
-  
+      },
+        feedbacks: {
+          target: 'Feedback',
+          type: 'many-to-many',
+          joinTable: {
+            name: 'user_feedback'
+          },
+          cascade: true,
+      },
   },
 });
