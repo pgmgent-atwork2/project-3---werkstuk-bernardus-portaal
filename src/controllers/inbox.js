@@ -2,24 +2,20 @@
 import DataSource from '../lib/DataSource.js';
 
 
-export const profile = async (req, res) => {
+export const getInbox = async (req, res) => {
 const userRepository = DataSource.getRepository('User');
 const users = await userRepository.find();
 
 const userRole = req.user?.role?.label;
 const user = req.user;
 
-const userData = await userRepository.findOne({
-    where: {
-    id: user.id,
-    },
-});
+const userData = await userRepository.find({});
 
 const userSubjects = userData.subjects;
 
+console.log(userData);
 
-
-res.render('profile', {
+res.render('inbox', {
     user: req.user,
     users,
     });

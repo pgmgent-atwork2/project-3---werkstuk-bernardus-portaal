@@ -37,7 +37,7 @@ const renderCalendar = () => {
 
   for (let i = firstDayofMonth; i > 0; i--) {
     // creating li of previous month last days
-    liTag += `<a class="inactive" href="/subjects"><li>${lastDateofLastMonth - i + 1}</li></a>`;
+    liTag += `<a class="inactive" href="/schedule"><li>${lastDateofLastMonth - i + 1}</li></a>`;
 
 
   }
@@ -51,14 +51,14 @@ const renderCalendar = () => {
       currYear === new Date().getFullYear()
         ? 'active'
         : '';
-    liTag += `<a class="${isToday}" href="/subjects"><li >${i}</li></a>`;
+    liTag += `<a class="${isToday}" href="/schedule"><li >${i}</li></a>`;
 
 
   }
 
   for (let i = lastDayofMonth; i < 6; i++) {
     // creating li of next month first days
-    liTag += `<a class="inactive" href="/subjects"><li >${i - lastDayofMonth + 1}</li></a>`;
+    liTag += `<a class="inactive" href="//-schedule"><li >${i - lastDayofMonth + 1}</li></a>`;
 
   }
   currentDate.innerText = `${months[currMonth]} ${currYear}`; // passing current mon and yr as currentDate text

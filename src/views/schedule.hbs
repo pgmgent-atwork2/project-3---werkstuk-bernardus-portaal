@@ -1,0 +1,74 @@
+{{> up-nav}}
+<article>
+    <div class="right_title">
+        <h1>Lessenrooster</h1>
+    </div>
+    <div class="schedule">
+        <div class="maandag day">
+            <h3>Mandag</h3>
+            <ul>
+                {{#each subjects }}
+                    <a href="/subjects/{{id}}" class="{{name}} vak">
+                        <div class="info_subject">
+                            <h4>{{name}}</h4> <br> 
+                            <p>{{teacher.firstname}} {{teacher.lastname}}</p>
+                        </div>
+                    </a>
+                {{/each}}
+            </ul>
+        </div>
+        <div class="dinsdag day">
+            <h3>Dinsdag</h3>
+            <ul>
+                {{#each subjects }}
+                <a href="/subjects/{{id}}" class="{{name}} vak">
+                    <div class="info_subject">
+                        <h4>{{name}}</h4> <br>
+                        <p>{{teacher.firstname}} {{teacher.lastname}}</p>
+                    </div>
+                </a>
+                {{/each}}
+            </ul>
+        </div>
+        <div class="woensdag day">
+            <h3>Woensdag</h3>
+            <ul>
+                {{#each subjects }}
+                <a href="/subjects/{{id}}" class="{{name}} vak">
+                    <div class="info_subject">
+                        <h4>{{name}}</h4> <br>
+                        <p>{{teacher.firstname}} {{teacher.lastname}}</p>
+                    </div>
+                </a>
+                {{/each}}
+            </ul>
+        </div>
+        <div class="donderdag day">
+            <h3>Donderdag</h3>
+            <ul>
+                {{#each subjects }}
+                <a href="/subjects/{{id}}" class="{{name}} vak">
+                    <div class="info_subject">
+                        <h4>{{name}}</h4> <br>
+                        <p>{{teacher.firstname}} {{teacher.lastname}}</p>
+                    </div>
+                </a>
+                {{/each}}
+            </ul>
+        </div>
+        <div class="vrijdag day">
+            <h3>Vrijdag</h3>
+            <ul>
+                {{#each subjects }}
+                <a href="/subjects/{{id}}" class="{{name}} vak">
+                    <div class="info_subject">
+                        <h4>{{name}}</h4> <br>
+                        <p>{{teacher.firstname}} {{teacher.lastname}}</p>
+                    </div>
+                </a>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</article>
+

@@ -1,37 +1,27 @@
-/* eslint-disable consistent-return */
 /* eslint-disable prettier/prettier */
 import DataSource from '../lib/DataSource.js';
 import jwt from 'jsonwebtoken';
 
-
-export const getFeedbacks = async (req, res) => {
+export const getSchedule = async (req, res) => {
   const { token } = req.cookies;
   const tokenDeco = jwt.decode(token);
 
   const userRepository = DataSource.getRepository('User');
-  
 
-  
   const user = req.user;
 
   const userData = await userRepository.findOne({
     where: {
       id: user.id,
     },
-    relations: ['feedbacks', 'feedbacks.subjects','feedbacks.user','role']
+    relations: ['subjects', 'role', 'subjects.teacher'],
   });
 
-  const userFeedbacks = userData.feedbacks;
+  const userSubjects = userData.subjects;
+  
 
-  res.render('feedback', {
+  res.render('schedule', {
     user: userData,
-    feedbacks: userFeedbacks,
+    subjects: userSubjects,
   });
 };
-
-
-
-
-
-
-
