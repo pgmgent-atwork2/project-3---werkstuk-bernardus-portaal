@@ -72,14 +72,23 @@ export default new EntitySchema({
         name: 'subjects_users'
       }, 
       cascade: true,
+    },
+    feedbacks: {
+      target: 'Feedback',
+      type: 'many-to-many',
+      joinTable: {
+        name: 'user_feedback'
       },
-        feedbacks: {
-          target: 'Feedback',
-          type: 'many-to-many',
-          joinTable: {
-            name: 'user_feedback'
-          },
-          cascade: true,
-      },
+      cascade: true,
+    },
+    points: {
+        target: 'Points',
+        type: 'many-to-many',
+        joinTable: {
+        name: 'point_id',
+        },
+        inverseSide: 'point',
+    },
   },
 });
+

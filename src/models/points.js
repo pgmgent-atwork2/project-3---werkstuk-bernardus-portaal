@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import typeorm from 'typeorm';
 
 const { EntitySchema } = typeorm;
@@ -21,18 +22,9 @@ relations: {
       target: 'Subject',
       type: 'many-to-one',
       joinColumn: {
-         name: 'subject_id',
+      name: 'subject_id',
       },
-      inverseSide: 'Subjects',
-      },
-   student: {
-      target: 'User',
-      type: 'many-to-one',
-      joinColumn: {
-         name: 'student_id',
-      },
-      cascade: true,
-      inverseSide: 'user',
+      inverseSide: 'subject',
    },
 },
 });
