@@ -1,0 +1,18 @@
+{{> up-nav}}
+<div class="scrollable-container">
+    <div >
+        <ul class="list-users">
+            {{#each users}}
+            <li class="user-item">
+                <div class="profile-img-user">
+                    <img src="/images/{{firstname}}.jpg" alt="{{firstname}}">
+                </div>
+                <div class="profile-content">
+                    <p>{{firstname}} {{lastname}}</p>
+                    <p>{{username}}</p>
+                </div>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+</div>

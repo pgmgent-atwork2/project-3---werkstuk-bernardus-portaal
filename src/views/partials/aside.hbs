@@ -1,18 +1,21 @@
 <aside>
-    <section class="section-profile">
-        <div class="profile-icon">
-            <div class="profile-img">
-                <img src="/images/{{user.firstname}}.jpg" alt="Profile icon">
+    <a href="/profile">
+        <section class="section-profile">
+            <div class="profile-icon">
+                <div class="profile-img">
+                    <img src="/images/{{user.firstname}}.jpg" alt="Profile icon">
+                </div>
             </div>
-        </div>
-        <div>
-            <h1 class="profile_name">
-                <span>{{user.firstname}}</span>
-                <span>{{user.lastname}}</span>
-            </h1>
-                    {{> user-role}}
-        </div>
-    </section>
+            <div>
+                <h1 class="profile_name">
+                    <span>{{user.firstname}}</span>
+                    <span>{{user.lastname}}</span>
+                </h1>
+                {{> user-role}}
+            </div>
+        </section>
+    </a>
+
 <nav class="nav">
     <ul>
         <li class="nav_item">
@@ -62,7 +65,7 @@
         </li>
     </div>
         <li class="nav_item">
-            <a class="item_link" href="/contact">
+            <a class="item_link" href="/inbox">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="1.5"
     stroke-linecap="round" stroke-miterlimit="10" stroke-linejoin="round">
     <path d="M22 2H2v20l4-4h16V2z" />
@@ -74,13 +77,17 @@
             </a>
         </li>
         <li class="nav_item">
-            <a class="item_link" href="/profile">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M12.16 10.87C12.06 10.86 11.94 10.86 11.83 10.87C10.6822 10.831 9.59461 10.3468 8.7976 9.51995C8.00059 8.69307 7.55671 7.58844 7.55997 6.43999C7.55997 3.98999 9.53997 1.99999 12 1.99999C12.5824 1.98948 13.1612 2.0938 13.7033 2.30697C14.2454 2.52014 14.7402 2.838 15.1594 3.2424C15.5787 3.6468 15.9142 4.12982 16.1468 4.66388C16.3793 5.19794 16.5045 5.77258 16.515 6.35499C16.5255 6.9374 16.4212 7.51618 16.208 8.05828C15.9948 8.60038 15.677 9.09518 15.2726 9.51444C14.8682 9.9337 14.3851 10.2692 13.8511 10.5018C13.317 10.7344 12.7424 10.8595 12.16 10.87ZM7.15997 14.56C4.73997 16.18 4.73997 18.82 7.15997 20.43C9.90997 22.27 14.42 22.27 17.17 20.43C19.59 18.81 19.59 16.17 17.17 14.56C14.43 12.73 9.91997 12.73 7.15997 14.56Z"
-                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <a class="item_link" href="/schedule">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                    <line x1="16" y1="2" x2="16" y2="6" />
+                    <line x1="8" y1="2" x2="8" y2="6" />
+                    <line x1="3" y1="10" x2="21" y2="10" />
+                    <line x1="7" y1="15" x2="7" y2="21" />
+                    <line x1="17" y1="15" x2="17" y2="21" />
                 </svg>
-                <span class="item_title">Profiel</span>
+                <span class="item_title">Lessenrooster</span>
             </a>
         </li>
         <li class="logout">

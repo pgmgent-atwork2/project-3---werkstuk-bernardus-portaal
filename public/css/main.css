@@ -2,8 +2,33 @@ body {
     background-color: #F0F3FF;
 }
 
+@keyframes transitionIn {
+    from {
+    opacity:0;
+    transform: translateY(-10px);
+    }
+
+    to {
+    opacity: 1;
+    transform: translateY(0);
+    }
+}
+
+@keyframes transitionLeft {
+    from {
+    opacity:0;
+    transform: translateX(-10px);
+    }
+
+    to {
+    opacity: 1;
+    transform: translateX(0);
+    }
+}
+
 main{
     padding: 1rem;
+    animation: transitionIn 1s;
 }
 
 .aside {
@@ -686,6 +711,62 @@ color: #777;
 
 .recent{
     margin-top: 2rem;
+}
+
+/*Chat*/
+.scrollable-container {
+    height: 7rem;
+    width: 85rem;
+    overflow-x: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: #888888 #f1f1f1;
+}
+
+.scrollable-container::-webkit-scrollbar {
+    width: 8px;
+    height: 0.2rem;
+    background-color: #f1f1f1;
+}
+
+.scrollable-container::-webkit-scrollbar-thumb {
+    background-color: #888888;
+    border-radius: 4px;
+}
+
+.scrollable-container::-webkit-scrollbar-thumb:hover {
+    background-color: #555555;
+}
+
+
+.list-users{
+    display: flex;
+    & .user-item{
+        display: flex;
+        padding: 1rem;
+        align-items: center;
+        margin: 0.8rem;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    & .profile-img-user{
+        background-color: black;
+        width: 3rem;
+        margin: 0 auot;
+        height: 3rem;
+        border-radius: 50%;
+        overflow: hidden;
+        & img{
+            width: 4rem;
+        }
+    }
+    & .profile-content{
+        text-align: center;
+        margin-left: 0.9rem;
+        & p{
+            font-size: 5px;
+        }
+    }
+
 }
 
 

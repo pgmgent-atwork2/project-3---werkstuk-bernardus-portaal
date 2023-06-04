@@ -16,8 +16,6 @@ const userData = await userRepository.findOne({
 });
 
 const userPoints = userData.points;
-console.log(userPoints);
-console.log(userData);
 
 res.render('rapport', {
     user: userData,

@@ -31,3 +31,4 @@ function toggleMenu(menu) {
         menu.style.display = "none";
     }
 }
+
