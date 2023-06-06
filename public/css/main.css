@@ -768,3 +768,8 @@ color: #777;
     }
 
 }
+
+
+.documenten-text {
+    display: flex;
+}

@@ -69,8 +69,10 @@ app.get('/', jwtAuth, home);
 app.get('/absence', getAbsence);
 
 
-app.get('/subjects', jwtAuth, getSubjects);
+app.get('/subjects/:id/points', jwtAuth, getSubjectPoints);
+app.get('/subjects/:id/documents', jwtAuth, getSubjectDocuments);
 app.get('/subjects/:id', jwtAuth, getSubjectDetails);
+app.get('/subjects', jwtAuth, getSubjects);
 
 app.get('/feedback', jwtAuth, getFeedbacks, );
 app.get('/feedbackDashboard', jwtAuth, getAllFeedbacks)
@@ -100,9 +102,6 @@ app.put('/api/user', jwtAuth, updateUser);
 app.get('/api/user/:id', jwtAuth, getUserById);
 app.delete('/api/user/:id', jwtAuth, deleteUserById);
 
-
-app.get('/subject-detail', jwtAuth, getSubjectDetails);
-app.get('/subject/document',jwtAuth,  getSubjectDocument)
 
 DataSource.initialize()
   .then(() => {
