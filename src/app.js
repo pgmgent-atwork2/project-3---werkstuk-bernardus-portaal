@@ -26,7 +26,10 @@ import {
   deleteUserById,
 } from './controllers/api/user.js';
 
+import { getAbsence } from './controllers/absence.js';
+
 import { getSubjects, getSubjectDetails, getSubjectPoints } from "./controllers/subjects.js";
+
 
 import { getSchedule } from "./controllers/schedule.js";
 
@@ -62,6 +65,7 @@ app.set('view engine', 'hbs');
 app.set('views', VIEWS_PATH);
 
 app.get('/', jwtAuth, home);
+app.get('/absence', getAbsence);
 
 
 app.get('/subjects', jwtAuth, getSubjects);

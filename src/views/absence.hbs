@@ -1,0 +1,29 @@
+<div class="page-title">
+    <h1>Afwezigheden</h1>
+</div>
+
+<section class="section-absence">
+    <div class="absence-img">
+        <img src="/images/absence.svg" alt="Cartoon ziek mens">
+    </div>
+    <article class="article-form-absence">
+        <form action="" class="form-absence">
+            <div class="form-bg-white">
+                <div class="absence-date">
+                    <input type="text" placeholder="Van">
+                    <input type="text" placeholder="Tot">
+                </div>
+                <textarea name="" rows="4" placeholder="Wat is de reden"></textarea>
+                <div class="absence-upload">
+                    <p>Upload je brief hier:</p>
+                    <div class="upload--absence">
+                        {{> upload}}
+                    </div>
+                </div>
+            </div>
+            <div class="button-send">
+                <input type="submit" class="send" value="Versturen">
+            </div>
+        </form>
+    </article>
+</section>

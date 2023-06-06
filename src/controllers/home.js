@@ -1,6 +1,7 @@
 import DataSource from '../lib/DataSource.js';
 
 export const home = async (req, res) => {
+
   const userRepository = DataSource.getRepository('User');
   const users = await userRepository.find();
 
