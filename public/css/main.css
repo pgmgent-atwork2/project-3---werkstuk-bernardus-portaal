@@ -64,14 +64,14 @@ body {
     margin-top: 2rem;
     border-bottom: 2px solid #0022A8;
     width: 70%;
-    margin-left: 1rem;
+    margin-left: 3rem;
 }
 
 button {
     border: none;
     background-color: #0022A8;
     color: white;
-    padding: 15px;
+    padding: 10px;
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
     border-top-right-radius: 1rem;
@@ -408,3 +408,53 @@ a {
     color: var(--dark-blue);
 }
 
+
+/*punten pagina*/
+
+.punten-container{
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    width: 40rem;
+    height: 6rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid #0022A8;
+    margin: 0 auto;
+    width: 80%;
+    padding-left: 5rem;
+    padding-right: 5rem;
+}
+
+.punten-p {
+    color: white;
+}
+
+.detail_score {
+    display: flex;
+    gap: 90px;
+}
+
+.nav-contanier {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    height: 6rem;
+    padding-top: 3rem;
+    border-bottom: 2px solid #0022A8;
+    margin: 0 auto;
+    width: 80%;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    
+}
+
+.text-contanier {
+    display: flex;
+    justify-content: space-between;
+}
+
+.text-documenten {
+    background-color: white;
+    
+}

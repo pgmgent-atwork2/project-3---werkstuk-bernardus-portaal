@@ -5,25 +5,21 @@
     </div>
 
     <div class="detail">
-        <div class="button-container">
-            <div class="button_button">
-                <button class="punten_document">
-                    <img src="/images/punten.svg" alt="">
-                    <p> Punten</p>
-                </button>
-            </div>
-
-            <div class="button_button">
-                <button class="punten_document">
-                    <img src="/images/documenten.svg" alt="">
-                    <p>Documenten</p>
-                </button>
-            </div>
-        </div>
-
+        {{> subject-buttons}}
         {{> upload}}
-
     </div>
-</article>
 
-<h1>{{ subject.name }}</h1>
+        <div class="punten-container">
+            <div class="detail_score">
+                <div class="punten-detail">
+                    <p>10/10</p>
+                </div>
+                <div class="test-detail">
+                    <p>Toets deel 1</p>
+                </div>
+            </div>
+            <di class="date-detail">
+                <p>23 mei 2023</p>
+            </di>
+        </div>
+</article>

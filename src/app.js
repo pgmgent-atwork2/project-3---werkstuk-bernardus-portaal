@@ -26,7 +26,7 @@ import {
   deleteUserById,
 } from './controllers/api/user.js';
 
-import { getSubjects, getSubjectDetails } from "./controllers/subjects.js";
+import { getSubjects, getSubjectDetails, getSubjectDocument } from "./controllers/subjects.js";
 
 
 
@@ -73,6 +73,7 @@ app.delete('/api/user/:id', jwtAuth, deleteUserById);
 
 
 app.get('/subject-detail', jwtAuth, getSubjectDetails);
+app.get('/subject/document',jwtAuth,  getSubjectDocument)
 
 DataSource.initialize()
   .then(() => {
