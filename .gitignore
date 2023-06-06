@@ -1,7 +1,6 @@
 # General
 .cache
-package-lock.json
-.sqlite3
+package-lock.json"
 
 # OS specific
 .DS_Store
