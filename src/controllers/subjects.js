@@ -57,3 +57,25 @@ export const getSubjectDetails = async (req, res) => {
     subject: subjectData,
   });
 };
+
+export const getSubjectPoints = async (req, res) => {
+const userRepository = DataSource.getRepository('Points');
+
+const userRole = req.user?.role?.label;
+const user = req.user;
+
+const pointId = req.params.id;
+
+const pointsData = await userRepository.findOne({
+    where: {
+    id: pointId,
+    },
+});
+
+const detailPoints = pointsData.points;
+
+  res.render('rapport', {
+    user,
+    points: detailPoints,
+  });
+};
