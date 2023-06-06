@@ -20,7 +20,7 @@ export const home = async (req, res) => {
     where: {
       id: user.id,
     },
-    relations: ['feedbacks', 'feedbacks.subjects', 'feedbacks.user'],
+    relations: ['feedbacks', 'feedbacks.subjects', 'feedbacks.teacher'],
   });
 
   const userFeedbacks = userDataFeedbacks.feedbacks;

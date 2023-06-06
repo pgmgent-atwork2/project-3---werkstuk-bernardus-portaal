@@ -26,11 +26,11 @@ import {
   deleteUserById,
 } from './controllers/api/user.js';
 
-import { getSubjects, getSubjectDetails } from "./controllers/subjects.js";
+import { getSubjects, getSubjectDetails, getSubjectPoints } from "./controllers/subjects.js";
 
 import { getSchedule } from "./controllers/schedule.js";
 
-import { getFeedbacks } from "./controllers/feedback.js";
+import { getFeedbacks, postFeedbacks, getAllFeedbacks, getAllFeedbacksByStudent } from "./controllers/feedback.js";
 
 import { getPoints } from "./controllers/rapport.js";
 
@@ -67,12 +67,18 @@ app.get('/', jwtAuth, home);
 app.get('/subjects', jwtAuth, getSubjects);
 app.get('/subjects/:id', jwtAuth, getSubjectDetails);
 
-app.get('/feedback', jwtAuth, getFeedbacks);
+app.get('/feedback', jwtAuth, getFeedbacks, );
+app.get('/feedbackDashboard', jwtAuth, getAllFeedbacks)
 
+app.post('/feedbackDashboard', jwtAuth, postFeedbacks, getAllFeedbacksByStudent)
 
+app.get('/rapport', jwtAuth, getPoints);
+app.get('/rapport/:id', jwtAuth, getSubjectPoints, getPoints);
 
 app.get('/profile', jwtAuth, profile);
-app.get('/rapport', jwtAuth, getPoints);
+
+
+
 app.get('/schedule', jwtAuth, getSchedule);
 app.get('/inbox', jwtAuth, getInbox);
 

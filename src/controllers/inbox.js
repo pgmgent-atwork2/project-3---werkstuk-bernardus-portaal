@@ -11,8 +11,6 @@ const user = req.user;
 
 const userData = await userRepository.find({});
 
-const userSubjects = userData.subjects;
-
 console.log(userData);
 
 res.render('inbox', {
