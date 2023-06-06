@@ -50,6 +50,7 @@ export const getSubjectDetails = async (req, res) => {
     where: {
       id: subjectId,
     },
+    relations: ['teacher'],
   });
 
   console.log('Active subject: ', subjectId, subjectData);

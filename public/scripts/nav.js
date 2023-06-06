@@ -33,31 +33,5 @@ function toggleMenu(menu) {
 }
 
 
-const updateForms = document.querySelectorAll('.form-update');
 
-updateForms.forEach((form) => {
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
-
-    const feedbackId = form.action.split('/').pop();
-    const newFeedbackText = document.getElementById(`feedback-${feedbackId}`).value;
-
-    const formData = new FormData();
-    formData.append('id', feedbackId);
-    formData.append('text', newFeedbackText);
-
-    fetch(form.action, {
-      method: 'PUT',
-      body: formData,
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data); // Optioneel: Verwerk de serverreactie
-        location.reload(); // Optioneel: Herlaad de pagina na het bijwerken van de feedback
-      })
-      .catch((error) => {
-        console.error('Fout bij het bijwerken van feedback:', error);
-      });
-  });
-});
 
