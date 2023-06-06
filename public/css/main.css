@@ -105,6 +105,7 @@ ul{
         height: 3rem;
         transition: 0.2s;
     }
+}
 
 .detail {
     display: flex;
@@ -536,17 +537,20 @@ a {
 
 /* Maak een flex-container om de pagina-inhoud te centreren */
 .container {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 /* Stijl voor de profielkaart */
 .profile-card {
-  width: 20rem;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
+    margin-top: 7rem;
+    margin-left: 28rem;
+    width: 35rem;
+    height: 20rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
 }
 
 .profile-card .profile-image {
@@ -555,8 +559,28 @@ a {
     overflow: hidden;
     margin-bottom: 20px;
     border-radius: 8px;
-    height: 15rem;
-    width: 15rem 
+    height: 10rem;
+    width: 10rem 
+}
+
+.profile-info{
+    position: absolute;
+    top: 10rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    height: 20rem;
+}
+
+.left_side{
+    margin-right: 10rem;
+}
+
+.profile-image{
+    position: relative;
+    top: -7rem;
 }
 
 .profile-image img{

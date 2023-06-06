@@ -28,7 +28,7 @@ import {
 
 import { getAbsence } from './controllers/absence.js';
 
-import { getSubjects, getSubjectDetails, getSubjectPoints, getSubjectDocument } from "./controllers/subjects.js";
+import { getSubjects, getSubjectDetails, getSubjectPoints, getSubjectDocuments } from "./controllers/subjects.js";
 
 
 
