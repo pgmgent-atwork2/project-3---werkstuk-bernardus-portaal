@@ -26,6 +26,15 @@
             {{/each}}
         </select>
     </div>
+    <div>
+        <label for="subjects">VOOR WELKE STUDENT IS DEZE FEEDBACK?</label><br>
+        <select name="subjects" id="subject" required>
+            <option disabled selected>Selecteer vak ...</option>
+            {{#each subjects}}
+            <option value="{{id}}">{{name}}</option>
+            {{/each}}
+        </select>
+    </div>
     <br><br>
     <button type="submit">Verstuur feedback</button>
 </form>

@@ -34,7 +34,7 @@ import { getSubjects, getSubjectDetails, getSubjectPoints, getSubjectDocument } 
 
 import { getSchedule } from "./controllers/schedule.js";
 
-import { getFeedbacks, postFeedbacks, getAllFeedbacks} from "./controllers/feedback.js";
+import { getFeedbacks, postFeedbacks, getAllFeedbacks,} from "./controllers/feedback.js";
 
 import { getPoints } from "./controllers/rapport.js";
 
@@ -74,6 +74,7 @@ app.get('/subjects/:id', jwtAuth, getSubjectDetails);
 
 app.get('/feedback', jwtAuth, getFeedbacks, );
 app.get('/feedbackDashboard', jwtAuth, getAllFeedbacks)
+
 
 app.post('/feedbackDashboard', jwtAuth, postFeedbacks,)
 

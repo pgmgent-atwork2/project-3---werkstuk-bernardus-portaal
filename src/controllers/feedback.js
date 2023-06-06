@@ -44,7 +44,7 @@ export const postFeedbacks = async (req, res, next) => {
         text: req.body.text,
         teacher: teacherId,
       },
-      relations: ['users', 'teacher'],
+      relations: ['users', 'teacher',],
     });
 
     if (feedback) {
@@ -111,6 +111,10 @@ res.render('feedbackDashboard', {
   subjects
     });
 };
+
+
+
+
 
 
 
