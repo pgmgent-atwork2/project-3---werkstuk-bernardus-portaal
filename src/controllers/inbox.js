@@ -7,11 +7,11 @@ const userRepository = DataSource.getRepository('User');
 const users = await userRepository.find();
 
 const userRole = req.user?.role?.label;
-const user = req.user;
+const {user} = req;
 
 const userData = await userRepository.find({});
 
-console.log(userData);
+// console.log(userData);
 
 res.render('inbox', {
     user: req.user,

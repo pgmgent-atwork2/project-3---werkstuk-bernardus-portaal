@@ -188,7 +188,7 @@
             req.formErrors = [{ message: 'Wachtwoord is niet correct.' }];
             return next();
             }
-            console.log(user)
+            console.log('Current active user: ', user)
             // create the JWT web token, aka our identity card
             const token = jwt.sign(
             { id: user.id, email: req.body.email},

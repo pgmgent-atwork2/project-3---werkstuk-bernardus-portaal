@@ -27,7 +27,7 @@ export const getSubjects = async (req, res) => {
   
 
   const userSubjects = userData.subjects;
-  console.log(userSubjects);
+  // console.log(userSubjects);
 
   res.render('subjects', {
     user: userData,
