@@ -1,7 +1,7 @@
 /* eslint-disable consistent-return */
 /* eslint-disable prettier/prettier */
-import DataSource from '../lib/DataSource.js';
 import jwt from 'jsonwebtoken';
+import DataSource from '../lib/DataSource.js';
 
 
 export const getFeedbacks = async (req, res) => {
@@ -40,40 +40,46 @@ export const postFeedbacks = async (req, res, next) => {
 
     const feedbackRepository = DataSource.getRepository('Feedback');
 
+    // Gebruik req.user.id om de ingelogde gebruiker op te halen
+    const teacherId = req.user.id;
 
     const feedback = await feedbackRepository.findOne({
-      where: { 
+      where: {
         text: req.body.text,
-        student: { id: req.body.user_feedback }, 
+        teacher: teacherId
       },
-      relations: ['users'],
+      relations: ['users', 'teacher'],
     });
 
-        if (feedback) {
+    if (feedback) {
       res
         .status(200)
-        .alert({ status: `Posted feedback with id ${feedback.id}.` });
+        .send({ status: `Posted feedback with id ${feedback.id}.` });
       return;
     }
 
-    // save the playlist in the repository
+    // Save the feedback in the repository
+    req.body.teacher = teacherId;
     const insertedFeedback = await feedbackRepository.save(req.body);
 
     res
-      .redirect('/feedbackDashboard')
       .status(200)
-      .alert({ status: `Posted feedback with id ${insertedFeedback.id}.` });
+      .redirect('/feedbackDashboard')
+      .send({ status: `Posted feedback with id ${insertedFeedback.id}.` });
   } catch (error) {
     next(error.message);
   }
 };
+
+
+
 
 export const getAllFeedbacks = async (req, res) => {
 const userRepository = DataSource.getRepository('User');
 const users = await userRepository.find();
 
 const userRole = req.user?.role?.label;
-const user = req.user;
+const {user} = req;
 
 const feedbackRepository = DataSource.getRepository('Feedback');
 
@@ -81,6 +87,13 @@ const feedbackData = await feedbackRepository.find({
   relations: ['subjects', 'student','users','teacher'],
 });
 
+const students = await userRepository.find({
+  where: {
+    role: {
+      id: 3
+    }
+  }
+})
 
 const userFeedbackdata = feedbackData;
 console.log(userFeedbackdata);
@@ -88,29 +101,11 @@ console.log(userFeedbackdata);
 res.render('feedbackDashboard', {
   user,
   userFeedbackdata,
+  students
     });
 };
 
 
-export const getAllFeedbacksByStudent = async (req, res) => {
-
-const userRepository = DataSource.getRepository('User');
-const users = await userRepository.find();
-
-const userRole = req.user?.role?.label;
-const feedbackId = req.params.id;
-
-const userData = await userRepository.find({
-  relations: ['feedbacks.student',],
-});
-
-console.log(userData);
-
-res.render('feedbackDashboard', {
-    user: req.user,
-    users,
-    });
-};
 
 
 

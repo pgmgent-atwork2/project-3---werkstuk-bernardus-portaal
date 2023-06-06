@@ -1,12 +1,4 @@
 <ul>
-    {{#each users}}
-    <li>
-        <p>{{firstname}} {{lastname}}</p>
-    </li>
-    {{/each}}
-</ul>
-
-<ul>
     {{#each userFeedbackdata}}
     <li>
         <h4>{{teacher.firstname}} {{teacher.lastname}}</h4>
@@ -17,14 +9,23 @@
     {{/each}}
 </ul>
 
-
+<hr><hr>
+<br><br>
 
 <form action="/feedbackDashboard" method="POST">
-    <textarea name="text" placeholder="Voer hier je feedback in" required></textarea>
-    <select name="subject_id">
-        {{#each userFeedbackdata}}
-        <option value="{{this.users.id}}">{{this.users.firstname}}</option>
-        {{/each}}
-    </select>
+    <div>    
+        <label for="feedback">FEEDBACK</label><br>
+        <textarea name="text" id="feedback" placeholder="Voer hier je feedback in" required></textarea>
+    </div>
+    <div>
+        <label for="student">VOOR WELKE STUDENT IS DEZE FEEDBACK?</label><br>
+        <select name="student" id="student" required>
+            <option disabled selected>Selecteer student ...</option>
+            {{#each students}}
+            <option value="{{id}}">{{firstname}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <br><br>
     <button type="submit">Verstuur feedback</button>
 </form>
