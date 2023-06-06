@@ -63,8 +63,8 @@ body {
 .right_title_detail{
     margin-top: 2rem;
     border-bottom: 2px solid #0022A8;
-    width: 70%;
-    margin-left: 3rem;
+    width: 75%;
+    margin-left: 6rem;
 }
 
 button {
@@ -96,8 +96,8 @@ margin-right: 0.5rem;
 
 .detail {
     display: flex;
-    justify-content: space-between;
     margin: 2rem;
+    margin-left: 18rem;
 }
 
 .button_button{
@@ -111,7 +111,7 @@ margin-right: 0.5rem;
 }
 
 .punten_document {
-   padding-left: 2rem;
+/*padding-left: 2rem;*/
 }
 
 .upload {
@@ -412,28 +412,31 @@ a {
 /*punten pagina*/
 
 .punten-container{
-    display: flex;
-    justify-content: space-between;
-    background-color: white;
-    width: 40rem;
+    background-color: #cbd6ff;
+    width: 52rem;
     height: 6rem;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    border-bottom: 2px solid #0022A8;
     margin: 0 auto;
-    width: 80%;
-    padding-left: 5rem;
-    padding-right: 5rem;
+    border-radius: 1.50rem ;
+    border: 2px solid black;
+    padding-top: 2rem;
+    margin-bottom: 2rem;
 }
+
+.detail_score {
+    padding-left: 2rem;
+    font-weight: 100;
+    display: flex;
+    gap: 90px;
+    & .date-detail {
+        padding-left: 22rem;
+    }
+}
+
 
 .punten-p {
     color: white;
 }
 
-.detail_score {
-    display: flex;
-    gap: 90px;
-}
 
 .nav-contanier {
     display: flex;
