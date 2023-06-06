@@ -10,19 +10,20 @@ let currMonth = date.getMonth();
 
 // storing full name of all months in array
 const months = [
-  'January',
-  'February',
-  'March',
+  'Januari',
+  'Februari',
+  'Maart',
   'April',
-  'May',
-  'June',
-  'July',
-  'August',
+  'Mei',
+  'Juni',
+  'Juli',
+  'Augustus',
   'September',
-  'October',
+  'Oktober',
   'November',
   'December',
 ];
+
 
 const renderCalendar = () => {
   const firstDayofMonth = new Date(currYear, currMonth, 1).getDay(); // getting first day of month

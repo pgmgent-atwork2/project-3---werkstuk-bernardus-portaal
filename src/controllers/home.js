@@ -17,14 +17,16 @@ export const home = async (req, res) => {
 
   const userSubjects = userDataSubjects.subjects;
 
-  const userDataFeedbacks = await userRepository.findOne({
-    where: {
-      id: user.id,
-    },
-    relations: ['feedbacks', 'feedbacks.subjects', 'feedbacks.teacher'],
-  });
+  const feedbackRepository = DataSource.getRepository('Feedback');
 
-  const userFeedbacks = userDataFeedbacks.feedbacks;
+  const userId = req.user.id;
+
+  const feedbacks = await feedbackRepository.find({
+    where: {
+      student: { id: userId },
+    },
+    relations: ['subjects', 'teacher'],
+  });
 
   const allowedRoles = new Set(['Admin', 'Teacher', 'Student', 'Coach']);
   const shouldRenderSubjectsAndFeedbacks = allowedRoles.has(userRole);
@@ -32,11 +34,11 @@ export const home = async (req, res) => {
   const renderData = {
     user,
     users,
+    feedbackData: feedbacks,
   };
 
   if (shouldRenderSubjectsAndFeedbacks) {
     renderData.subjects = userSubjects;
-    renderData.feedbacks = userFeedbacks;
   }
 
   res.render('home', renderData);

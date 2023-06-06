@@ -8,14 +8,18 @@
             </div>
             <div class="recent">
                 <h2>Recent feedback</h2>
-                <ul class="feedback_recent">
-                    {{#each feedbacks}}
-                    <li>
-                        {{> post-home}}
-                    </li>
-                    {{/each}}
-                </ul>
-            </div>
+<ul class="feedback_recent">
+    {{#each feedbackData}}
+    <li>
+        {{> post-home}}
+    </li>
+    {{else}}
+    <li>
+        Geen feedback beschikbaar.
+    </li>
+    {{/each}}
+</ul>
+        </div>
         </article>
         <article class="extra-info">
             <h2>Agenda</h2>
