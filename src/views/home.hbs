@@ -1,32 +1,32 @@
 <div class="home-page">
     {{> up-nav}}
     <div class="underside">
-            <article class="article-task">
-                <div class="task-container">
-                    <h2>Laatste opdrachten</h2>
-                    {{> vak-home}}
-                </div>
-                <div class="recent">
-                    <h2>Recent feedback</h2>
-                    <ul class="feedback_recent">
-                        {{#each feedbacks}}
-                        <li>
-                            {{> post-home}}
-                        </li>
-                        {{/each}}
-                    </ul>
-                </div>
-            </article>
-            <article class="extra-info">
-                <h2>Agenda</h2>
-                    {{> calender}}
-                <hr>
-                <div class="microsoft-tools">
-                    <img src="/images/word.svg" alt="Word icon">
-                    <img src="/images/powerpoint.svg" alt="PowerPoint icon">
-                    <img src="/images/excel.svg" alt="Excel icon">
-                    <img src="/images/onedrive.svg" alt="Onedrive icon">
-                </div>
-            </article>
+        <article class="article-task">
+            <div class="task-container">
+                <h2>Laatste opdrachten</h2>
+                {{> vak-home}}
+            </div>
+            <div class="recent">
+                <h2>Recent feedback</h2>
+                <ul class="feedback_recent">
+                    {{#each feedbacks}}
+                    <li>
+                        {{> post-home}}
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </article>
+        <article class="extra-info">
+            <h2>Agenda</h2>
+                {{> calender}}
+            <hr>
+            <div class="microsoft-tools">
+                <img src="/images/word.svg" alt="Word icon">
+                <img src="/images/powerpoint.svg" alt="PowerPoint icon">
+                <img src="/images/excel.svg" alt="Excel icon">
+                <img src="/images/onedrive.svg" alt="Onedrive icon">
+            </div>
+        </article>
     </div>
 </div>
