@@ -28,7 +28,8 @@ import {
 
 import { getAbsence } from './controllers/absence.js';
 
-import { getSubjects, getSubjectDetails, getSubjectPoints } from "./controllers/subjects.js";
+import { getSubjects, getSubjectDetails, getSubjectPoints, getSubjectDocument } from "./controllers/subjects.js";
+
 
 
 import { getSchedule } from "./controllers/schedule.js";
@@ -100,6 +101,7 @@ app.delete('/api/user/:id', jwtAuth, deleteUserById);
 
 
 app.get('/subject-detail', jwtAuth, getSubjectDetails);
+app.get('/subject/document',jwtAuth,  getSubjectDocument)
 
 DataSource.initialize()
   .then(() => {

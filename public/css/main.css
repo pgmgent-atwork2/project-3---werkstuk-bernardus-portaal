@@ -106,6 +106,10 @@ ul{
         transition: 0.2s;
     }
 
+.detail {
+    display: flex;
+    margin: 2rem;
+    margin-left: 18rem;
 }
 /*home*/
 .subjects_home {
@@ -126,9 +130,9 @@ ul{
         transition: 0.2s;
     }
         & .task-item:hover{
-        cursor: pointer;
+/*     cursor: pointer;
         background-color: #d5ddfc;
-        border-radius: 2rem;
+        border-radius: 2rem;*/
         border: 0.1rem dashed #0022A8;
         transition: 0.2s;
         transform: scale(1.1);
@@ -318,9 +322,6 @@ a {
 }
 
 /* item_link */
-.article-task {
-}
-
 @media (min-width: 43.75rem) {
     .nav ul {
         margin-left: 1.25rem;
