@@ -67,7 +67,7 @@ button {
     border: none;
     background-color: #0022A8;
     color: white;
-    padding: 10px;
+    padding: 5px;
     border-radius: .75rem;
     & p {
         color: var(--white);
@@ -110,6 +110,9 @@ margin-right: 0.5rem;
     display: flex;
     align-items: center;
     gap: 5px;
+    & img {
+        width: 20px;
+    }
 }
 
 .button-container {
@@ -412,7 +415,6 @@ a {
     & .absence-date {
         display: flex;
         gap: 1.87rem;
-        margin-bottom: .93rem;
         & input {
             width: 4.68rem;
         }
@@ -422,6 +424,7 @@ a {
         border: .06rem solid var(--dark-blue);
         border-radius: .31rem;
         padding: .12rem .31rem;
+        margin-bottom: .93rem;
     }
     & textarea {
         width: 100%;
