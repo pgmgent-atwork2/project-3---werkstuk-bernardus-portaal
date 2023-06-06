@@ -26,10 +26,20 @@ import {
   deleteUserById,
 } from './controllers/api/user.js';
 
-import { getSubjects, getSubjectDetails } from "./controllers/subjects.js";
 import { getAbsence } from './controllers/absence.js';
 
+import { getSubjects, getSubjectDetails, getSubjectPoints } from "./controllers/subjects.js";
 
+
+import { getSchedule } from "./controllers/schedule.js";
+
+import { getFeedbacks, postFeedbacks, getAllFeedbacks, getAllFeedbacksByStudent } from "./controllers/feedback.js";
+
+import { getPoints } from "./controllers/rapport.js";
+
+import { profile } from "./controllers/profile.js";
+
+import { getInbox } from "./controllers/inbox.js";
 
 
 dotenv.config();
@@ -60,6 +70,21 @@ app.get('/absence', getAbsence);
 
 app.get('/subjects', jwtAuth, getSubjects);
 app.get('/subjects/:id', jwtAuth, getSubjectDetails);
+
+app.get('/feedback', jwtAuth, getFeedbacks, );
+app.get('/feedbackDashboard', jwtAuth, getAllFeedbacks)
+
+app.post('/feedbackDashboard', jwtAuth, postFeedbacks, getAllFeedbacksByStudent)
+
+app.get('/rapport', jwtAuth, getPoints);
+app.get('/rapport/:id', jwtAuth, getSubjectPoints, getPoints);
+
+app.get('/profile', jwtAuth, profile);
+
+
+
+app.get('/schedule', jwtAuth, getSchedule);
+app.get('/inbox', jwtAuth, getInbox);
 
 app.get('/login', login);
 app.post('/login', loginAuthentication, postLogin, login);

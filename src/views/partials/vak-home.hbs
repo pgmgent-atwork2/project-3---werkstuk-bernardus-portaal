@@ -1,17 +1,17 @@
-<section class="subject">
-   <ul>
+<div class="subjects_home">
+   <ul class="task-list"> 
       {{#each subjects}}
-      <li>
+      <li class="task-item">
          <a href="/subjects/{{ id }}">
          <div class="first_part">
             <div class="subject_img">
                <img src="/images/{{ name }}.svg" alt="">
             </div>
-            <div class="line"></div>
+            <div class="line-home"></div>
             <div class="subject_name">
                <h3>{{ name }}</h3>
                <div class="teacher_name">
-                  <p>{{teacher.firstname}} {{teacher.lastname}}</p>
+                  <p class="task_title">Toets</p>
                </div>
             </div>
          </div>
@@ -19,5 +19,4 @@
       </li>
       {{/each}}
    </ul>
-</section>
-
+</div>
