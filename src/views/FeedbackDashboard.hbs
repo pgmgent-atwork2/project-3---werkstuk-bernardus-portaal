@@ -1,16 +1,16 @@
-<ul>
-    {{#each userFeedbackdata}}
-    <li>
-        <h4>{{teacher.firstname}} {{teacher.lastname}}</h4>
-        <h4>{{student.firstname}} {{student.lastname}}</h4>
-        <p>{{text}}</p>
-        <p>{{subjects.name}}</p>
-    </li>
-    {{/each}}
-</ul>
+<div class="right_title">
+    <h1>Feedback</h1>
+</div>
 
-<hr><hr>
-<br><br>
+<section class="feedback-coach">
+    <ul class="feedback-list">
+        {{#each userFeedbackdata}}
+        <li>
+            {{> feedback-coach}}
+        </li>
+        {{/each}}
+    </ul>
+</section>
 
 <form action="/feedbackDashboard" method="POST">
     <div>    
