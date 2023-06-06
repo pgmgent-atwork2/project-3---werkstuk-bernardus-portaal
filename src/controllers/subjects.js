@@ -40,12 +40,19 @@ export const getSubjectDetails = async (req, res) => {
     },
   });
 
+  console.log('Active subject: ', subjectId, subjectData);
+
   res.render('subject-detail', {
     subject: subjectData,
   });
 };
 
-export const getSubjectDocument = async (req, res) => {
+export const getSubjectPoints = async (req, res) => {
+  res.render('subject-punten', {
+  });
+};
+
+export const getSubjectDocuments = async (req, res) => {
   res.render('subject-document', {
   });
 };

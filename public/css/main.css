@@ -461,3 +461,8 @@ a {
     background-color: white;
     
 }
+
+
+.documenten-text {
+    display: flex;
+}
