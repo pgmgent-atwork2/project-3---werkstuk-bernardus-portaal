@@ -55,4 +55,20 @@
     }
 }
 
+.dashboard_users {
+    overflow: auto;
+    max-height: 50rem
+    }
+
+.dashboard_users::-webkit-scrollbar,
+.dashboard_users::-webkit-scrollbar-thumb {
+  display: none;
+}
+
+
+.users_list{
+    display: flex;
+    flex-direction: column-reverse;
+    }
+
 

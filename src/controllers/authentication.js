@@ -11,6 +11,20 @@
 
 export const register = async (req, res) => {
   try {
+  const { token } = req.cookies;
+  const tokenDeco = jwt.decode(token);
+
+  const { user } = req;
+
+  const userRepository = DataSource.getRepository('User');
+  const users = await userRepository.find({
+    relations: ['role'],
+  });
+
+  const adminUser = users.find((user) => user.role.label === 'Admin');
+
+
+
     // Retrieve form errors
     const formErrors = req.formErrors ? req.formErrors : [];
 
@@ -108,7 +122,8 @@ export const register = async (req, res) => {
 
     // Render the register page
     res.render('register', {
-      layout: 'authentication',
+      layout: 'admin',
+      user: adminUser,
       inputs,
       formErrors,
       roles,
@@ -166,7 +181,7 @@ export const postRegister = async (req, res, next) => {
 
             await userRepository.save(user);
 
-            res.redirect("/login");
+            res.redirect("/");
         
     } catch(e) {
         next(e.message);
