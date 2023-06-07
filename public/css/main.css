@@ -541,13 +541,13 @@ a {
 /* Maak een flex-container om de pagina-inhoud te centreren */
 .container {
     display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
 /* Stijl voor de profielkaart */
 .profile-card {
     margin-top: 7rem;
-    margin-left: 28rem;
     width: 40rem;
     height: 25rem;
     background-color: #f9f9f9;
@@ -799,7 +799,6 @@ ul.feedback_recent li:not(:last-child) {
     }
 
 }
-
 
 .documenten-text {
     display: flex;
