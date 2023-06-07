@@ -12,21 +12,4 @@
     </ul>
 </section>
 
-<form action="/feedbackDashboard" method="POST" class="form-feedback">
-    <div>
-        <label for="student">Voor welke student</label>
-        <select name="student" id="student" required>
-            <option disabled selected>Selecteer student ...</option>
-            {{#each students}}
-            <option value="{{id}}">{{firstname}}</option>
-            {{/each}}
-        </select>
-    </div>
-    <div>    
-        <label for="feedback">Feedback</label>
-        <textarea name="text" id="feedback" rows="5" placeholder="Voer hier je feedback in" required></textarea>
-    </div>
-    <div class="button-send">
-        <button class="send" type="submit">Verstuur feedback</button>
-    </div>
-</form>
+{{> post-feedback}}
