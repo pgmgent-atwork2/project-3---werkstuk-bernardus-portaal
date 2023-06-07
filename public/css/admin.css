@@ -1,0 +1,58 @@
+.profile_user{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 1rem;
+    & .image_of_user{
+        width: 3.6rem;
+        & img{
+            border-radius: 50%;
+        }
+    }
+    & .user_info_profile{
+        margin-left: 1rem;
+    & p:nth-child(2){
+        color: grey;
+    }
+    }
+}
+
+.button-6 {
+    align-items: center;
+    background-color: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: .25rem;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0.85);
+    cursor: pointer;
+    display: inline-flex;
+    font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1.25;
+    margin-top: 1rem;
+    min-height: 3rem;
+    padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+    position: relative;
+    text-decoration: none;
+    transition: all 250ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    width: auto;
+
+    &:hover {
+        border: 0.1rem dashed rgba(28, 6, 140, 0.996);
+        color: rgba(28, 6, 140, 0.996);
+        border-radius: .35rem;
+    }
+
+    &:hover {
+        transform: translateY(-1px);
+    }
+}
+
+

@@ -9,42 +9,169 @@
       import DataSource from '../lib/DataSource.js';
       import bcrypt from 'bcrypt';
 
-      export const register = async (req, res) => {
-      // errors
-      const {formErrors} = req;
+export const register = async (req, res) => {
+  try {
+    // Retrieve form errors
+    const formErrors = req.formErrors ? req.formErrors : [];
 
-      // input fields
-      const inputs = [
+    // Input fields
+    const inputs = [
       {
-            name: 'email',
-            label: 'E-mail',
-            type: 'text',
-            value: req.body?.email ? req.body.email : '',
-            error: req.formErrorFields?.email ? req.formErrorFields.email : null,
+        name: 'email',
+        label: 'E-mail',
+        type: 'text',
+        value: req.body?.email ? req.body.email : '',
+        error: req.formErrorFields?.email ? req.formErrorFields.email : '',
       },
       {
-      name: 'password',
-      label: 'Password',
-      type: 'password',
-      password: req.body?.password ? req.body.password : null,
-      error: req.formErrorFields?.password
-        ? req.formErrorFields.password
-        : null,
+        name: 'username',
+        label: 'Gebruikersnaam',
+        type: 'text',
+        value: req.body?.username ? req.body.username : '',
+        error: req.formErrorFields?.username ? req.formErrorFields.username : '',
       },
-      ];
+      {
+        name: 'password',
+        label: 'Password',
+        type: 'password',
+        value: req.body?.password ? req.body.password : '',
+        error: req.formErrorFields?.password ? req.formErrorFields.password : null,
+      },
+      {
+        name: 'firstname',
+        label: 'Voornaam',
+        type: 'text',
+        value: req.body?.firstname ? req.body.firstname : '',
+        error: req.formErrorFields?.firstname ? req.formErrorFields.firstname : null,
+      },
+      {
+        name: 'lastname',
+        label: 'Achternaam',
+        type: 'text',
+        value: req.body?.lastname ? req.body.lastname : '',
+        error: req.formErrorFields?.lastname ? req.formErrorFields.lastname : null,
+      },
+      {
+        name: 'age',
+        label: 'Geboortedatum',
+        type: 'text',
+        value: req.body?.age ? req.body.age : '',
+        error: req.formErrorFields?.age ? req.formErrorFields.age : null,
+      },
+      {
+        name: 'phone',
+        label: 'GSM-nummer',
+        type: 'text',
+        value: req.body?.phone ? req.body.phone : '',
+        error: req.formErrorFields?.phone ? req.formErrorFields.phone : null,
+      },
+      {
+        name: 'address',
+        label: 'Address',
+        type: 'text',
+        value: req.body?.address ? req.body.address : '',
+        error: req.formErrorFields?.address ? req.formErrorFields.address : null,
+      },
+      {
+        name: 'country',
+        label: 'Country',
+        type: 'text',
+        value: req.body?.country ? req.body.country : '',
+        error: req.formErrorFields?.country ? req.formErrorFields.country : null,
+      },
+      {
+        name: 'city',
+        label: 'Stad',
+        type: 'text',
+        value: req.body?.city ? req.body.city : '',
+        error: req.formErrorFields?.city ? req.formErrorFields.city : null,
+      },
+      {
+        name: 'gender',
+        label: 'Gender',
+        type: 'text',
+        value: req.body?.gender ? req.body.gender : '',
+        error: req.formErrorFields?.gender ? req.formErrorFields.gender : null,
+      },
+      {
+        name: 'level',
+        label: 'Level',
+        type: 'text',
+        value: req.body?.level ? req.body.gender : '',
+        error: req.formErrorFields?.level ? req.formErrorFields.level : null,
+      },
+    ];
 
-      // get the roles
-      const roleRepository = await DataSource.getRepository('Role');
-      const roles = await roleRepository.find();
+    // Get the roles
+    const roleRepository = DataSource.getRepository('Role');
+    const roles = await roleRepository.find();
 
-      // render the register page
-      res.render('register', {
+    // Render the register page
+    res.render('register', {
       layout: 'authentication',
       inputs,
       formErrors,
       roles,
-      });
-      };
+    });
+  } catch (error) {
+    // Handle any errors
+    console.error(error);
+    res.status(500).send('Internal Server Error');
+  }
+};
+
+export const postRegister = async (req, res, next) => {
+    try {
+        const errors = validationResult(req);
+
+        if (!errors.isEmpty()) {
+            const errorFields = {};
+            errors.array().forEach((error) => {
+                errorFields[error.param] = error.msg;
+            });
+
+            req.formErrorFields = errorFields;
+
+            return next();
+        } 
+            const userRepository = await DataSource.getRepository("User");
+            const userExists = await userRepository.findOne({
+                where: {
+                    email: req.body.email,
+                }
+            });
+
+            if(userExists) {
+                req.formErrors = [{ message: "Gebruiker bestaat al" }];
+                return next();
+            };
+
+            const hashedPassword = bcrypt.hashSync(req.body.password, 10);
+
+            const user = await userRepository.create({
+                firstname: req.body.firstname,
+                lastname: req.body.lastname,
+                email: req.body.email,
+                username: req.body.username,
+                password: hashedPassword,
+                role: { id: req.body.role },
+                age: req.body.age,
+                level: req.body.level,
+                city: req.body.city,
+                country: req.body.country,
+                address: req.body.address,
+                phone: req.body.phone,
+                gender: req.body.gender,
+            });
+
+            await userRepository.save(user);
+
+            res.redirect("/login");
+        
+    } catch(e) {
+        next(e.message);
+    };
+};
 
       export const login = async (req, res) => {
       // errors
@@ -77,68 +204,6 @@
       inputs,
       formErrors,
       });
-      };
-
-      export const postRegister = async (req, res, next) => {
-      try {
-      const errors = validationResult(req);
-
-      // if we have validation errors
-      if (!errors.isEmpty()) {
-            // create an object with the error fields
-            const errorFields = {};
-            // iterate over the errors
-            errors.array().forEach((error) => {
-            errorFields[error.param] = error.msg;
-            });
-            // put the errorfields in the current request
-            req.formErrorFields = errorFields;
-
-            return next();
-      } 
-            // make user repository instance
-            const userRepository = await DataSource.getRepository('User');
-            const roleRepository = await DataSource.getRepository('Role');
-
-            const userExists = await userRepository.findOne({
-            where: {
-            email: req.body.email,
-            },
-            });
-
-            const role = await roleRepository.findOne({
-            where: {
-            label: req.body.role,
-            },
-            });
-
-            if(!role) {
-            req.formErrors = [{ message: 'Rol bestaat niet.' }];
-            return next();
-            }
-
-            if (userExists) {
-            req.formErrors = [{ message: 'Gebruiker bestaat al.' }];
-            return next();
-            }
-
-            const hashedPassword = bcrypt.hashSync(req.body.password, 10);
-
-            // create a new user
-            const user = await userRepository.create({
-            email: req.body.email,
-            password: hashedPassword,
-            role
-            });
-
-            // save the user
-            await userRepository.save(user);
-
-            res.redirect('/login');
-      
-      } catch (e) {
-      next(e.message);
-      }
       };
 
       export const postLogin = async (req, res, next) => {

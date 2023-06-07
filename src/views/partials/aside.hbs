@@ -41,6 +41,62 @@
                     <span class="item_title">Inbox</span>
                 </a>
             </li>
+        {{else ifEquals user.role.label "Admin"}}
+            <li class="nav_item">
+                <a class="item_link" href="/teachers">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="2" width="18" height="20" rx="2" ry="2" />
+                            <line x1="9" y1="6" x2="15" y2="6" />
+                            <line x1="9" y1="10" x2="15" y2="10" />
+                            <line x1="9" y1="14" x2="15" y2="14" />
+                            <line x1="9" y1="18" x2="15" y2="18" />
+                        </svg>
+                    <span class="item_title">Leerkrachten</span>
+                </a>
+            </li>
+            <li class="nav_item">
+                <a class="item_link" href="/students">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2C9.243 2 7 4.243 7 7C7 9.757 9.243 12 12 12C14.757 12 17 9.757 17 7C17 4.243 14.757 2 12 2Z" />
+                        <path d="M2 22L5 17C6 15 8 13 12 13H12C16 13 18 15 19 17L22 22" />
+                    </svg>
+                    <span class="item_title">Leerlingen</span>
+                </a>
+            </li>
+            <li class="nav_item">
+                <a class="item_link" href="/coaches">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 23" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M9 22V19H15V22M12 2C13.3062 2 14.5979 2.45866 15.6602 3.33981C16.7224 4.22097 17.5 5.46575 17.5 6.82843V12C17.5 13.1046 16.6046 14 15.5 14H8.5C7.39543 14 6.5 13.1046 6.5 12V6.82843C6.5 5.46575 7.27761 4.22097 8.33981 3.33981C9.40202 2.45866 10.6938 2 12 2Z" />
+                            <path
+                                d="M12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14Z" />
+                        </svg>
+                    <span class="item_title">Coach</span>
+                </a>
+            </li>
+            <li class="nav_item">
+                <a class="item_link" href="/inbox">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="1.5"
+                        stroke-linecap="round"  stroke-linejoin="round">
+                        <path d="M22 2H2v20l4-4h16V2z" />
+                        <line x1="22" y1="2" x2="12" y2="13" />
+                        <line x1="2" y1="2" x2="12" y2="13" />
+                    </svg>
+                    <span class="item_title">Inbox</span>
+                </a>
+            </li>
+            <li class="nav_item">
+                <a class="item_link" href="/register">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+    <path d="M12 5V19M5 12H19" />
+</svg>
+
+                    <span class="item_title">Nieuwe gebruiker</span>
+                </a>
+            </li>
         {{else}}
             <li class="nav_item">
                 <a class="item_link" href="/">
