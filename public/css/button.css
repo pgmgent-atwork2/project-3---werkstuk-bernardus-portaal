@@ -1,0 +1,22 @@
+.btn {
+    background-color: var(--darker-blue);
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    padding: 5px 10px;
+}
+
+.btn--feedback {
+    max-width: 90px;
+}
+
+.btn--upload {
+    display: flex;
+    & p {
+        color: white;
+    }
+}
+
+.btn--send {
+    margin-top: 20px;
+}

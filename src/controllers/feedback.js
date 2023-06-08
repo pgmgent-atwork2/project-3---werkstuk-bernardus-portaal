@@ -91,7 +91,7 @@ const students = await userRepository.find({
       id: 3
     }
   }
-})
+});
 
 const subjects = await subjectsRepository.find({
   where: {
@@ -99,11 +99,11 @@ const subjects = await subjectsRepository.find({
       id: user.id
     }
   }
-})
+});
 
 const userFeedbackdata = feedbackData;
 // console.log(userFeedbackdata);
-
+userFeedbackdata.reverse();
 res.render('feedbackDashboard', {
   user,
   userFeedbackdata,
@@ -111,19 +111,3 @@ res.render('feedbackDashboard', {
   subjects
     });
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
