@@ -658,7 +658,7 @@ padding-left: 25rem;
 .documenten-text p:nth-child(3) {
 
     border-left: 1px solid #0022A8;
-
+}
 .menu {
     position: absolute;
     display: none;
@@ -958,10 +958,8 @@ ul.feedback_recent li:not(:last-child) {
     .absence-img img{
         height: 100%;
     }
-
 }
 
 .documenten-text {
     padding-left: 5rem;
-
 }
