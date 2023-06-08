@@ -23,5 +23,6 @@ export const getSchedule = async (req, res) => {
   res.render('schedule', {
     user: userData,
     subjects: userSubjects,
+    title: "Lessenrooster"
   });
 };

@@ -35,12 +35,14 @@ export const home = async (req, res) => {
       layout: 'admin',
       user,
       users,
+      title: "Home"
     });
   } else {
     const renderData = {
       user,
       users,
       feedbackData: feedbacks,
+      title: "Home"
     };
 
     if (shouldRenderSubjectsAndFeedbacks) {

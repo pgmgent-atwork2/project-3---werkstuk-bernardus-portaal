@@ -20,5 +20,6 @@ const userPoints = userData.points;
 res.render('rapport', {
     user: userData,
     points: userPoints,
+    title: "Rapport"
     });
 };

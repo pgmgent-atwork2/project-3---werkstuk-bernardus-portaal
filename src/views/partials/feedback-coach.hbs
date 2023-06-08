@@ -16,6 +16,10 @@
                     <button class="btn btn-edit" type="submit" value="done">Bewerk
                     </button>
                 </form>
+                <form class="form-delete" action="/deleteFeedback/{{ id }}" method="post">
+                    <input type="hidden" name="_method" value="DELETE"></input>
+                    <button class="btn btn-delete" type="submit" value="delete">Verwijder</button>
+                </form>
             </div>
         </div>
     </div>
