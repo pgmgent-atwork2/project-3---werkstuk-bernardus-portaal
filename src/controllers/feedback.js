@@ -156,5 +156,35 @@ const students = await userRepository.find({
   }
 };
 
+export const deleteFeedback = async (req, res, next) => {
+  console.log('deleting');
+  try {
+    const feedbackId = req.params.id;
+
+    const feedbackRepository = DataSource.getRepository('Feedback');
+
+    const teacherId = req.user.id;
+
+    const feedback = await feedbackRepository.findOne({
+      where: {
+        id: feedbackId,
+        teacher: teacherId,
+      },
+    });
+
+    if (!feedback) {
+      res.status(404).send({ error: 'Feedback not found.' });
+      return;
+    }
+
+    await feedbackRepository.delete(feedbackId);
+    res.redirect('/feedbackDashboard');
+  } catch (error) {
+    console.log('Oopsie daisy, er ging iets mis', error);
+    next(error);
+  }
+};
+
+
 
 
