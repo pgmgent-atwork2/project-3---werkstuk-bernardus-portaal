@@ -27,6 +27,48 @@ export const getFeedbacks = async (req, res) => {
   });
 };
 
+export const getAllFeedbacks = async (req, res) => {
+const userRepository = DataSource.getRepository('User');
+const subjectsRepository = DataSource.getRepository('Subject')
+const users = await userRepository.find();
+
+const userRole = req.user?.role?.label;
+const {user} = req;
+console.log(user);
+
+const feedbackRepository = DataSource.getRepository('Feedback');
+
+const feedbackData = await feedbackRepository.find({
+  relations: ['subjects', 'student','users','teacher'],
+});
+
+const students = await userRepository.find({
+  where: {
+    role: {
+      id: 3
+    }
+  }
+})
+
+const subjects = await subjectsRepository.find({
+  where: {
+    teacher: {
+      id: user.id
+    }
+  }
+})
+
+const userFeedbackdata = feedbackData;
+// console.log(userFeedbackdata);
+
+res.render('feedbackDashboard', {
+  user,
+  userFeedbackdata,
+  students,
+  subjects
+    });
+};
+
 export const postFeedbacks = async (req, res, next) => {
   try {
     const { token } = req.cookies;
@@ -70,20 +112,26 @@ export const postFeedbacks = async (req, res, next) => {
   }
 };
 
-export const getAllFeedbacks = async (req, res) => {
-const userRepository = DataSource.getRepository('User');
-const subjectsRepository = DataSource.getRepository('Subject')
-const users = await userRepository.find();
+export const updateFeedback = async (req, res, next) => {
+  console.log('updating');
+  try {
+    const feedbackId = req.params.id;
+    const updatedText = req.body.text;
 
-const userRole = req.user?.role?.label;
-const {user} = req;
-console.log(user);
+    if (!updatedText) {
+      throw new Error('Please provide a text for the updated feedback.');
+    }
 
-const feedbackRepository = DataSource.getRepository('Feedback');
+    const feedbackRepository = DataSource.getRepository('Feedback');
 
-const feedbackData = await feedbackRepository.find({
-  relations: ['subjects', 'student','users','teacher'],
-});
+    const teacherId = req.user.id;
+
+    const feedback = await feedbackRepository.findOne({
+      where: {
+        id: feedbackId,
+        teacher: teacherId,
+      },
+    });
 
 const students = await userRepository.find({
   where: {
@@ -93,12 +141,21 @@ const students = await userRepository.find({
   }
 });
 
-const subjects = await subjectsRepository.find({
-  where: {
-    teacher: {
-      id: user.id
+    if (!feedback) {
+      res.status(404).send({ error: 'Feedback not found.' });
+      return;
     }
+
+    feedback.text = updatedText;
+    const updatedFeedback = await feedbackRepository.save(feedback);
+    console.log('ohjeay, redireting///');
+    res.redirect('/feedbackDashboard')
+  } catch (error) {
+    console.log('opsie daisy, er ging iets mis', error);
+    next(error);
   }
+};
+
 });
 
 const userFeedbackdata = feedbackData;
