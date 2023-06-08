@@ -101,11 +101,79 @@
             </li>
             <li class="nav_item">
                 <a class="item_link" href="/register">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-    <path d="M12 5V19M5 12H19" />
-</svg>
-
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 5V19M5 12H19" />
+                    </svg>
                     <span class="item_title">Nieuwe gebruiker</span>
+                </a>
+            </li>
+        {{else ifEquals user.role.label "Teacher"}}
+            <li class="nav_item">
+                <a class="item_link" href="/">
+                    <svg class="item_icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12 17.99V14.99M9.02 2.84004L3.63 7.04004C2.73 7.74004 2 9.23004 2 10.36V17.77C2 20.09 3.89 21.99 6.21 21.99H17.79C20.11 21.99 22 20.09 22 17.78V10.5C22 9.29004 21.19 7.74004 20.2 7.05004L14.02 2.72004C12.62 1.74004 10.37 1.79004 9.02 2.84004Z"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <span class="item_title">Home</span>
+                </a>
+            </li>
+            <li class="nav_item">
+                <a class="item_link" href="/subjects">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M22 11V17C22 21 21 22 17 22H7C3 22 2 21 2 17V7C2 3 3 2 7 2H8.5C10 2 10.33 2.44 10.9 3.2L12.4 5.2C12.78 5.7 13 6 14 6H17C21 6 22 7 22 11Z"
+                            stroke-width="1.5" stroke-miterlimit="10" />
+                    </svg>
+                    <span class="item_title">Vakken</span>
+                </a>
+            </li>
+        <div class="nav_menu">
+            <li class="nav_dropdown">
+                <p class="item_link" href="/goto">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.92 8.94995L13.4 15.47C12.63 16.24 11.37 16.24 10.6 15.47L4.08002 8.94995"
+                            stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <span class="item_title dropdown">Ga naar</span>
+                </p>
+                <ul class="menu" id="menu">
+                    <a href="/feedbackDashboard">
+                        <li class="nav_item">Feedback</li>
+                    </a>
+                    <a href="/documents">
+                        <li class="nav_item">Documenten</li>
+                    </a>
+                    <a href="/rapportDashboard">
+                        <li class="nav_item">Rapport</li>
+                    </a>
+                </ul>
+            </li>
+        </div>
+            <li class="nav_item">
+                <a class="item_link" href="/inbox">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="1.5"
+                        stroke-linecap="round" stroke-miterlimit="10" stroke-linejoin="round">
+                        <path d="M22 2H2v20l4-4h16V2z" />
+                        <line x1="22" y1="2" x2="12" y2="13" />
+                        <line x1="2" y1="2" x2="12" y2="13" />
+                    </svg>
+                    <span class="item_title">Inbox</span>
+                </a>
+            </li>
+            <li class="nav_item">
+                <a class="item_link" href="/schedule">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                        <line x1="16" y1="2" x2="16" y2="6" />
+                        <line x1="8" y1="2" x2="8" y2="6" />
+                        <line x1="3" y1="10" x2="21" y2="10" />
+                        <line x1="7" y1="15" x2="7" y2="21" />
+                        <line x1="17" y1="15" x2="17" y2="21" />
+                    </svg>
+                    <span class="item_title">Lessenrooster</span>
                 </a>
             </li>
         {{else}}
@@ -184,7 +252,6 @@
         <li class="logout">
             <a class="logout_link" href="/logout">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-
                     <path
                         d="M8.9 7.55999C9.21 3.95999 11.06 2.48999 15.11 2.48999H15.24C19.71 2.48999 21.5 4.27999 21.5 8.74999V15.27C21.5 19.74 19.71 21.53 15.24 21.53H15.11C11.09 21.53 9.24 20.08 8.91 16.54M15 12H3.62M5.85 8.64999L2.5 12L5.85 15.35"
                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
