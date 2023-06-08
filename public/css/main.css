@@ -1,3 +1,25 @@
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/inter-v12-latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    src: url('../fonts/inter-v12-latin-600.woff2') format('woff2');
+}
+
+:root {
+    --light-blue: hsl(228, 100%, 97%);
+    --darker-blue: hsl(228, 100%, 33%);
+    --dark-blue: hsl(228, 100%, 15%);
+    --white: hsl(0, 0%, 100%);
+    --bold: 600;
+}
+
 body {
     background-color: #F0F3FF;
     height: auto;
@@ -124,7 +146,7 @@ ul{
         align-items: center;
         background-color: #d5ddfc;
         padding: 0.3rem;
-        width: 13rem;
+        width: 12rem;
         border: 0.1rem solid #0022A8;
         border-radius: 1rem;
         margin: 0.8rem;
@@ -143,7 +165,7 @@ ul{
     align-items: center;
     }
     & .line-home{
-        margin: 1rem ;
+        margin: .62rem;
         background-color: #0022A8;;
         width: 0.1rem;
         height: 3rem;
@@ -157,31 +179,6 @@ ul{
 /*subject-detail*/
 .right_title_teacher{
     margin-left: 1rem;
-}
-
-
-
-@font-face {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    src: url('../fonts/inter-v12-latin-regular.woff2') format('woff2');
-}
-
-@font-face {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 600;
-    src: url('../fonts/inter-v12-latin-600.woff2') format('woff2');
-}
-
-:root {
-    --light-blue: hsl(228, 100%, 97%);
-    --darker-blue: hsl(228, 100%, 33%);
-    --dark-blue: hsl(228, 100%, 15%);
-    --white: hsl(0, 0%, 100%);
-
-    --bold: 600;
 }
 
 
@@ -774,7 +771,6 @@ ul.feedback_recent li:not(:last-child) {
     margin-bottom: 0.1rem;
     }
     & p {
-    font-size: 0.5rem;
     margin: 0;
     } 
 } 

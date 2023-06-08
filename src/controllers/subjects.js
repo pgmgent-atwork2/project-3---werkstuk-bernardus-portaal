@@ -12,8 +12,6 @@ export const getSubjects = async (req, res) => {
   const tokenDeco = jwt.decode(token);
 
   const userRepository = DataSource.getRepository('User');
-  
-
 
   const user = req.user;
 
@@ -24,14 +22,13 @@ export const getSubjects = async (req, res) => {
     relations: ['subjects','role', 'subjects.teacher'],
   });
 
-  
-
   const userSubjects = userData.subjects;
   // console.log(userSubjects);
 
   res.render('subjects', {
     user: userData,
     subjects: userSubjects,
+    title: "Vakken"
   });
 };
 
@@ -58,15 +55,18 @@ export const getSubjectDetails = async (req, res) => {
   res.render('subject-detail', {
     user, 
     subject: subjectData,
+    title: "{{name}}"
   });
 };
 
 export const getSubjectPoints = async (req, res) => {
   res.render('subject-punten', {
+    title: "Punten"
   });
 };
 
 export const getSubjectDocuments = async (req, res) => {
   res.render('subject-document', {
+    title: "Document"
   });
 };
