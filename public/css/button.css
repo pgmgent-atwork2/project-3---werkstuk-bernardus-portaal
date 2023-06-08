@@ -9,3 +9,14 @@
 .btn--feedback {
     max-width: 90px;
 }
+
+.btn--upload {
+    display: flex;
+    & p {
+        color: white;
+    }
+}
+
+.btn--send {
+    margin-top: 20px;
+}
