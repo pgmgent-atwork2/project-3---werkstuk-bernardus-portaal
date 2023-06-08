@@ -769,6 +769,8 @@ color: #777;
 .close {
     float: right;
     padding: 5px;
+    border: none;
+    background-color: var(--light-blue);
 }
 
 /*Chat*/
