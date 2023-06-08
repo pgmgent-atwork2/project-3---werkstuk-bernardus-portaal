@@ -5,15 +5,21 @@
         <h4>{{student.firstname}} {{student.lastname}}</h4>
         <p>{{text}}</p>
         <p>{{subjects.name}}</p>
+            <form class="form-update" action="/feedbackDashboard/{{ id }}" method="post">
+                <input type="text" id="{{ id }}" name="text" value="{{ text }}"></input>
+                <button class="btn btn-edit" type="submit" value="done">Bewerk
+                </button>
+            </form>
     </li>
     {{/each}}
 </ul>
 
-<hr><hr>
+<hr>
+<hr>
 <br><br>
 
 <form action="/feedbackDashboard" method="POST">
-    <div>    
+    <div>
         <label for="feedback">FEEDBACK</label><br>
         <textarea name="text" id="feedback" placeholder="Voer hier je feedback in" required></textarea>
     </div>
@@ -27,7 +33,7 @@
         </select>
     </div>
     <div>
-        <label for="subjects">VOOR WELKE STUDENT IS DEZE FEEDBACK?</label><br>
+        <label for="subjects">VOOR WELK VAK IS DEZE FEEDBACK?</label><br>
         <select name="subjects" id="subject" required>
             <option disabled selected>Selecteer vak ...</option>
             {{#each subjects}}
