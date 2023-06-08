@@ -1,46 +1,16 @@
-<ul>
-    {{#each userFeedbackdata}}
-    <li>
-        <h4>{{teacher.firstname}} {{teacher.lastname}}</h4>
-        <h4>{{student.firstname}} {{student.lastname}}</h4>
-        <p>{{text}}</p>
-        <p>{{subjects.name}}</p>
-            <form class="form-update" action="/feedbackDashboard/{{ id }}" method="post">
-                <input type="text" id="{{ id }}" name="text" value="{{ text }}"></input>
-                <button class="btn btn-edit" type="submit" value="done">Bewerk
-                </button>
-            </form>
-    </li>
-    {{/each}}
-</ul>
+<div class="page_title">
+    <h1>Feedback</h1>
+</div>
 
-<hr>
-<hr>
-<br><br>
+<section class="feedback-coach">
+    <ul class="feedback-list">
+        {{#each userFeedbackdata}}
+        <li>
+            {{> feedback-coach}}
+        </li>
+        {{/each}}
+    </ul>
+</section>
 
-<form action="/feedbackDashboard" method="POST">
-    <div>
-        <label for="feedback">FEEDBACK</label><br>
-        <textarea name="text" id="feedback" placeholder="Voer hier je feedback in" required></textarea>
-    </div>
-    <div>
-        <label for="student">VOOR WELKE STUDENT IS DEZE FEEDBACK?</label><br>
-        <select name="student" id="student" required>
-            <option disabled selected>Selecteer student ...</option>
-            {{#each students}}
-            <option value="{{id}}">{{firstname}}</option>
-            {{/each}}
-        </select>
-    </div>
-    <div>
-        <label for="subjects">VOOR WELK VAK IS DEZE FEEDBACK?</label><br>
-        <select name="subjects" id="subject" required>
-            <option disabled selected>Selecteer vak ...</option>
-            {{#each subjects}}
-            <option value="{{id}}">{{name}}</option>
-            {{/each}}
-        </select>
-    </div>
-    <br><br>
-    <button type="submit">Verstuur feedback</button>
-</form>
+{{> post-feedback}}
+

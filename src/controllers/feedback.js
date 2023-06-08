@@ -133,6 +133,14 @@ export const updateFeedback = async (req, res, next) => {
       },
     });
 
+const students = await userRepository.find({
+  where: {
+    role: {
+      id: 3
+    }
+  }
+});
+
     if (!feedback) {
       res.status(404).send({ error: 'Feedback not found.' });
       return;
@@ -148,27 +156,15 @@ export const updateFeedback = async (req, res, next) => {
   }
 };
 
+});
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+const userFeedbackdata = feedbackData;
+// console.log(userFeedbackdata);
+userFeedbackdata.reverse();
+res.render('feedbackDashboard', {
+  user,
+  userFeedbackdata,
+  students,
+  subjects
+    });
+};

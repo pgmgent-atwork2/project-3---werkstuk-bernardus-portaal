@@ -88,7 +88,7 @@ export const register = async (req, res) => {
       },
       {
         name: 'country',
-        label: 'Country',
+        label: 'Geboorteland',
         type: 'text',
         value: req.body?.country ? req.body.country : '',
         error: req.formErrorFields?.country ? req.formErrorFields.country : null,
