@@ -60,7 +60,7 @@ const subjects = await subjectsRepository.find({
 
 const userFeedbackdata = feedbackData;
 // console.log(userFeedbackdata);
-
+    userFeedbackdata.reverse();
 res.render('feedbackDashboard', {
   user,
   userFeedbackdata,
@@ -121,7 +121,7 @@ export const updateFeedback = async (req, res, next) => {
     if (!updatedText) {
       throw new Error('Please provide a text for the updated feedback.');
     }
-
+    const userRepository = DataSource.getRepository('User');
     const feedbackRepository = DataSource.getRepository('Feedback');
 
     const teacherId = req.user.id;
@@ -147,8 +147,8 @@ const students = await userRepository.find({
     }
 
     feedback.text = updatedText;
+
     const updatedFeedback = await feedbackRepository.save(feedback);
-    console.log('ohjeay, redireting///');
     res.redirect('/feedbackDashboard')
   } catch (error) {
     console.log('opsie daisy, er ging iets mis', error);
@@ -156,15 +156,5 @@ const students = await userRepository.find({
   }
 };
 
-});
 
-const userFeedbackdata = feedbackData;
-// console.log(userFeedbackdata);
-userFeedbackdata.reverse();
-res.render('feedbackDashboard', {
-  user,
-  userFeedbackdata,
-  students,
-  subjects
-    });
-};
+

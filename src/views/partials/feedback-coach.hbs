@@ -11,7 +11,11 @@
                 </div>
             </div>
             <div class="feedback-text">
-                <p>{{text}}</p>
+                <form class="form-update" action="/feedbackDashboard/{{ id }}" method="post">
+                    <input type="text" id="{{ id }}" name="text" value="{{ text }}"></input>
+                    <button class="btn btn-edit" type="submit" value="done">Bewerk
+                    </button>
+                </form>
             </div>
         </div>
     </div>
