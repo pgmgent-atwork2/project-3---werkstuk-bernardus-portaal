@@ -11,11 +11,21 @@ import HandlebarsHelpers from './lib/HandlebarsHelpers.js';
 import { VIEWS_PATH } from './consts.js';
 import DataSource from './lib/DataSource.js';
 
-import loginAuthentication from './middleware/validation/loginAuthentication.js';
 
 import { jwtAuth } from './middleware/jwtAuth.js';
-import { login, logout, postLogin } from './controllers/authentication.js';
-import { home } from './controllers/home.js';
+
+import {
+  login,
+  register,
+  postLogin,
+  postRegister,
+  logout,
+} from "./controllers/authentication.js";
+
+import registerAuthentication from "./middleware/validation/registerAuthentication.js";
+import loginAuthentication from "./middleware/validation/loginAuthentication.js";
+
+import { home, } from './controllers/home.js';
 import swaggerDefinition from './docs/swagger.js';
 
 import {
@@ -26,14 +36,27 @@ import {
   deleteUserById,
 } from './controllers/api/user.js';
 
-import { getSubjects,  getSubjectPoints, getSubjectDocuments, getSubjectDetails } from "./controllers/subjects.js";
+import { getAbsence } from './controllers/absence.js';
+
+import { getSubjects, getSubjectDetails, getSubjectPoints, getSubjectDocuments } from "./controllers/subjects.js";
 
 
+
+import { getSchedule } from "./controllers/schedule.js";
+
+import { getFeedbacks, postFeedbacks, getAllFeedbacks,} from "./controllers/feedback.js";
+
+import { getPoints } from "./controllers/rapport.js";
+
+import { profile, profileDetail } from "./controllers/profile.js";
+
+import { getInbox } from "./controllers/inbox.js";
+
+import { teachers, students, coaches } from "./controllers/admin.js";
 
 
 dotenv.config();
 
-// import login and register
 
 // import Users
 const app = express();
@@ -53,7 +76,24 @@ app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
 app.set('views', VIEWS_PATH);
 
-app.get('/', jwtAuth, home);
+app.get('/', jwtAuth, home,);
+
+// import login and register
+
+app.get("/login", login);
+app.get("/register", register);
+app.post("/register", registerAuthentication, postRegister, register);
+app.post("/login", loginAuthentication, postLogin, login);
+app.post("/logout", logout);
+
+app.get('/logout', logout);
+
+app.get('/absence', getAbsence);
+
+
+app.get('/teachers', teachers);
+app.get('/students', students);
+app.get('/coaches', coaches);
 
 
 app.get('/subjects/:id/points', jwtAuth, getSubjectPoints);
@@ -61,10 +101,23 @@ app.get('/subjects/:id/documents', jwtAuth, getSubjectDocuments);
 app.get('/subjects/:id', jwtAuth, getSubjectDetails);
 app.get('/subjects', jwtAuth, getSubjects);
 
-app.get('/login', login);
-app.post('/login', loginAuthentication, postLogin, login);
+app.get('/feedback', jwtAuth, getFeedbacks, );
+app.get('/feedbackDashboard', jwtAuth, getAllFeedbacks)
 
-app.get('/logout', logout);
+
+app.post('/feedbackDashboard', jwtAuth, postFeedbacks,)
+
+app.get('/rapport', jwtAuth, getPoints);
+app.get('/rapport/:id', jwtAuth, getSubjectPoints, getPoints);
+
+app.get('/profile', jwtAuth, profile);
+app.get('/user/:id', jwtAuth, profileDetail);
+
+
+
+app.get('/schedule', jwtAuth, getSchedule);
+app.get('/inbox', jwtAuth, getInbox);
+
 
 // API routes
 app.get('/api/users',jwtAuth, getUsers);

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import typeorm from 'typeorm';
 
 const { EntitySchema } = typeorm;
@@ -13,36 +14,43 @@ columns: {
    },
    text: {
    type: 'varchar',
+   nullable: false,
    },
 },
 
 relations: {
-   teacher: {
+   users: {
       target: 'User',
-      type: 'many-to-one',
-      joinColumn: {
-         name: 'teacher_id',
+      type: 'many-to-many',
+      joinTable: {
+         name: 'user_feedback'
       },
       cascade: true,
-      inverseSide: 'user',
-   },
-   student: {
-      target: 'User',
-      type: 'many-to-one',
-      joinColumn: {
-         name: 'student_id',
-      },
-      cascade: true,
-      inverseSide: 'user',
    },
    subjects: {
       target: 'Subject',
       type: 'many-to-one',
       joinColumn: {
-         name: 'subject_id',
+      name: 'subject_id',
       },
-      inverseSide: 'Subjects',
-      },
+      inverseSide: 'subject',
+      nullable: true,
    },
-
+   teacher: {
+      target: 'User',
+      type: 'many-to-one',
+      joinColumn: {
+         name: 'teacher_id'
+      },
+      cascade: true,
+   },
+   student: {
+      target: 'User',
+      type: 'many-to-one',
+      joinColumn: {
+         name: 'student_id'
+      },
+      cascade: true,
+   },
+},
 });
