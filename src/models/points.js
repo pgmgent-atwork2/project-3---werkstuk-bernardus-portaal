@@ -26,5 +26,21 @@ relations: {
       },
       inverseSide: 'subject',
    },
+   teacher: {
+      target: 'User',
+      type: 'many-to-one',
+      joinColumn: {
+         name: 'teacher_id'
+      },
+      cascade: true,
+   },
+   student: {
+      target: 'User',
+      type: 'many-to-one',
+      joinColumn: {
+         name: 'student_id'
+      },
+      cascade: true,
+   },
 },
 });

@@ -44,15 +44,16 @@ import { getSubjects, getSubjectDetails, getSubjectPoints, getSubjectDocuments }
 
 import { getSchedule } from "./controllers/schedule.js";
 
-import { getFeedbacks, postFeedbacks, getAllFeedbacks, updateFeedback, deleteFeedback} from "./controllers/feedback.js";
+import { getFeedbacks,  postFeedbacks, getAllFeedbacks, updateFeedback, deleteFeedback,} from "./controllers/feedback.js";
 
-import { getPoints } from "./controllers/rapport.js";
+import { getPoints, getAllPoints, postPoints, updatePoint, deletePoint } from "./controllers/rapport.js";
 
 import { profile, profileDetail } from "./controllers/profile.js";
 
 import { getInbox } from "./controllers/inbox.js";
 
 import { teachers, students, coaches } from "./controllers/admin.js";
+
 
 
 dotenv.config();
@@ -105,11 +106,15 @@ app.get('/feedback', jwtAuth, getFeedbacks, );
 app.post('/feedbackDashboard/:id', jwtAuth, updateFeedback);
 app.post('/deleteFeedback/:id', jwtAuth, deleteFeedback);
 app.get('/feedbackDashboard', jwtAuth, getAllFeedbacks)
-
-
 app.post('/feedbackDashboard', jwtAuth, postFeedbacks,)
 
-app.get('/rapport', jwtAuth, getPoints);
+
+app.get('/rapport', jwtAuth, getPoints );
+app.get('/rapportDashboard', jwtAuth, getAllPoints);
+app.post('/rapportDashboard', jwtAuth, postPoints);
+app.post('/rapportDashboard/:id', jwtAuth, updatePoint);
+app.post('/deletePoint/:id', jwtAuth, deletePoint);
+
 app.get('/rapport/:id', jwtAuth, getSubjectPoints, getPoints);
 
 app.get('/profile', jwtAuth, profile);

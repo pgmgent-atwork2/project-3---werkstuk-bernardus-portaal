@@ -17,14 +17,6 @@ columns: {
    },
 },
 relations: {
-   feedbacks: {
-   target: 'Feedback',
-   type: 'many-to-many',
-   joinTable: {
-      name: 'subject_feedback',
-   },
-   cascade: true,
-   },
    users: {
    target: 'User',
    type: 'many-to-many',

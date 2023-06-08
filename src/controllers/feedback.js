@@ -24,6 +24,7 @@ export const getFeedbacks = async (req, res) => {
   res.render('feedback', {
     user: req.user,
     feedbackData: feedbacks,
+    title: "Feedback"
   });
 };
 
@@ -39,7 +40,7 @@ console.log(user);
 const feedbackRepository = DataSource.getRepository('Feedback');
 
 const feedbackData = await feedbackRepository.find({
-  relations: ['subjects', 'student','users','teacher'],
+  relations: ['subjects', 'student','teacher'],
 });
 
 const students = await userRepository.find({
@@ -59,8 +60,7 @@ const subjects = await subjectsRepository.find({
 })
 
 const userFeedbackdata = feedbackData;
-// console.log(userFeedbackdata);
-    userFeedbackdata.reverse();
+userFeedbackdata.reverse();
 res.render('feedbackDashboard', {
   user,
   userFeedbackdata,
