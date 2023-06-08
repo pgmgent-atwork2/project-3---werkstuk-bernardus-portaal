@@ -8,25 +8,22 @@ export const getFeedbacks = async (req, res) => {
   const { token } = req.cookies;
   const tokenDeco = jwt.decode(token);
 
-  const userRepository = DataSource.getRepository('User');
   const feedbackRepository = DataSource.getRepository('Feedback');
-  
 
-  
-  const user = req.user;
+  const userId = req.user.id;
 
-  const userData = await userRepository.findOne({
+  const feedbacks = await feedbackRepository.find({
     where: {
-      id: user.id,
+      student: { id: userId },
     },
-    relations: ['feedbacks', 'feedbacks.subjects','feedbacks.teacher','feedbacks.student','role']
+    relations: ['subjects', 'teacher'],
   });
 
-  const userFeedbacks = userData.feedbacks;
-
+  // console.log(feedbacks);
+  
   res.render('feedback', {
-    user: userData,
-    feedbacks: userFeedbacks,
+    user: req.user,
+    feedbackData: feedbacks,
   });
 };
 
@@ -40,15 +37,14 @@ export const postFeedbacks = async (req, res, next) => {
 
     const feedbackRepository = DataSource.getRepository('Feedback');
 
-    // Gebruik req.user.id om de ingelogde gebruiker op te halen
     const teacherId = req.user.id;
 
     const feedback = await feedbackRepository.findOne({
       where: {
         text: req.body.text,
-        teacher: teacherId
+        teacher: teacherId,
       },
-      relations: ['users', 'teacher'],
+      relations: ['users', 'teacher',],
     });
 
     if (feedback) {
@@ -58,28 +54,30 @@ export const postFeedbacks = async (req, res, next) => {
       return;
     }
 
-    // Save the feedback in the repository
     req.body.teacher = teacherId;
-    const insertedFeedback = await feedbackRepository.save(req.body);
+
+    console.log('FB Request: ', req.body);
+
+    const insertedFeedback = await feedbackRepository.create(req.body);
+    const savedFeedback = await feedbackRepository.save(insertedFeedback);
 
     res
       .status(200)
       .redirect('/feedbackDashboard')
-      .send({ status: `Posted feedback with id ${insertedFeedback.id}.` });
+      .send({ status: `Posted feedback with id ${savedFeedback.id}.` });
   } catch (error) {
-    next(error.message);
+    next('Failed to post feedback: ', error,  error.message);
   }
 };
 
-
-
-
 export const getAllFeedbacks = async (req, res) => {
 const userRepository = DataSource.getRepository('User');
+const subjectsRepository = DataSource.getRepository('Subject')
 const users = await userRepository.find();
 
 const userRole = req.user?.role?.label;
 const {user} = req;
+console.log(user);
 
 const feedbackRepository = DataSource.getRepository('Feedback');
 
@@ -95,13 +93,33 @@ const students = await userRepository.find({
   }
 })
 
+const subjects = await subjectsRepository.find({
+  where: {
+    teacher: {
+      id: user.id
+    }
+  }
+})
+
 const userFeedbackdata = feedbackData;
-console.log(userFeedbackdata);
+// console.log(userFeedbackdata);
 
 res.render('feedbackDashboard', {
   user,
   userFeedbackdata,
-  students
+  students,
+  subjects
     });
 };
+
+
+
+
+
+
+
+
+
+
+
 

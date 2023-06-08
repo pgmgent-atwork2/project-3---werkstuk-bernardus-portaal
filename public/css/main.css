@@ -1,5 +1,6 @@
 body {
     background-color: #F0F3FF;
+    height: auto;
 }
 
 @keyframes transitionIn {
@@ -105,7 +106,12 @@ ul{
         height: 3rem;
         transition: 0.2s;
     }
+}
 
+.detail {
+    display: flex;
+    margin: 2rem;
+    margin-left: 18rem;
 }
 /*home*/
 .subjects_home {
@@ -126,9 +132,9 @@ ul{
         transition: 0.2s;
     }
         & .task-item:hover{
-        cursor: pointer;
+/*     cursor: pointer;
         background-color: #d5ddfc;
-        border-radius: 2rem;
+        border-radius: 2rem;*/
         border: 0.1rem dashed #0022A8;
         transition: 0.2s;
         transform: scale(1.1);
@@ -150,6 +156,9 @@ ul{
 
 
 /*subject-detail*/
+.right_title_teacher{
+    margin-left: 1rem;
+}
 
 
 
@@ -192,7 +201,7 @@ main {
     width: 100%;
 }
 
-h2, h3, p{
+h2, h3,p {
     color: var(--dark-blue);
 }
 
@@ -317,9 +326,6 @@ a {
 }
 
 /* item_link */
-.article-task {
-}
-
 @media (min-width: 43.75rem) {
     .nav ul {
         margin-left: 1.25rem;
@@ -536,16 +542,19 @@ a {
 /* Maak een flex-container om de pagina-inhoud te centreren */
 .container {
     display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
 /* Stijl voor de profielkaart */
 .profile-card {
-    width: 20rem;
+    margin-top: 7rem;
+    width: 40rem;
+    height: 25rem;
     background-color: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 1rem;
+    padding: 2rem;
 }
 
 .profile-card .profile-image {
@@ -554,8 +563,28 @@ a {
     overflow: hidden;
     margin-bottom: 20px;
     border-radius: 8px;
-    height: 15rem;
-    width: 15rem 
+    height: 10rem;
+    width: 10rem 
+}
+
+.profile-info{
+    position: absolute;
+    top: 12rem;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin: 0 auto;
+    height: 20rem;
+}
+
+.left_side{
+    margin-right: 10rem;
+}
+
+.profile-image{
+    position: relative;
+    top: -7rem;
 }
 
 .profile-image img{
@@ -693,6 +722,10 @@ color: #777;
     transition: 0.3s;
     cursor: pointer;
     }  
+}
+
+ul.feedback_recent li:not(:last-child) {
+  display: none;
 }
 
 .teacher-feedback{

@@ -69,7 +69,7 @@ header .current-date{
   color: #aaa;
 }
 .days a.active{
-  color: #fff;
+  color: #0022A8;
 }
 .days a::before{
   position: absolute;
@@ -81,10 +81,18 @@ header .current-date{
   z-index: -1;
   border-radius: 50%;
   transform: translate(-50%, -50%);
+  transition: 0.2s;
 }
 .days a.active::before{
-  background: hsl(228, 100%, 33%);
+  background: #d5ddfc;
+  border: 0.1rem dashed #0022A8;
+  transition: 0.2s;
 }
+
 .days a:not(.active):hover::before{
-  background: #f2f2f2;
+    border: 0.1rem dashed #0022A8;
+    border-radius: 50%;
+    background: #d5ddfc;
+    transition: 0.2s;
+
 }

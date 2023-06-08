@@ -27,7 +27,7 @@ export const getSubjects = async (req, res) => {
   
 
   const userSubjects = userData.subjects;
-  console.log(userSubjects);
+  // console.log(userSubjects);
 
   res.render('subjects', {
     user: userData,
@@ -50,7 +50,10 @@ export const getSubjectDetails = async (req, res) => {
     where: {
       id: subjectId,
     },
+    relations: ['teacher'],
   });
+
+  console.log('Active subject: ', subjectId, subjectData);
 
   res.render('subject-detail', {
     user, 
@@ -59,23 +62,11 @@ export const getSubjectDetails = async (req, res) => {
 };
 
 export const getSubjectPoints = async (req, res) => {
-const userRepository = DataSource.getRepository('Points');
+  res.render('subject-punten', {
+  });
+};
 
-const userRole = req.user?.role?.label;
-const user = req.user;
-
-const pointId = req.params.id;
-
-const pointsData = await userRepository.findOne({
-    where: {
-    id: pointId,
-    },
-});
-
-const detailPoints = pointsData.points;
-
-  res.render('rapport', {
-    user,
-    points: detailPoints,
+export const getSubjectDocuments = async (req, res) => {
+  res.render('subject-document', {
   });
 };
