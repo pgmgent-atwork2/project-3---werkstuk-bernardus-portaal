@@ -1,3 +1,23 @@
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/inter-v12-latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    src: url('../fonts/inter-v12-latin-600.woff2') format('woff2');
+}
+
+body {
+    font-family: 'Inter';
+    background-color: var(--white);
+    color: var(--dark-blue);
+}
+
 .login-bg {
     display: none;
 }
@@ -5,9 +25,8 @@
 @media (min-width: 37.5rem) {
     .article-login {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
     }
-    
     .login-bg {
         width: 70%;
         display: block;
@@ -29,8 +48,22 @@
     margin-bottom: 5rem;
 }
 
+.section-login {
+    margin: 0 auto;
+}
+
 .form-login, .login-bottom {
     margin: 0 auto;
+    & input {
+        border-radius: 5px;
+        padding: 2px;
+        border: 1px solid var(--darker-blue);
+        color: var(--dark-blue);
+        color: var(--white);
+    }
+    & input:foncus {
+        outline: 1px solid var(--darker-blue);
+    }
 }
 
 .form-login div:not(:nth-child(2n)) {
@@ -46,8 +79,6 @@
     flex-direction: column;
     & .btn-login {
         border: none;
-        background-color: hsl(228, 100%, 15%);
-        color: hsl(0, 0%, 100%);
         font-size: 1.12rem;
         width: 100%;
         padding: .12rem;

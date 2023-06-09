@@ -4,46 +4,51 @@
 
 .wrapper{
   width: 30rem;
+  margin: 10px;
   background: #fff;
   border-radius: 1rem;
   border: 0.1rem dashed #0022A8;
 }
+
 .wrapper header{
   display: flex;
   align-items: center;
-  padding: 25px 30px 10px;
+  padding: 20px 20px 10px;
   justify-content: space-between;
 }
+
 header .icons{
   display: flex;
 }
+
 header .icons span{
   margin: 1rem;
   cursor: pointer;
-
 }
+
 .icons span:last-child{
   margin-right: -10px;
 }
 header .icons span:hover{
   background: #f2f2f2;
 }
+
 header .current-date{
   font-size: 1.45rem;
   font-weight: 500;
 }
+
 .calendar{
   padding: 20px;
 }
+
 .calendar ul{ 
   display: flex;
   flex-wrap: wrap;
   list-style: none;
   text-align: center;
 }
-.calendar .days{
-  margin-bottom: 20px;
-}
+
 .calendar a{
   color: #333;
   width: calc(100% / 7);
@@ -55,19 +60,23 @@ header .current-date{
   width: calc(100% / 7);
   font-size: 1.07rem;
 }
+
 .calendar .weeks li{
   font-weight: 500;
   cursor: default;
 }
+
 .calendar .days a{
   z-index: 1;
   cursor: pointer;
   position: relative;
   margin-top: 30px;
 }
+
 .days a.inactive{
   color: #aaa;
 }
+
 .days a.active{
   color: #0022A8;
 }
@@ -83,6 +92,7 @@ header .current-date{
   transform: translate(-50%, -50%);
   transition: 0.2s;
 }
+
 .days a.active::before{
   background: #d5ddfc;
   border: 0.1rem dashed #0022A8;
@@ -94,5 +104,4 @@ header .current-date{
     border-radius: 50%;
     background: #d5ddfc;
     transition: 0.2s;
-
 }

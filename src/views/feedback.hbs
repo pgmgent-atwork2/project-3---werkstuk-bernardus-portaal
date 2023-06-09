@@ -1,13 +1,12 @@
 {{> up-nav}}
-<h1>Feedback</h1>
+<div class="page_title">
+  <h1>Feedback</h1>
+</div>
 
 <ul>
-{{#each feedbackData}}
+  {{#each feedbackData}}
     <li>
-        {{> post}}
+        {{> feedback-student}}
     </li>
   {{/each}}
 </ul>
-
-
-

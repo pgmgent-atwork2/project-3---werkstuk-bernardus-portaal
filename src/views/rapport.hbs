@@ -1,8 +1,10 @@
-<h1>Rapport</h1>
+<div class="page_title">
+    <h1>Rapport</h1>
+</div>
+{{#each userPoints}}
 
-{{#each points}}
-    <p>{{ id }}</p>
     <p>{{ subjects.name }}</p>
-    <p>{{ subjects.teacher.firstname }} {{ subjects.teacher.lastname }}</p>
-{{/each}}
+    <p>{{point}}</p>
+    <p>{{ teacher.firstname }}</p>
+    {{/each}}
 

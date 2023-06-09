@@ -47,6 +47,7 @@ export const profileDetail = async (req, res) => {
     layout: 'admin',
     user,
     users,
+    title: "Profiel"
   });
 };
 

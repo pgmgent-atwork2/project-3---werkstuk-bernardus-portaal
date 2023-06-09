@@ -16,5 +16,6 @@ const userData = await userRepository.find({});
 res.render('inbox', {
     user: req.user,
     users,
+    title: "Inbox"
     });
 };
