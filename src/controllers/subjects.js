@@ -70,3 +70,23 @@ export const getSubjectDocuments = async (req, res) => {
     title: "Document"
   });
 };
+
+export const getSubjectRapport = async (req, res) => {
+  res.render('subject-rapport', {
+  });
+};
+
+export const getSubjectRapportLink = async (req, res) => {
+  res.render('subject-rapport-link', {
+  });
+};
+
+
+export const getSubjectAfwezigheid = async (req, res) => {
+  res.render('subject-afwezigheid', {
+  });
+};
+
+
+
+

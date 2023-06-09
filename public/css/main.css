@@ -959,3 +959,136 @@ ul.feedback_recent li:not(:last-child) {
 .documenten-text {
     padding-left: 5rem;
 }
+
+/* afweziggeid*/
+
+.afwezigheid-container {
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 18px;
+    border: 0.1rem solid #0022A8;
+    background-color: #E1E7FF;
+    border-radius: 1rem 1rem 1rem 1rem;
+    width: 70%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-left: 10rem;
+    margin-bottom: 1.50rem;
+}
+
+.afwezigheid-text {
+    display: flex;
+}
+
+.afwezigheid-text p {
+    padding-left: 2rem;
+}
+
+.afwezigheid-text p:nth-child(2) {
+    padding-left: 4rem;
+}
+
+.afwezigheid-datum {
+    padding-left: 35rem;
+}
+
+.afwezigheid-img {
+    padding-right: 1rem;
+    border-right: 1px solid #0022A8;
+
+}
+
+
+/*Rapport*/
+
+.rapport h1 {
+    color:#0022A8 ;
+    margin-left: 3rem;
+    margin-top: 3rem;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.rapport-container {
+    background-color: #cbd6ff;
+    width: 53rem;
+    height: 5rem;
+    margin: 0 auto;
+    border-radius: 0.90rem ;
+    border: 2px solid black;
+    padding-top: 1.5rem;
+;
+}
+
+.rapport-scro {
+    padding-left: 2rem;
+    font-weight: 600;
+    font-size: 1rem;
+    display: flex;
+    gap: 293px;
+    & .date-detail {
+        padding-left: 22rem;
+    }
+}
+
+.rapport-text p:nth-child(1) {
+    border-right: 1px solid #0022A8;
+    padding-right: 1rem;
+}
+
+.rapport-text p:nth-child(2) {
+    border-right: 1px solid #0022A8;
+    padding-right: 1rem;
+}
+
+/*Rapport-link*/
+
+.rapport-link {
+    display: flex;
+    margin-top: 2rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.rapport-link-text h1 {
+  color: #0022A8;
+  margin-top: 2rem;
+}
+
+.rapport-link-tow {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    gap: 30rem;
+    padding-top: 2rem;
+}
+
+.rapport-link-text p {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.rapport-rapport {
+    background-color: #E1E7FF;
+    width: 59%;
+    height: 80%;
+    margin-left: 19rem;
+}
+
+.rapport-link-tow-rapport {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    gap: 18rem;
+    border: 1px solid #000000;
+    width: 36rem;
+    margin-left: 7rem;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.rapport-vak {
+    border-right: 2px solid #000000;
+    padding-right: 4rem;
+}

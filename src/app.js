@@ -38,7 +38,7 @@ import {
 
 import { getAbsence } from './controllers/absence.js';
 
-import { getSubjects, getSubjectDetails, getSubjectPoints, getSubjectDocuments } from "./controllers/subjects.js";
+import { getSubjects, getSubjectDetails, getSubjectPoints, getSubjectDocuments, getSubjectRapport, getSubjectAfwezigheid,getSubjectRapportLink } from "./controllers/subjects.js";
 
 
 
@@ -100,6 +100,9 @@ app.get('/coaches', coaches);
 app.get('/subjects/:id/points', jwtAuth, getSubjectPoints);
 app.get('/subjects/:id/documents', jwtAuth, getSubjectDocuments);
 app.get('/subjects/:id', jwtAuth, getSubjectDetails);
+app.get('/subjects/:id/rapport', jwtAuth, getSubjectRapport);
+app.get('/subjects/:id/rapport/link', jwtAuth, getSubjectRapportLink);
+app.get('/subjects/:id/afwezigheid', jwtAuth, getSubjectAfwezigheid);
 app.get('/subjects', jwtAuth, getSubjects);
 
 app.get('/feedback', jwtAuth, getFeedbacks, );
