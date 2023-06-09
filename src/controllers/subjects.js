@@ -56,3 +56,23 @@ export const getSubjectDocuments = async (req, res) => {
   res.render('subject-document', {
   });
 };
+
+export const getSubjectRapport = async (req, res) => {
+  res.render('subject-rapport', {
+  });
+};
+
+export const getSubjectRapportLink = async (req, res) => {
+  res.render('subject-rapport-link', {
+  });
+};
+
+
+export const getSubjectAfwezigheid = async (req, res) => {
+  res.render('subject-afwezigheid', {
+  });
+};
+
+
+
+
