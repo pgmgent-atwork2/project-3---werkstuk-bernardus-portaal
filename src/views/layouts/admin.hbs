@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="nl">
 
@@ -8,13 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/main.css">
-    <title>Subjects</title>
+    <link rel="stylesheet" href="/css/admin.css">
+    <title>{{ title }}</title>
 </head>
 
 <body>
-    <div id="content">
-        {{{body}}}
-    </div>
+    {{> aside}}
+    <main>
+        {{{ body }}}
+    </main>
 </body>
 
+<script src="/scripts/nav.js"></script>
 </html>

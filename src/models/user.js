@@ -15,9 +15,11 @@ export default new EntitySchema({
     },
     firstname: {
       type: 'varchar',
+      nullable: true,
     },
     lastname: {
       type: 'varchar',
+      nullable: true,
     },
     username: {
       type: 'varchar',
@@ -27,21 +29,32 @@ export default new EntitySchema({
     },
     age: {
       type: 'int',
+      nullable: true,
     },
     phone: {
       type: 'int',
+      nullable: true,
     },
     address: {
       type: 'varchar',
+      nullable: true,
     },
     country: {
       type: 'varchar',
+      nullable: true,
     },
     city: {
       type: 'varchar',
+      nullable: true,
+    },
+    gender: {
+      type: 'varchar',
+      nullable: true,
     },
     level: {
       type: 'varchar',
+      nullable: true,
+
     },
   },
   relations: {
@@ -65,10 +78,26 @@ export default new EntitySchema({
       target: 'Subject',
       type: 'many-to-many',
       joinTable: {
-         name: 'subjects_users'
+        name: 'subjects_users'
       }, 
       cascade: true,
-   },
-  
+    },
+    feedbacks: {
+      target: 'Feedback',
+      type: 'many-to-many',
+      joinTable: {
+        name: 'user_feedback'
+      },
+      cascade: true,
+    },
+    points: {
+        target: 'Points',
+        type: 'many-to-many',
+        joinTable: {
+        name: 'point_id',
+        },
+        inverseSide: 'point',
+    },
   },
 });
+

@@ -1,0 +1,25 @@
+<section class="auth-container register">
+    <div class="header">
+        <h3>Register</h3>
+        {{>form-errors this}}
+    </div>
+    <form method="post" action="register">
+        {{#each inputs}}
+        {{>form-input this}}
+        {{/each}}
+        <div class="input-container">
+            <label for="roles">Authorisation</label>
+            <select name="role" id="role">
+                {{#each roles}}
+                <option value="{{ id }}">{{ label }}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="footer-container">
+            <span class="left-link">Heb je al een account? <br> <a href="/login">Login</a></span>
+
+            <input type="reset" class="btn btn-tertiary" value="Clear">
+            <input type="submit" class="btn btn-primary" value="Register">
+        </div>
+    </form>
+</section>

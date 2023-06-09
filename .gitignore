@@ -1,6 +1,6 @@
 # General
 .cache
-package-lock.json
+package-lock.json"
 
 # OS specific
 .DS_Store

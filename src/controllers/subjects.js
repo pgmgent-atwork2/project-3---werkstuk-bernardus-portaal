@@ -6,23 +6,28 @@
 import DataSource from '../lib/DataSource.js';
 import jwt from 'jsonwebtoken';
 
+
 export const getSubjects = async (req, res) => {
   const { token } = req.cookies;
   const tokenDeco = jwt.decode(token);
 
   const userRepository = DataSource.getRepository('User');
+  
+
 
   const user = req.user;
-  const subjectsId = req.params?.id ? req.params?.id : '';
+
   const userData = await userRepository.findOne({
     where: {
       id: user.id,
     },
-    relations: ['subjects'],
+    relations: ['subjects','role', 'subjects.teacher'],
   });
 
+  
+
   const userSubjects = userData.subjects;
-  console.log(userSubjects);
+  // console.log(userSubjects);
 
   res.render('subjects', {
     user: userData,
@@ -31,6 +36,13 @@ export const getSubjects = async (req, res) => {
 };
 
 export const getSubjectDetails = async (req, res) => {
+    const { token } = req.cookies;
+  const tokenDeco = jwt.decode(token);
+
+  const userRepository = DataSource.getRepository('User');
+
+  const user = req.user;
+
   const subjectRepository = DataSource.getRepository('Subject');
 
   const subjectId = req.params.id;
@@ -38,11 +50,13 @@ export const getSubjectDetails = async (req, res) => {
     where: {
       id: subjectId,
     },
+    relations: ['teacher'],
   });
 
   console.log('Active subject: ', subjectId, subjectData);
 
   res.render('subject-detail', {
+    user, 
     subject: subjectData,
   });
 };
