@@ -45,7 +45,7 @@ res.render('rapport', {
     user,
     userPoints,
     students,
-    subjects
+    subjects,
     title: "Rapport"
     });
 };
