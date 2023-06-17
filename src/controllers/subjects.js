@@ -66,8 +66,19 @@ export const getSubjectPoints = async (req, res) => {
 };
 
 export const getSubjectDocuments = async (req, res) => {
+  const userRepository = DataSource.getRepository('User');
+
+  const user = req.user;
+
+  const userData = await userRepository.findOne({
+    where: {
+      id: user.id,
+    },
+    relations: ['subjects','role', 'subjects.teacher'],
+  });
   res.render('subject-document', {
-    title: "Document"
+        user: userData,
+    title: "Documents"
   });
 };
 

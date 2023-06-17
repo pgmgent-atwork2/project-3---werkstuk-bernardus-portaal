@@ -96,9 +96,10 @@ app.get('/teachers', teachers);
 app.get('/students', students);
 app.get('/coaches', coaches);
 
+app.get('/documents', jwtAuth, getSubjectDocuments);
+
 
 app.get('/subjects/:id/points', jwtAuth, getSubjectPoints);
-app.get('/subjects/:id/documents', jwtAuth, getSubjectDocuments);
 app.get('/subjects/:id', jwtAuth, getSubjectDetails);
 app.get('/subjects/:id/rapport', jwtAuth, getSubjectRapport);
 app.get('/subjects/:id/rapport/link', jwtAuth, getSubjectRapportLink);

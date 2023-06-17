@@ -1,19 +1,111 @@
 {{> up-nav}}
-<div class="scrollable-container">
-    <div >
-        <ul class="list-users">
-            {{#each users}}
-            <li class="user-item">
-                <div class="profile-img-user">
-                    <img src="/images/{{firstname}}.jpg" alt="{{firstname}}">
+<article class="mail-chat">
+    <section class="users-section">
+    <button class="button-mail" id="toggle-inbox">
+        <span id="icon-inbox" class="fa fa-envelope fa-2x"></span>
+        <p>Zie mails</p>
+    </button>
+        <section class="inbox-received hidden">
+            <div>
+                <div class="user_mail">
+                    <ul>
+                        <li class="user-item-mail">
+                            <div class="profile-img-user">
+                                <img src="/images/beheerder.jpg" alt="Teynur">
+                            </div>
+                            <div class="profile-content">
+                                <p class="user_name">Voornaam Naam</p>
+                                <p class="username">Hier komt de onderwerp van de mail</p>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-                <div class="profile-content">
-                    <p>{{firstname}} {{lastname}}</p>
-                    <p>{{username}}</p>
-                    <p>{{feedbacks.text}}</p>
+            </div>
+        </section>
+        <div class="scrollable-container">
+            <div>
+                <ul class="list-users">
+                    {{#each users}}
+                    <li class="user-item">
+                        <a class="user-link" href="#">
+                            <div class="profile-img-user">
+                                <img src="/images/{{firstname}}.jpg" alt="{{firstname}}">
+                            </div>
+                            <div class="profile-content">
+                                <p class="user_name">{{firstname}} {{lastname}}</p>
+                                <p class="username">{{username}}</p>
+                            </div>
+                        </a>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="inbox_side">
+        <div class="inbox_inner">
+            <div class="user_bar">
+                <li class="user-item" id="selected-user">
+                    <div class="profile-img-user">
+                        <img src="/images/beheerder.jpg" alt="Teynur">
+                    </div>
+                    <div class="profile-content">
+                        <p class="user_name">Selecteer een persoon</p>
+                        <p class="username">Gebruikersnaam</p>
+                    </div>
+                </li>
+                <div class="toggle-container">
+                    <button id="toggle-button">
+                        <span id="icon" class="fa fa-envelope fa-2x"></span>
+                    </button>
                 </div>
-            </li>
-            {{/each}}
-        </ul>
-    </div>
-</div>
+            </div>
+            <div class="chat-container">
+                <section class="chat-log">
+                    <div class="message left">
+                        <p>Hoi, hoe gaat het met je?</p>
+                    </div>
+                    <div class="message right">
+                        <p>Goed hoor! En met jou?</p>
+                    </div>
+                    <div class="message left">
+                        <p>Prima, bedankt!</p>
+                    </div>
+                    <div class="message right">
+                        <p>Wat leuk om te horen!</p>
+                    </div>
+                </section>
+                <div class="chat-input">
+                    <input type="text" id="message-input" placeholder="Schrijf een bericht..">
+                    <button id="send-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12 L19 5 12 12 19 19 5 12 Z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="email-container hidden">
+                <div class="email-header">
+                    <h2>Nieuw E-mail</h2>
+                </div>
+                <div class="email-body">
+                    <div class="form-group">
+                        <label for="subject">Onderwerp:</label>
+                        <input type="text" id="subject" placeholder="Onderwerp">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Bericht:</label>
+                        <textarea id="message" placeholder="Typ hier je bericht"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button class="mail-button" id="send-button"> Verzenden
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</article>
+
+
