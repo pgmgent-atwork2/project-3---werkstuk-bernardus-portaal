@@ -10,7 +10,6 @@
                 <h1 class="profile_name">
                     <span>{{user.firstname}}</span>
                     <span>{{user.lastname}}</span>
-                    <p>{{user.class.name}}</p>
                 </h1>
                 {{> user-role}}
             </div>
@@ -21,7 +20,7 @@
     <ul>
         {{#ifEquals user.role.label "Coach"}}
             <li class="nav_item">
-                <a class="item_link" href="/feedbackDashboard">
+                <a class="item_link" href="/feedbackDashboardCoach">
                     <svg class="item_icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
