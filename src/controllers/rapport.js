@@ -109,6 +109,7 @@ export const postPoints = async (req, res, next) => {
     const point = await pointsRepository.findOne({
       where: {
         point: req.body.point,
+        comment: req.body.comment,
         teacher: teacherId,
       },
       relations: ['student', 'teacher',],
@@ -134,41 +135,6 @@ export const postPoints = async (req, res, next) => {
       .send({ status: `Posted point with id ${savedPoint.id}.` });
   } catch (error) {
     next( error.message);
-  }
-};
-
-export const updatePoint = async (req, res, next) => {
-  console.log('updating');
-  try {
-    const pointId = req.params.id;
-    const updatedPoint = req.body.point;
-
-    if (!updatedPoint) {
-      throw new Error('Please provide a text for the updated point.');
-    }
-
-    const pointsRepository = DataSource.getRepository('Points');
-    const teacherId = req.user.id;
-
-    const point = await pointsRepository.findOne({
-      where: {
-        id: pointId,
-        teacher: teacherId,
-      },
-    });
-
-    if (!point) {
-      res.status(404).send({ error: 'Point not found.' });
-      return;
-    }
-
-    point.point = updatedPoint;
-
-    const updatedPointRep = await pointsRepository.save(point);
-    res.redirect('/rapportDashboard');
-  } catch (error) {
-    console.log('Oopsie daisy, er ging iets mis', error);
-    next(error);
   }
 };
 
@@ -201,5 +167,46 @@ export const deletePoint = async (req, res, next) => {
   }
 };
 
+export const updatePointAndComment = async (req, res, next) => {
+  console.log('updating');
+  try {
+    const itemId = req.params.id;
+    const updatedPoint = req.body.point;
+    const updatedComment = req.body.comment;
+
+    if (!updatedPoint && !updatedComment) {
+      throw new Error('Please provide a text for the updated point or comment.');
+    }
+
+    const pointsRepository = DataSource.getRepository('Points');
+    const teacherId = req.user.id;
+
+    const item = await pointsRepository.findOne({
+      where: {
+        id: itemId,
+        teacher: teacherId,
+      },
+    });
+
+    if (!item) {
+      res.status(404).send({ error: 'Item not found.' });
+      return;
+    }
+
+    if (updatedPoint) {
+      item.point = updatedPoint;
+    }
+
+    if (updatedComment) {
+      item.comment = updatedComment;
+    }
+
+    const updatedItem = await pointsRepository.save(item);
+    res.redirect('/rapportDashboard');
+  } catch (error) {
+    console.log('Oopsie daisy, er ging iets mis', error);
+    next(error);
+  }
+};
 
 

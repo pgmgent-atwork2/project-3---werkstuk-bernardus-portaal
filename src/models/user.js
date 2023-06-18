@@ -66,13 +66,13 @@ export default new EntitySchema({
       },
       inverseSide: 'user',
     },
-    Class: {
+    class: {
       target: 'Class',
-      type: 'many-to-many',
-      joinTable: {
+      type: 'many-to-one',
+      joinColumn: {
         name: 'class_id',
       },
-      inverseSide: 'class',
+      inverseSide: 'user',
     },
     subjects: {
       target: 'Subject',

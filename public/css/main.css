@@ -56,6 +56,7 @@ body {
 
 main{
     width: 92rem;
+    height: 100vh;
     animation: transitionIn 1s;
 }
 
@@ -242,8 +243,8 @@ a {
         gap: .62rem;
         & .profile_name {
             display: flex;
+            flex-direction: column;
             font-size: 1.25rem;
-            gap: .31rem;
         }
     }
 }
@@ -675,7 +676,7 @@ color: hsl(0, 0%, 47%);
     left: 14rem;
     top: 21.4rem;
     background-color: var(--blue);
-    width: 10rem;
+    width: 14.4rem;
     & li{
         margin-bottom: 1rem;
     }
@@ -1247,7 +1248,7 @@ transition: transform 0.3s ease-in-out;
         gap: 1.25rem;
         & input, select {
             border: none;
-            //border-bottom: 1px solid var(--darker-blue);
+            border-bottom: 1px solid var(--darker-blue);
             border: .06rem solid var(--blue);
             border-radius: .31rem;
             background-color: var(--light-blue);

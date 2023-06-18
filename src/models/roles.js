@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import typeorm from 'typeorm';
 
 const { EntitySchema } = typeorm;
@@ -20,7 +21,6 @@ relations: {
    users: {
    target: 'User',
    type: 'one-to-many',
-   cascade: true,
    inverseSide: 'users',
    },
 },

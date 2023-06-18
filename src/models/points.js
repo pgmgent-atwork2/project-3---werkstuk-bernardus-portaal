@@ -15,6 +15,10 @@ columns: {
    point: {
    type: 'int',
    },
+   comment: {
+   type: 'varchar',
+   nullable: true,
+   },
 },
 
 relations: {

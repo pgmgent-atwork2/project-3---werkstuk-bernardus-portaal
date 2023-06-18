@@ -47,19 +47,31 @@ export const getSubjectDetails = async (req, res) => {
     where: {
       id: subjectId,
     },
-    relations: ['teacher'],
+    relations: ['teacher' ]
   });
 
-  console.log('Active subject: ', subjectId, subjectData);
+  const pointsRepository = DataSource.getRepository('Points')
+  const pointsData = await pointsRepository.find({
+    where: {
+      subjects: {
+        id: subjectId,
+      },
+    },
+    relations: ['teacher', 'subjects'],
+  });
+
+  console.log(pointsData)
 
   res.render('subject-detail', {
     user, 
     subject: subjectData,
-    title: "{{name}}"
+    points: pointsData,
+    title: "Vakken"
   });
 };
 
 export const getSubjectPoints = async (req, res) => {
+ 
   res.render('subject-punten', {
     title: "Punten"
   });
