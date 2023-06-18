@@ -55,6 +55,7 @@ body {
 }
 
 main{
+    width: 92rem;
     animation: transitionIn 1s;
 }
 
@@ -195,9 +196,6 @@ body {
     background-color: var(--light-blue);
 }
 
-main {
-    width: 100%;
-}
 
 h2, h3,p {
     color: var(--dark-blue);
@@ -841,45 +839,62 @@ ul.feedback_recent li:not(:last-child) {
 }
 
 /*Chat*/
+
+.inbox_page{
+    display: flex;
+}
+
+.mail-chat{
+    display: flex;
+    height: 90%;
+animation: transitionIn 1s;
+}
+
+.users-section{
+    width: 25%;
+}
+
 .scrollable-container {
-    margin: .62rem;
-    height: 7rem;
-    width: 85rem;
+    margin-top: 2rem;
+    margin-left: 0.5rem;
+    height: 90%;
     overflow-x: scroll;
     scrollbar-width: thin;
     scrollbar-color: hsl(0, 0%, 53%) hsl(0, 0%, 95%);
+animation: transitionIn 1s;
 }
 
 .scrollable-container::-webkit-scrollbar {
-    width: .5rem;
+    width: .3rem;
     height: 0.2rem;
     background-color: hsl(0, 0%, 95%);
 }
 
 .scrollable-container::-webkit-scrollbar-thumb {
-    background-color: hsl(0, 0%, 53%);
+    background-color: hsl(234, 28%, 61%);
     border-radius: .25rem;
 }
 
 .scrollable-container::-webkit-scrollbar-thumb:hover {
-    background-color: hsl(0, 0%, 33%);
+    background-color: var(--darker-blue);
 }
 
 
-.list-users{
+.list-users, .user_bar{
     display: flex;
+    flex-direction: column;
+    gap: 2rem;
     & .user-item{
         display: flex;
-        padding: 1rem;
+        flex-direction: row;
         align-items: center;
-        margin: 0.8rem;
-        flex-direction: column;
-        justify-content: space-between;
+    }
+    & .username{
+        color: grey;
     }
     & .profile-img-user{
         background-color: hsl(0, 0%, 0%);
         width: 3rem;
-        margin: 0 auto;
         height: 3rem;
         border-radius: 50%;
         overflow: hidden;
@@ -888,13 +903,260 @@ ul.feedback_recent li:not(:last-child) {
         }
     }
     & .profile-content{
-        text-align: center;
+        text-align: left;
         margin-left: 0.9rem;
-        & p{
-            font-size: .31rem;
+        & .user_name{
+            font-weight: 600;
+            font-size: 1rem;
         }
     }
 }
+
+.user-link{
+    display: flex;
+}
+
+.user_bar{
+    display: flex;
+    padding: 0.5rem;
+    width: 100%;
+    background-color: #C7D2FF;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.user_mail {
+    width: 90rem;
+    margin: 5px auto;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin: 0.5rem;
+    padding: 10px;
+    animation: transitionIn 1s;
+}
+
+.user-item-mail {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+}
+
+.profile-img-user {
+        background-color: hsl(0, 0%, 0%);
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        overflow: hidden;
+        & img{
+            width: 4rem;
+        }
+    }
+
+.profile-content {
+    flex-grow: 1;
+}
+
+.user_name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.username {
+    font-size: 16px;
+    color: #555;
+}
+
+.inbox_side{
+    width: 100%;
+    display: flex;
+    flex-direction:column ;
+}
+
+.chat-input {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.chat-input input[type="text"] {
+  flex-grow: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 14px;
+}
+
+.chat-input button {
+  padding: 8px;
+  border: 0.1rem solid #6987ffd3;
+  color: #414a9f;
+  border: none;
+  border-radius: 4px;
+  margin-left: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.chat-input button svg {
+    transform: rotate(180deg);
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.chat-input button:hover {
+  background-color: #9badf9;
+}
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: absolute;
+    bottom: 0rem;
+    padding: 0.5rem;
+    width: 68%;
+    animation: transitionIn 1s;
+}
+
+.message {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin-bottom: 10px;
+}
+
+.message.left {
+    justify-content: flex-start;
+}
+
+.message.right {
+    justify-content: flex-end;
+}
+
+.message p {
+    padding: 8px;
+    border-radius: 10px;
+    background-color: #f1f0f0;
+}
+
+.message.left p {
+    background-color: #c5d0ff;
+}
+
+.message.right p {
+    background-color: #e9e9ea;
+}
+
+.chat-log{
+    width: 100%;
+}
+
+.button-mail{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: white;
+    padding: 0.2rem 0.3rem;
+    width: fit-content;
+    border-radius: 0.5rem;
+    margin:0.5rem;
+    cursor: pointer;
+    & span{
+        color: #0022A8;
+    }
+}
+
+.email-container {
+  width: 73rem;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+animation: transitionIn 1s;
+}
+
+.email-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.email-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="email"],
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+textarea {
+  height: 150px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: transparent;
+  color: #414a9f;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.mail-button{
+  padding: 10px 20px;
+  background-color: #414a9f;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.mail-button:hover{
+  background-color: #414a9faa;
+  color: white;
+}
+
+#icon:hover {
+  color: white;
+transition: transform 0.3s ease-in-out;
+}
+
+#toggle-button.active #icon {
+  transform: rotate(360deg);
+}
+
+.chat-container.hidden,
+.email-container.hidden {
+  display: none;
+}
+
+.hidden {
+  display: none;
+}
+
 
 /* Absence page */
 
@@ -1008,3 +1270,137 @@ ul.feedback_recent li:not(:last-child) {
     justify-content: flex-end;
     gap: .62rem;
 }
+
+/* afweziggeid*/
+
+.afwezigheid-container {
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 18px;
+    border: 0.1rem solid #0022A8;
+    background-color: #E1E7FF;
+    border-radius: 1rem 1rem 1rem 1rem;
+    width: 70%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-left: 10rem;
+    margin-bottom: 1.50rem;
+}
+
+.afwezigheid-text {
+    display: flex;
+}
+
+.afwezigheid-text p {
+    padding-left: 2rem;
+}
+
+.afwezigheid-text p:nth-child(2) {
+    padding-left: 4rem;
+}
+
+.afwezigheid-datum {
+    padding-left: 35rem;
+}
+
+.afwezigheid-img {
+    padding-right: 1rem;
+    border-right: 1px solid #0022A8;
+
+}
+
+
+/*Rapport*/
+
+.rapport h1 {
+    color:#0022A8 ;
+    margin-left: 3rem;
+    margin-top: 3rem;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.rapport-container {
+    background-color: #cbd6ff;
+    width: 53rem;
+    height: 5rem;
+    margin: 0 auto;
+    border-radius: 0.90rem ;
+    border: 2px solid black;
+    padding-top: 1.5rem;
+;
+}
+
+.rapport-scro {
+    padding-left: 2rem;
+    font-weight: 600;
+    font-size: 1rem;
+    display: flex;
+    gap: 293px;
+    & .date-detail {
+        padding-left: 22rem;
+    }
+}
+
+.rapport-text p:nth-child(1) {
+    border-right: 1px solid #0022A8;
+    padding-right: 1rem;
+}
+
+.rapport-text p:nth-child(2) {
+    border-right: 1px solid #0022A8;
+    padding-right: 1rem;
+}
+
+/*Rapport-link*/
+
+.rapport-link {
+    display: flex;
+    margin-top: 2rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.rapport-link-text h1 {
+  color: #0022A8;
+  margin-top: 2rem;
+}
+
+.rapport-link-tow {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    gap: 30rem;
+    padding-top: 2rem;
+}
+
+.rapport-link-text p {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.rapport-rapport {
+    background-color: #E1E7FF;
+    width: 59%;
+    height: 80%;
+    margin-left: 19rem;
+}
+
+.rapport-link-tow-rapport {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    gap: 18rem;
+    border: 1px solid #000000;
+    width: 36rem;
+    margin-left: 7rem;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.rapport-vak {
+    border-right: 2px solid #000000;
+    padding-right: 4rem;
+}
+

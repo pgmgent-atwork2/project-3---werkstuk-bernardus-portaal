@@ -38,21 +38,22 @@ import {
 
 import { getAbsence } from './controllers/absence.js';
 
-import { getSubjects, getSubjectDetails, getSubjectPoints, getSubjectDocuments } from "./controllers/subjects.js";
+import { getSubjects, getSubjectDetails, getSubjectPoints, getSubjectDocuments, getSubjectRapport, getSubjectAfwezigheid,getSubjectRapportLink } from "./controllers/subjects.js";
 
 
 
 import { getSchedule } from "./controllers/schedule.js";
 
-import { getFeedbacks, postFeedbacks, getAllFeedbacks, updateFeedback, deleteFeedback} from "./controllers/feedback.js";
+import { getFeedbacks,  postFeedbacks, getAllFeedbacks, updateFeedback, deleteFeedback,} from "./controllers/feedback.js";
 
-import { getPoints } from "./controllers/rapport.js";
+import { getPoints, getAllPoints, postPoints, updatePoint, deletePoint } from "./controllers/rapport.js";
 
 import { profile, profileDetail } from "./controllers/profile.js";
 
 import { getInbox } from "./controllers/inbox.js";
 
 import { teachers, students, coaches } from "./controllers/admin.js";
+
 
 
 dotenv.config();
@@ -95,21 +96,29 @@ app.get('/teachers', teachers);
 app.get('/students', students);
 app.get('/coaches', coaches);
 
+app.get('/documents', jwtAuth, getSubjectDocuments);
+
 
 app.get('/subjects/:id/points', jwtAuth, getSubjectPoints);
-app.get('/subjects/:id/documents', jwtAuth, getSubjectDocuments);
 app.get('/subjects/:id', jwtAuth, getSubjectDetails);
+app.get('/subjects/:id/rapport', jwtAuth, getSubjectRapport);
+app.get('/subjects/:id/rapport/link', jwtAuth, getSubjectRapportLink);
+app.get('/subjects/:id/afwezigheid', jwtAuth, getSubjectAfwezigheid);
 app.get('/subjects', jwtAuth, getSubjects);
 
 app.get('/feedback', jwtAuth, getFeedbacks, );
 app.post('/feedbackDashboard/:id', jwtAuth, updateFeedback);
 app.post('/deleteFeedback/:id', jwtAuth, deleteFeedback);
 app.get('/feedbackDashboard', jwtAuth, getAllFeedbacks)
-
-
 app.post('/feedbackDashboard', jwtAuth, postFeedbacks,)
 
-app.get('/rapport', jwtAuth, getPoints);
+
+app.get('/rapport', jwtAuth, getPoints );
+app.get('/rapportDashboard', jwtAuth, getAllPoints);
+app.post('/rapportDashboard', jwtAuth, postPoints);
+app.post('/rapportDashboard/:id', jwtAuth, updatePoint);
+app.post('/deletePoint/:id', jwtAuth, deletePoint);
+
 app.get('/rapport/:id', jwtAuth, getSubjectPoints, getPoints);
 
 app.get('/profile', jwtAuth, profile);
