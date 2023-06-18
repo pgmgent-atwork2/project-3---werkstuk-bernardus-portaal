@@ -31,7 +31,7 @@ export const register = async (req, res) => {
       {
         name: 'email',
         label: 'E-mail',
-        type: 'email',
+        type: 'text',
         value: req.body?.email ? req.body.email : '',
         error: req.formErrorFields?.email ? req.formErrorFields.email : '',
       },
@@ -151,6 +151,7 @@ export const postRegister = async (req, res, next) => {
             const userRepository = await DataSource.getRepository("User");
             const userExists = await userRepository.findOne({
                 where: {
+                    username: req.body.username,
                     email: req.body.email,
                 }
             });
