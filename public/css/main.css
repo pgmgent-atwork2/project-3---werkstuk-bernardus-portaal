@@ -13,16 +13,21 @@
 }
 
 :root {
-    --light-blue: hsl(228, 100%, 97%);
-    --darker-blue: hsl(228, 100%, 33%);
-    --dark-blue: hsl(228, 100%, 15%);
     --white: hsl(0, 0%, 100%);
+
+    --light-blue: hsl(228, 100%, 97%);
+    --blue: hsl(228, 100%, 33%);
+    --dark-blue: hsl(228, 100%, 15%);
+
+    --light-red: hsl(0, 100%, 77%);
+    --red: hsl(0, 100%, 33%);
+
     --bold: 600;
 }
 
 body {
-    background-color: #F0F3FF;
-    height: 100%;
+    background-color: var(--light-blue);
+    height: auto;
 }
 
 @keyframes transitionIn {
@@ -67,13 +72,13 @@ article {
     & h1 {
         margin-top: 2rem;
         margin-left: 1rem;
-        border-bottom: .12rem dashed var(--darker-blue);
+        border-bottom: .12rem dashed var(--blue);
         width: 90%;
     }
 }
 
 input:focus , textarea:focus{
-    outline: .06rem solid var(--darker-blue);
+    outline: .06rem solid var(--blue);
 }
 
 h2{
@@ -87,7 +92,7 @@ ul{
 }
 
 .role{
-    color: rgba(192, 192, 192, 0.523);
+    color: hsla(0, 0%, 75%, 0.523);
 }
 
 .subjects {
@@ -101,19 +106,19 @@ ul{
     & li{
         display: flex;
         align-items: center;
-        background-color: white;
+        background-color: var(--white);
         padding: 1rem;
         width: 20rem;
         margin: 2rem;
-        border: 0.1rem solid #0022A8;
+        border: 0.1rem solid var(--blue);
         border-radius: 1rem;
         transition: 0.2s;
     }
     & li:hover{
         cursor: pointer;
-        background-color: #d5ddfc;
+        background-color: hsl(228, 87%, 91%);
         border-radius: 2rem;
-        border: 0.1rem dashed #0022A8;
+        border: 0.1rem dashed var(--blue);
         transition: 0.2s;
         transform: scale(1.1);
     }
@@ -123,7 +128,7 @@ ul{
     }
     & .line{
         margin: 1rem ;
-        background-color: #0022A8;
+        background-color: var(--blue);
         width: 0.1rem;
         height: 3rem;
         transition: 0.2s;
@@ -145,10 +150,10 @@ ul{
     & .task-item{
         display: flex;
         align-items: center;
-        background-color: #d5ddfc;
+        background-color: hsl(228, 87%, 91%);
         padding: 0.3rem;
         width: 12rem;
-        border: 0.1rem solid #0022A8;
+        border: 0.1rem solid var(--blue);
         border-radius: 1rem;
         margin: 0.8rem;
         transition: 0.2s;
@@ -157,7 +162,7 @@ ul{
 /*     cursor: pointer;
         background-color: #d5ddfc;
         border-radius: 2rem;*/
-        border: 0.1rem dashed #0022A8;
+        border: 0.1rem dashed var(--blue);
         transition: 0.2s;
         transform: scale(1.1);
     }
@@ -167,7 +172,7 @@ ul{
     }
     & .line-home{
         margin: .62rem;
-        background-color: #0022A8;;
+        background-color: var(--blue);
         width: 0.1rem;
         height: 3rem;
         transition: 0.2s;
@@ -175,13 +180,10 @@ ul{
 
 }
 
-
-
 /*subject-detail*/
 .right_title_teacher{
     margin-left: 1rem;
 }
-
 
 /* Algemeen */
 
@@ -202,7 +204,7 @@ h2, h3,p {
 /* Aside */
 
 aside {
-    background-color: var(--darker-blue);
+    background-color: var(--blue);
     width: 20%;
     height: 100%;
     color: var(--white);
@@ -260,7 +262,7 @@ a {
         display: flex;
         justify-content: left;
         margin-bottom: 2.5rem;
-        padding: 10px;
+        padding: .62rem;
         transition: 0.2s;
         border-top-left-radius: 1rem;
         border-bottom-left-radius: 1rem;
@@ -269,11 +271,11 @@ a {
         }
     }
         & .item_link svg{
-        stroke: rgb(255, 255, 255);
+        stroke: var(--white);
     }
 
     & .nav_item:hover{
-    background-color: #add8e69a;
+    background-color: hsla(195, 53%, 79%, 0.604);
         cursor: pointer;
         transition: 0.2s;
         width: 14.4rem;
@@ -281,18 +283,18 @@ a {
 }
 
 .nav_item.active {
-    background-color: #F0F3FF;
-    border: 0.1rem dashed #0022A8;
+    background-color: var(--light-blue);
+    border: 0.1rem dashed var(--blue);
     border-right: none;
     width: 14.4rem;
     transition: 0.2s;
     & .item_title{
-        color: #0022A8;
+        color: var(--blue);
         transition: 0.2s;
     }
     & .item_link svg{
-        fill: #0022A8;
-        stroke:#0022A8;
+        fill: var(--blue);
+        stroke:var(--blue);
         transition: 0.2s;
     }
 }
@@ -329,7 +331,7 @@ a {
 
 .logout_title {
     display: none;
-    color:#0022A8;
+    color: var(--blue);
     transition: 0.2s;
 }
 
@@ -340,7 +342,7 @@ a {
         margin-left: 1rem;
         margin-top: -0.62rem;
         align-items: center;
-        background-color: #F0F3FF;
+        background-color: var(--light-blue);
         border-radius: 1rem;
         width: 11rem;
         padding: .62rem;
@@ -350,21 +352,21 @@ a {
         transition: 0.2s;
         }
         & svg{
-            stroke: #0022A8;
+            stroke: var(--blue);
             margin-right: 0.5rem;
             transition: 0.2s;
         }
     }
     .logout_link:hover{
-        background-color: #ff8a8a;
+        background-color: var(--light-red);
         transition: 0.2s;
         & svg{
-            stroke: #a80000;
+            stroke: var(--red);
             margin-right: 0.5rem;
         transition: 0.2s;
         }
         & .logout_title {
-            color: #a80000;
+            color: var(--red);
             transition: 0.2s;
 }
     }
@@ -418,7 +420,7 @@ a {
     }
 
     hr {
-        border: .06rem solid var(--darker-blue);
+        border: .06rem solid var(--blue);
     }
 }
 
@@ -427,7 +429,7 @@ a {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-        border-left: 0.1rem dashed #0022A8;
+        border-left: 0.1rem dashed var(--blue);
         align-content: flex-end;
         & .calendar {
             display: block;
@@ -450,21 +452,21 @@ a {
     & .search_input{
         display: flex;
         justify-content: flex-end;
-        background-color: #C7D2FF;
+        background-color: hsl(228, 100%, 89%);
         border: none;
         padding: 0.5rem;
         width: 40rem;
         height: 3rem;
-        border: 0.1rem solid #0022A8;
+        border: 0.1rem solid var(--blue);
     } 
     & button {
-        background-color: #C7D2FF;
+        background-color: hsl(228, 100%, 89%);
         display: flex;
         align-items: center;
         padding: 0.2rem;
         border: none;
         width: 3rem;
-        border: 0.1rem solid #0022A8;
+        border: 0.1rem solid var(--blue);
         border-radius: 0rem 0.5rem 0.5rem 0rem;
         height: 3rem;
     }
@@ -472,14 +474,14 @@ a {
         margin-left: 0.3rem;
     }
     & button:hover{
-        background-color: #b6c4fc78;
+        background-color: hsla(228, 92%, 85%, 0.471);
         cursor: pointer;
     }
 }
 
 .logo_bernardus svg{
     width: 15rem;
-    fill: #0022A8;
+    fill: var(--blue);
 }
 
 .search_input {
@@ -541,7 +543,7 @@ a {
 }
 
 .profile-card .profile-image {
-    background-color: var(--darker-blue);
+    background-color: var(--blue);
     text-align: center;
     overflow: hidden;
     margin-bottom: 1.25rem;
@@ -583,7 +585,12 @@ font-weight: bold;
 }
 
 .profile-card .profile-info .value {
-color: #777;
+color: hsl(0, 0%, 47%);
+}
+
+/* profile card register */
+.card--register {
+    height: auto;
 }
 
 /* Mediaquery voor responsiviteit op kleinere schermen */
@@ -609,41 +616,38 @@ color: #777;
     display: flex;
     /*justify-content: center;*/
     margin: 1rem;
-    border-bottom: 1px solid #0022A8;
+    border-bottom: .06rem solid var(--blue);
     margin-left: 2rem;
     font-size: 1rem;
 }
 
 .documenten-word p {
-   margin: 2rem;
-   padding-left: 15rem;
-   font-weight: 800;
-   font-size: 1.50rem;
-   color: #0022A8;
+    margin: 2rem;
+    padding-left: 15rem;
+    font-weight: 800;
+    font-size: 1.50rem;
+    color: var(--blue);
 }
 
 .documenten-text {
-   border: 0.1rem  solid #0022A8;
-   background-color: #E1E7FF;
-   border-radius: 1rem 1rem 1rem 1rem;
-   width: 70rem;
-   margin-left: 10rem;
-   margin-bottom: 1.5rem;
+    border: 0.1rem  solid var(--blue);
+    background-color: hsl(228, 100%, 94%);
+    border-radius: 1rem 1rem 1rem 1rem;
+    width: 70rem;
+    margin-left: 10rem;
+    margin-bottom: 1.5rem;
 }
-
-
 
 .documenten-word p:nth-child(2) {
-padding-left: 25rem;
+    padding-left: 25rem;
 }
-
 
 .documenten-text p {
     display: flex;
     font-size: 1.30rem;
     padding:1.25rem 20rem 1.25rem 1.25rem;
     font-weight: 600;
-    color: #0022A8;
+    color: var(--blue);
 }
 
 .documenten-text p:nth-child(1) {
@@ -652,14 +656,14 @@ padding-left: 25rem;
 
 .documenten-text p:nth-child(3) {
 
-    border-left: 1px solid #0022A8;
+    border-left: .06rem solid var(--blue);
 }
 .menu {
     position: absolute;
     display: none;
     left: 14rem;
     top: 21.4rem;
-    background-color: var(--darker-blue);
+    background-color: var(--blue);
     width: 10rem;
     & li{
         margin-bottom: 1rem;
@@ -667,7 +671,7 @@ padding-left: 25rem;
 }
 
 .item_title.dropdown{
-    color: white;
+    color: var(--white);
     transition: transform 0.3s ease-in-out;
     }
 
@@ -681,9 +685,6 @@ padding-left: 25rem;
 }
 
 /*post*/
-.feedback-list {
-
-}
 
 .feedback-container{
     display: flex;
@@ -694,8 +695,8 @@ padding-left: 25rem;
 .feedback-card{
     display: flex;
     align-items: center;
-    background-color: white;
-    border: 0.1rem solid #0022A8;
+    background-color: var(--white);
+    border: 0.1rem solid var(--blue);
     border-radius: 1rem;
     width: 100%;
     margin: 1rem;
@@ -722,7 +723,7 @@ padding-left: 25rem;
 }
 
 .feedback-card:hover{
-    border: 0.1rem dashed #0022A8;
+    border: 0.1rem dashed var(--blue);
     transform: scale(1.02);
     border-radius: 1.5rem;
     transition: 0.3s;
@@ -743,15 +744,15 @@ padding-left: 25rem;
 }
 
 .feedback-home {
-    background-color: #d5ddfc;
-    border: 0.1rem solid #0022A8;
+    background-color: hsl(228, 87%, 91%);
+    border: 0.1rem solid var(--blue);
     border-radius: 1rem;
     padding: 0.6rem;
     margin: 0.8rem;
     width: 42rem;
     transition: 0.3s;
     &:hover{
-    border: 0.1rem dashed #0022A8;
+    border: 0.1rem dashed var(--blue);
     transform: scale(1.02);
     border-radius: 1.5rem;
     transition: 0.3s;
@@ -760,7 +761,7 @@ padding-left: 25rem;
 }
 
 ul.feedback_recent li:not(:last-child) {
-  display: none;
+    display: none;
 }
 
 .teacher-feedback{
@@ -807,7 +808,7 @@ ul.feedback_recent li:not(:last-child) {
     background-color: var(--light-blue);
     padding: 2.5rem;
     width: 50%;
-    border: .12rem dashed var(--darker-blue);
+    border: .12rem dashed var(--blue);
     border-radius: .62rem;
     color: var(--dark-blue);
     & div {
@@ -816,7 +817,7 @@ ul.feedback_recent li:not(:last-child) {
         margin-bottom: 1.25rem;
     }
     & select , textarea {
-        border: .06rem solid var(--darker-blue);
+        border: .06rem solid var(--blue);
         border-radius: .31rem;
         padding: .31rem;
     }
@@ -1218,8 +1219,56 @@ transition: transform 0.3s ease-in-out;
     }
 }
 
+/* Register */
 .documenten-text {
     padding-left: 5rem;
+}
+
+.profile-image--register p {
+    padding: 4.06rem .62rem;
+    color: var(--white);
+}
+
+.card--register {
+    width: auto;
+    color: var(--dark-blue);
+    & .register--info {
+        display: flex;
+        gap: 1.25rem;
+        & input, select {
+            border: none;
+            //border-bottom: 1px solid var(--darker-blue);
+            border: .06rem solid var(--blue);
+            border-radius: .31rem;
+            background-color: var(--light-blue);
+            padding: .12rem;
+        }
+        & select {
+            width: 65%;
+        }
+        & input:focus, select:focus {
+            outline: .06rem dashed var(--blue);
+        }
+    }
+}
+
+.info_left > div, .info_middle > div , .info_right > div  {
+    display: flex;
+    justify-content: space-between;
+    gap: .31rem;
+    margin-bottom: 1.25rem;
+}
+
+.info_middle {
+    border-right: .06rem dashed var(--blue);
+    padding-right: 1.25rem;
+}
+
+.btn-container {
+    margin-top: 1.25rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: .62rem;
 }
 
 /* afweziggeid*/
@@ -1354,3 +1403,4 @@ transition: transform 0.3s ease-in-out;
     border-right: 2px solid #000000;
     padding-right: 4rem;
 }
+
