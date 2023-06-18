@@ -1,5 +1,5 @@
 .btn {
-    background-color: var(--darker-blue);
+    background-color: var(--blue);
     color: var(--white);
     border: none;
     border-radius: 10px;
@@ -19,4 +19,10 @@
 
 .btn--send {
     margin-top: 20px;
+}
+
+.btn--clear {
+    background-color: transparent;
+    color: var(--blue);
+    border: 1px solid var(--blue);
 }

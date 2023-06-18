@@ -59,12 +59,16 @@ body {
         padding: 2px;
         border: 1px solid var(--darker-blue);
         color: var(--dark-blue);
-        color: var(--white);
     }
-    & input:foncus {
-        outline: 1px solid var(--darker-blue);
+    & input:focus {
+        outline: 2px dashed var(--darker-blue);
+        border: none;
     }
 }
+
+.login-bottom input {
+    color: var(--white);
+} 
 
 .form-login div:not(:nth-child(2n)) {
     margin-bottom: 3.125rem;

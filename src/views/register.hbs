@@ -1,25 +1,77 @@
-<section class="auth-container register">
-    <div class="header">
-        <h3>Register</h3>
+<div class="page_title">
+    <h1>Register</h1>
+</div>
+<section class="auth-container register container">
         {{>form-errors this}}
-    </div>
-    <form method="post" action="register">
-        {{#each inputs}}
-        {{>form-input this}}
-        {{/each}}
-        <div class="input-container">
-            <label for="roles">Authorisation</label>
-            <select name="role" id="role">
-                {{#each roles}}
-                <option value="{{ id }}">{{ label }}</option>
-                {{/each}}
-            </select>
+    <form method="post" action="register" class="">
+        <div class="profile-card card--register">
+            <div class="profile-image profile-image--register">
+                <p>+ Voeg foto toe</p>
+            </div>
+            <div class="register--info">
+                <div class="info_left">
+                    <div>
+                        <label for="lastname">Achternaam:</label>
+                        <input type="text" name="lastname" id="" value="" required>
+                    </div>
+                    <div>
+                        <label for="country">Geboorteland:</label>
+                        <input type="text" name="country" id="" value="" required>
+                    </div>
+                    <div>
+                        <label for="gender">Geslacht:</label>
+                        <input type="text" name="gender" id="" value="" required>
+                    </div>
+                    <div>
+                        <label for="address">Adres:</label>
+                        <input type="text" name="address" id="" value="" required>
+                    </div>
+                </div>
+                <div class="info_middle">
+                    <div>
+                        <label for="firstname">Voornaam:</label>
+                        <input type="text" name="lastname" id="" value="" required>
+                    </div>
+                    <div>
+                        <label for="dob">Geboortedatum:</label>
+                        <input type="text" name="dob" id="" value="" required>
+                    </div>
+                    <div>
+                        <label for="phone">GSM-nummer:</label>
+                        <input type="tel" name="age" id="" value="" required>
+                    </div>
+                    <div>
+                        <label for="city">Stad:</label>
+                        <input type="text" name="city" id="" value="" required>
+                    </div>
+                </div>
+                <div class="info_right">
+                    <div>
+                        <label for="level">Leerling niveau:</label>
+                        <input type="number" name="level" id="" value="" required>
+                    </div>
+                    <div>
+                        <label for="email">E-mail:</label>
+                        <input type="email" name="email" id="" value="" required>
+                    </div>
+                    <div>
+                        <label for="password">Wachtwoord:</label>
+                        <input type="password" name="password" id="" value="" required>
+                    </div>
+                    <div class="input-roles">
+                        <label for="roles">Authorisation</label>
+                        <select name="role" id="role">
+                            {{#each roles}}
+                            <option value="{{ id }}">{{ label }}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="footer-container">
-            <span class="left-link">Heb je al een account? <br> <a href="/login">Login</a></span>
-
-            <input type="reset" class="btn btn-tertiary" value="Clear">
-            <input type="submit" class="btn btn-primary" value="Register">
+        <div class="btn-container">
+            <input type="reset" class="btn btn--clear" value="Clear">
+            <input type="submit" class="btn" value="Register">
         </div>
     </form>
 </section>

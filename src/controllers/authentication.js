@@ -23,8 +23,6 @@ export const register = async (req, res) => {
 
   const adminUser = users.find((user) => user.role.label === 'Admin');
 
-
-
     // Retrieve form errors
     const formErrors = req.formErrors ? req.formErrors : [];
 
@@ -33,7 +31,7 @@ export const register = async (req, res) => {
       {
         name: 'email',
         label: 'E-mail',
-        type: 'text',
+        type: 'email',
         value: req.body?.email ? req.body.email : '',
         error: req.formErrorFields?.email ? req.formErrorFields.email : '',
       },
@@ -75,7 +73,7 @@ export const register = async (req, res) => {
       {
         name: 'phone',
         label: 'GSM-nummer',
-        type: 'text',
+        type: 'tel',
         value: req.body?.phone ? req.body.phone : '',
         error: req.formErrorFields?.phone ? req.formErrorFields.phone : null,
       },
@@ -127,6 +125,7 @@ export const register = async (req, res) => {
       inputs,
       formErrors,
       roles,
+      title: 'Registreren'
     });
   } catch (error) {
     // Handle any errors
