@@ -188,6 +188,33 @@ export const postRegister = async (req, res, next) => {
     };
 };
 
+export const deleteUserById = async (req, res) => {
+  try {
+    const userId = req.params.id;
+
+    const userRepository = DataSource.getRepository('User');
+    const user = await userRepository.findOne({ 
+      where:{
+        id: userId
+      }
+    });
+
+    if (!user) {
+      // Gebruiker niet gevonden
+      return res.status(404).send('Gebruiker niet gevonden');
+    }
+
+    await userRepository.remove(user);
+
+    // Gebruiker succesvol verwijderd
+    res.send('<script>alert("Gebruiker succesvol verwijderd"); window.location.href = "/";</script>');
+  } catch (error) {
+    // Fout bij het verwijderen van de gebruiker
+    console.error(error);
+    res.status(500).send('Fout bij het verwijderen van de gebruiker');
+  }
+};
+
       export const login = async (req, res) => {
       // errors
       const {formErrors} = req;

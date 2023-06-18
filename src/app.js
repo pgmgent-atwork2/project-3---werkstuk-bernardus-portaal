@@ -7,9 +7,11 @@ import { create } from 'express-handlebars';
 import cookieParser from 'cookie-parser';
 import swaggerUi from 'swagger-ui-express';
 import bodyParser from 'body-parser';
+import multer from "multer";
 import HandlebarsHelpers from './lib/HandlebarsHelpers.js';
 import { VIEWS_PATH } from './consts.js';
 import DataSource from './lib/DataSource.js';
+import { saveAvatar } from "./middleware/saveAvatar.js";
 
 
 import { jwtAuth } from './middleware/jwtAuth.js';
@@ -20,6 +22,7 @@ import {
   postLogin,
   postRegister,
   logout,
+  deleteUserById
 } from "./controllers/authentication.js";
 
 import registerAuthentication from "./middleware/validation/registerAuthentication.js";
@@ -33,7 +36,6 @@ import {
   postUser,
   updateUser,
   getUserById,
-  deleteUserById,
 } from './controllers/api/user.js';
 
 import { getAbsence } from './controllers/absence.js';
@@ -87,6 +89,11 @@ app.post("/register", registerAuthentication, postRegister, register);
 app.post("/login", loginAuthentication, postLogin, login);
 app.post("/logout", logout);
 
+
+app.post('/uploadAvatar', multer().single('avatar'), saveAvatar, (req, res) => {
+  res.redirect('/')
+});
+
 app.get('/logout', logout);
 
 app.get('/absence', getAbsence);
@@ -135,7 +142,7 @@ app.get('/api/users',jwtAuth, getUsers);
 app.post('/api/user', jwtAuth, postUser);
 app.put('/api/user', jwtAuth, updateUser);
 app.get('/api/user/:id', jwtAuth, getUserById);
-app.delete('/api/user/:id', jwtAuth, deleteUserById);
+app.post('/user/:id', jwtAuth, deleteUserById);
 
 
 DataSource.initialize()

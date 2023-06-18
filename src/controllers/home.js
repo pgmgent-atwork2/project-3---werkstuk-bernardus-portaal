@@ -26,7 +26,6 @@ export const home = async (req, res) => {
     relations: ['subjects', 'teacher'],
   });
 
-  console.log(users)
   const allowedRoles = new Set(['Admin', 'Teacher', 'Student', 'Coach']);
   const shouldRenderSubjectsAndFeedbacks = allowedRoles.has(userRole);
 
