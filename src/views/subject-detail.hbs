@@ -1,13 +1,17 @@
 {{> up-nav}}
 <article>
-    <div class="page_title">
-        <h1>{{subject.name}}</h1>
-        <p class="right_title_teacher">{{subject.teacher.firstname}} {{subject.teacher.lastname}}</p>
-    </div>
+<div class="page_title">
+    <h1>{{subject.name}}</h1>
+    {{#each subject.teacher}}
+    <p class="right_title_teacher">{{firstname}} {{lastname}}</p>
+    {{/each}}
+</div>
+
     <div class="points">
         <h4>Gekregen punten:</h4>
         {{#each points}}
         <p>{{point}}</p>
+        <p>{{comment}}</p>
         {{/each}}
     </div>
 </article>

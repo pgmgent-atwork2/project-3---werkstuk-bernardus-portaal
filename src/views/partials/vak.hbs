@@ -3,21 +3,22 @@
       {{#each subjects}}
       <li>
          <a href="/subjects/{{ id }}">
-         <div class="first_part">
-            <div class="subject_img">
-               <img src="/images/{{ name }}.svg" alt="">
-            </div>
-            <div class="line"></div>
-            <div class="subject_name">
-               <h3>{{ name }}</h3>
-               <div class="teacher_name">
-                  <p>{{teacher.firstname}} {{teacher.lastname}}</p>
+            <div class="first_part">
+               <div class="subject_img">
+                  <img src="/images/{{ name }}.svg" alt="">
+               </div>
+               <div class="line"></div>
+               <div class="subject_name">
+                  <h3>{{ name }}</h3>
+                  <div class="teacher_name">
+                     {{#each teacher}}
+                     <p>{{ firstname }} {{ lastname }}</p>
+                     {{/each}}
+                  </div>
                </div>
             </div>
-         </div>
          </a>
       </li>
       {{/each}}
    </ul>
 </section>
-

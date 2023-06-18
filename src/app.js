@@ -46,7 +46,7 @@ import { getSubjects, getSubjectDetails, getSubjectPoints, getSubjectDocuments, 
 
 import { getSchedule } from "./controllers/schedule.js";
 
-import { getFeedbacks,  postFeedbacks, getAllFeedbacks, updateFeedback, deleteFeedback,} from "./controllers/feedback.js";
+import { getFeedbacks,  postFeedbacks, getAllFeedbacks, updateFeedback, deleteFeedback, getAllFeedbacksCoach} from "./controllers/feedback.js";
 
 import { getPoints, getAllPoints, postPoints, updatePointAndComment, deletePoint, } from "./controllers/rapport.js";
 
@@ -114,10 +114,14 @@ app.get('/subjects/:id/afwezigheid', jwtAuth, getSubjectAfwezigheid);
 app.get('/subjects', jwtAuth, getSubjects);
 
 app.get('/feedback', jwtAuth, getFeedbacks, );
+
+app.get('/feedbackDashboard', jwtAuth, getAllFeedbacks)
+app.get('/feedbackDashboardCoach', jwtAuth, getAllFeedbacksCoach)
+app.post('/feedbackDashboard', jwtAuth, postFeedbacks,)
 app.post('/feedbackDashboard/:id', jwtAuth, updateFeedback);
 app.post('/deleteFeedback/:id', jwtAuth, deleteFeedback);
-app.get('/feedbackDashboard', jwtAuth, getAllFeedbacks)
-app.post('/feedbackDashboard', jwtAuth, postFeedbacks,)
+
+
 
 
 app.get('/rapport', jwtAuth, getPoints );

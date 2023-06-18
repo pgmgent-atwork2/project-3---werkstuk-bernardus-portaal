@@ -27,8 +27,8 @@ relations: {
    },
    teacher: {
       target: 'User',
-      type: 'many-to-one',
-      joinColumn: {
+      type: 'many-to-many',
+      joinTable: {
          name: 'teacher_id'
       },
       cascade: true,
