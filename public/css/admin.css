@@ -17,6 +17,51 @@
     }
 }
 
+/* Stijl voor de profielkaart */
+.profile-card {
+    margin-top: 7rem;
+    width: 40rem;
+    height: 35rem;
+    background-color: hsl(0, 0%, 98%);
+    border-radius: .5rem;
+    box-shadow: 0 .12rem .25rem hsla(0, 0%, 0%, 0.1);
+    padding: 2rem;
+}
+
+.profile-card .profile-image {
+    background-color: var(--blue);
+    text-align: center;
+    overflow: hidden;
+    border-radius: .5rem;
+    height: 10rem;
+    width: 10rem 
+}
+
+.profile-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.left_side{
+    margin-right: 10rem;
+}
+
+.profile-image{
+    position: relative;
+    top: -7rem;
+}
+
+.profile-image img{
+    width: 15rem;
+}
+
+.container-adminUpdate{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
 .button-6 {
     align-items: center;
     background-color: #FFFFFF;
@@ -71,4 +116,31 @@
     flex-direction: column-reverse;
     }
 
+.upload-form{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    align-items: center;
+    width: 25rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-top: 7rem;
+    box-shadow: 0 0.12rem 0.25rem hsla(0, 0%, 0%, 0.1);
+    & h3{
+        margin-bottom: 1rem;
+    }
+}
 
+.upload-input {
+  display: inline-block;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #333;
+  font-size: 14px;
+}
+
+.upload-file-label {
+  margin-bottom: 10px;
+}

@@ -521,21 +521,11 @@ a {
     display: none;
 }
 
-/*Profile*/
-
-
-/* Maak een flex-container om de pagina-inhoud te centreren */
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 /* Stijl voor de profielkaart */
 .profile-card {
     margin-top: 7rem;
     width: 40rem;
-    height: 25rem;
+    height: 40rem;
     background-color: hsl(0, 0%, 98%);
     border-radius: .5rem;
     box-shadow: 0 .12rem .25rem hsla(0, 0%, 0%, 0.1);
@@ -546,21 +536,18 @@ a {
     background-color: var(--blue);
     text-align: center;
     overflow: hidden;
-    margin-bottom: 1.25rem;
     border-radius: .5rem;
     height: 10rem;
     width: 10rem 
 }
 
 .profile-info{
-    position: absolute;
-    top: 12rem;
     display: flex;
     flex-direction: row;
-    align-items: flex-end;
     justify-content: space-between;
-    margin: 0 auto;
-    height: 20rem;
+    & p{
+        margin-bottom: 1rem;
+    }
 }
 
 .left_side{
@@ -576,15 +563,39 @@ a {
     width: 15rem;
 }
 
-.profile-card .profile-info p {
+.container-adminUpdate{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+
+/* Maak een flex-container om de pagina-inhoud te centreren */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card--register {
+    margin-top: 7rem;
+    width: 50rem;
+    height: 35rem;
+    background-color: hsl(0, 0%, 98%);
+    border-radius: .5rem;
+    box-shadow: 0 .12rem .25rem hsla(0, 0%, 0%, 0.1);
+    padding: 2rem;
+}
+
+.card--register .profile-info p {
     margin-bottom: 0.4rem;
     }
 
-.profile-card .profile-info label {
+.card--register .profile-info label {
 font-weight: bold;
 }
 
-.profile-card .profile-info .value {
+.card--register .profile-info .value {
 color: hsl(0, 0%, 47%);
 }
 
@@ -1099,7 +1110,6 @@ animation: transitionIn 1s;
 label {
   font-weight: bold;
   display: block;
-  margin-bottom: 5px;
 }
 
 input[type="email"],
