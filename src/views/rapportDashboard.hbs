@@ -6,8 +6,11 @@
     <ul class="feedback-list">
 {{#each userPoints}}
             <div class="feedback-text">
+<p>{{ subjects.name }}</p>
+<p>{{ student.firstname }}</p>
                 <form class="form-update" action="/rapportDashboard/{{ id }}" method="post">
-                    <input type="point" id="{{ id }}" name="point" value="{{ point }}"></input>
+                    <input type="number" id="{{ id }}" name="point" value="{{ point }}"></input>
+                    <input type="text" id="{{ id }}" name="comment" value="{{ comment }}"></input>
                     <button class="btn btn-edit" type="submit" value="done">Bewerk
                     </button>
                 </form>
@@ -15,8 +18,7 @@
                     <input type="hidden" name="_method" value="DELETE"></input>
                     <button class="btn btn-delete" type="submit" value="delete">Verwijder</button>
                 </form>
-<p>{{ subjects.name }}</p>
-<p>{{ student.firstname }}</p>
+            </div>
 {{/each}}
     </ul>
 </section>
@@ -49,7 +51,11 @@
             </div>
             <div>
                 <label for="punt">Punt</label>
-                <textarea name="point" id="{{id}}" rows="5" placeholder="Voer hier je punt in" required></textarea>
+                <input type="number" id="{{ id }}" name="point" value="{{ point }}" placeholder="Voer hier je punt in" required>
+            </div>
+            <div>
+                <label for="comment">Commentaar</label>
+                <textarea name="comment" id="{{id}}" rows="5" placeholder="Voer hier je comment in" required></textarea>
             </div>
             <div class="btn--feedback">
                 <button class="btn" type="submit">Voeg toe</button>

@@ -39,10 +39,10 @@ export const profileDetail = async (req, res) => {
     where: {
         id: userId,
     },
-    relations: ['role'],
+    relations: ['role', 'class']
   });
 
-  console.log(users);
+  console.log(user);
   res.render('admin/userDetail', {
     layout: 'admin',
     user,

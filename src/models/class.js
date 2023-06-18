@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import typeorm from 'typeorm';
 
 const { EntitySchema } = typeorm;
@@ -11,20 +12,17 @@ export default new EntitySchema({
       type: 'int',
       generated: true,
     },
-    nameClass: {
+    name: {
       type: 'varchar',
     },
   },
 
   relations: {
-    teacher: {
+    user: {
       target: 'User',
-      type: 'one-to-one',
-      joinColumn: {
-        name: 'teacher_id',
-      },
+      type: 'one-to-many',
       cascade: true,
-      inverseSide: 'user',
+      inverseSide: 'class',
     },
   },
 });

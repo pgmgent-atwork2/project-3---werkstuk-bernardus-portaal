@@ -4,4 +4,10 @@
         <h1>{{subject.name}}</h1>
         <p class="right_title_teacher">{{subject.teacher.firstname}} {{subject.teacher.lastname}}</p>
     </div>
+    <div class="points">
+        <h4>Gekregen punten:</h4>
+        {{#each points}}
+        <p>{{point}}</p>
+        {{/each}}
+    </div>
 </article>
