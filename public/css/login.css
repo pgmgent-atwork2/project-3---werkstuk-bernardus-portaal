@@ -57,11 +57,11 @@ body {
     & input {
         border-radius: 5px;
         padding: 2px;
-        border: 1px solid var(--darker-blue);
+        border: 1px solid var(--blue);
         color: var(--dark-blue);
     }
     & input:focus {
-        outline: 2px dashed var(--darker-blue);
+        outline: 2px dashed var(--blue);
         border: none;
     }
 }

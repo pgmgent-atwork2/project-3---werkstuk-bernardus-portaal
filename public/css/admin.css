@@ -1,3 +1,7 @@
+.dashboard {
+    margin: 20px;
+}
+
 .profile_user{
     display: flex;
     flex-direction: row;
@@ -102,20 +106,20 @@
 
 .dashboard_users {
     overflow: auto;
-    max-height: 50rem
-    }
+    max-height: 50rem;
+    height: 87vh;
+}
 
 .dashboard_users::-webkit-scrollbar,
 .dashboard_users::-webkit-scrollbar-thumb {
-  display: none;
+    display: none;
 }
-
 
 .users_list{
     display: flex;
     flex-direction: column-reverse;
     }
-
+    
 .upload-form{
     display: flex;
     flex-direction: column;
@@ -144,3 +148,4 @@
 .upload-file-label {
   margin-bottom: 10px;
 }
+
