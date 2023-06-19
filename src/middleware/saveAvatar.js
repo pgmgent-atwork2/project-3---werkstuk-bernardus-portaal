@@ -12,7 +12,6 @@ export const saveAvatar = async (req, res, next) => {
   // if no file is sent, skip this middleware
   if (!file) return next();
 
-  // check if the file is an image
   if (
     file.mimetype == 'image/png' ||
     file.mimetype == 'image/jpg' ||
@@ -21,8 +20,6 @@ export const saveAvatar = async (req, res, next) => {
   ) {
     try {
       const userRepository = DataSource.getRepository('User');
-
-      // Find the user by ID
       const userId = body.userId;
       const user = await userRepository.findOne({
         where: {

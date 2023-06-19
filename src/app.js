@@ -122,8 +122,6 @@ app.post('/feedbackDashboard/:id', jwtAuth, updateFeedback);
 app.post('/deleteFeedback/:id', jwtAuth, deleteFeedback);
 
 
-
-
 app.get('/rapport', jwtAuth, getPoints );
 app.get('/rapportDashboard', jwtAuth, getAllPoints);
 app.post('/rapportDashboard', jwtAuth, postPoints);
