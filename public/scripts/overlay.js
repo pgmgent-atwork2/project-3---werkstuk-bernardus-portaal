@@ -1,11 +1,20 @@
-const btnOverlay = document.querySelector(".add-feedback");
-const btnClose = document.querySelector(".close");
-const overlay = document.querySelector(".overlay");
+const btnFeedback = document.querySelectorAll(".add--overlay");
+const btnClose = document.querySelectorAll(".close");
+const overlay = document.querySelectorAll(".overlay");
 
-btnOverlay.addEventListener('click', (e) => {
-    overlay.style.display = "block";
+btnFeedback.forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    overlay.forEach(element => {
+      element.style.display = "block";
+    });
+  });
 });
 
-btnClose.addEventListener('click', (e) => {
-    overlay.style.display = "none";
+btnClose.forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    overlay.forEach(element => {
+      element.style.display = "none";
+    });
+    console.log("Dicht");
+  });
 });

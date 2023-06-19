@@ -2,53 +2,71 @@
     <h1>Afwezigheden</h1>
 </div>
 
-<div class="afwezigheid-container">
-    <div class="afwezigheid-img">
-        <img src="/images/rode-cirkel.svg" alt="">
+<section class="absence-list">
+    <div class="btn-absence ">
+        <button class="btn add--overlay">Afwezigheid uploaden</button>
     </div>
-    <div class="afwezigheid-text">
-        <p>Hele dag</p>
-        <p>onwettig</p>
+    <div class="afwezigheid-container">
+        <div>
+            <div class="afwezigheid-img">
+                <img src="/images/rode-cirkel.svg" alt="Rode cirkel">
+            </div>
+            <div class="afwezigheid-text">
+                <p>Hele dag</p>
+                <p>Onwettig</p>
+            </div>
+        </div>
+        <div class="afwezigheid-datum">
+            <p>10 mei 2023</p>
+        </div>
     </div>
-    <div class="afwezigheid-datum">
-        <p>10 mei 2023</p>
+    <div class="afwezigheid-container">
+        <div>
+            <div class="afwezigheid-img">
+                <img src="/images/gele-cirkel.svg" alt="Gele cirkel">
+            </div>
+            <div class="afwezigheid-text">
+                <p>Te Laat</p>
+                <p>Wettig</p>
+            </div>
+        </div>
+        <div class="afwezigheid-datum">
+            <p>20 mei 2023</p>
+        </div>
     </div>
-</div>
-<div class="afwezigheid-container">
-    <div class="afwezigheid-img">
-        <img src="/images/gele-cirkel.svg" alt="">
-    </div>
-    <div class="afwezigheid-text">
-        <p>Te Laat</p>
-        <p>Wettig</p>
-    </div>
-    <div class="afwezigheid-datum">
-        <p>10 mei 2023</p>
-    </div>
-</div>
+</section>
 
-<section class="section-absence">
-    <div class="absence-img">
-        <img src="/images/absence.svg" alt="Cartoon ziek mens">
-    </div>
-    <article class="article-form-absence">
-        <form action="" class="form-absence">
-            <div class="form-bg-white">
-                <div class="absence-date">
-                    <input type="text" placeholder="Van">
-                    <input type="text" placeholder="Tot">
-                </div>
-                <textarea name="" rows="4" placeholder="Wat is de reden"></textarea>
-                <div class="absence-upload">
-                    <p>Upload je brief hier:</p>
-                    <div class="upload--absence">
-                        {{> upload}}
+
+
+<section class="section-absence overlay">
+    <div class="absence-content">
+        <button class="close">
+            <svg width="30" height="27" viewBox="0 0 30 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24.9304 21.568C24.9122 21.7713 24.8068 21.966 24.6328 22.1157C24.4423 22.2806 24.1851 22.3746 23.9279 22.3746C23.6941 22.3746 23.4779 22.2987 23.3179 22.1612L15 14.9816L6.68141 22.1612C6.52204 22.2988 6.30583 22.3746 6.07262 22.3746C5.81481 22.3746 5.55758 22.2806 5.36715 22.1158C5.19313 21.9661 5.08766 21.7713 5.0695 21.5681C5.05016 21.346 5.13922 21.1321 5.31442 20.9814L13.633 13.8018L5.31442 6.62222C4.96637 6.32234 4.9904 5.81308 5.36715 5.48791C5.55758 5.32305 5.81481 5.22899 6.07262 5.22899C6.30583 5.22899 6.52204 5.30485 6.682 5.4424L15 12.622L23.3185 5.4424C23.478 5.30485 23.6941 5.22899 23.9279 5.22899C24.1851 5.22899 24.4423 5.32305 24.6328 5.48791C25.0101 5.81308 25.0336 6.32183 24.6855 6.62222L16.367 13.8018L24.6855 20.9814C24.8607 21.1321 24.9498 21.346 24.9304 21.568Z" fill="#0022A8"/>
+            </svg>
+        </button>
+        <div class="absence-img">
+            <img src="/images/absence.svg" alt="Cartoon ziek mens">
+        </div>
+        <article class="article-form-absence">
+            <form action="" class="form-absence">
+                <div class="form-bg-white">
+                    <div class="absence-date">
+                        <input type="text" placeholder="Van">
+                        <input type="text" placeholder="Tot">
+                    </div>
+                    <textarea name="" rows="4" placeholder="Wat is de reden"></textarea>
+                    <div class="absence-upload">
+                        <p>Upload je brief hier:</p>
+                        <div class="upload--absence">
+                            {{> upload}}
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div>
-                <input type="submit" class="btn btn--send" value="Versturen">
-            </div>
-        </form>
-    </article>
+                <div>
+                    <input type="submit" class="btn btn--send" value="Versturen">
+                </div>
+            </form>
+        </article>
+    </div>
 </section>

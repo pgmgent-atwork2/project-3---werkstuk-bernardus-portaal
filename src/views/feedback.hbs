@@ -3,10 +3,13 @@
   <h1>Feedback</h1>
 </div>
 
-<ul>
-  {{#each feedbackData}}
-    <li>
-        {{> feedback-student}}
-    </li>
-  {{/each}}
-</ul>
+<div class="feedback-list">
+
+  <ul  >
+    {{#each feedbackData}}
+      <li>
+          {{> feedback-student}}
+      </li>
+    {{/each}}
+  </ul>
+</div>

@@ -10,15 +10,18 @@
                     <p>{{teacher.firstname}} {{teacher.lastname}} - {{subjects.name}}</p>
                 </div>
             </div>
-            <div class="feedback-text">
+            <div class="feedback-content">
                 <form class="form-update" action="/feedbackDashboard/{{ id }}" method="post">
                     <input type="text" id="{{ id }}" name="text" value="{{ text }}"></input>
-                    <button class="btn btn-edit" type="submit" value="done">Bewerk
-                    </button>
-                </form>
-                <form class="form-delete" action="/deleteFeedback/{{ id }}" method="post">
-                    <input type="hidden" name="_method" value="DELETE"></input>
-                    <button class="btn btn-delete" type="submit" value="delete">Verwijder</button>
+                    <div class="button-container">
+
+                        <button class="btn btn-edit" type="submit" value="done">Bewerken
+                        </button>
+                    </form>
+                    <form class="form-delete" action="/deleteFeedback/{{ id }}" method="post">
+                        <input type="hidden" name="_method" value="DELETE"></input>
+                        <button class="btn btn-delete btn--clear" type="submit" value="delete">Verwijderen</button>
+                    </div>
                 </form>
             </div>
         </div>

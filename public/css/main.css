@@ -55,7 +55,7 @@ body {
 }
 
 main{
-    width: 92rem;
+    width: 90%;
     animation: transitionIn 1s;
 }
 
@@ -64,17 +64,20 @@ main{
     z-index: 1;
 }
 
+
 article {
     width: 100%;
 }
 
 .page_title {
-    & h1 {
-        margin-top: 2rem;
-        margin-left: 1rem;
-        border-bottom: .12rem dashed var(--blue);
-        width: 90%;
-    }
+    margin: 2rem;
+    border-bottom: .12rem dashed var(--blue);
+}
+
+.title--subject {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
 input:focus , textarea:focus{
@@ -116,7 +119,7 @@ ul{
     }
     & li:hover{
         cursor: pointer;
-        background-color: hsl(228, 87%, 91%);
+        background-color: var();
         border-radius: 2rem;
         border: 0.1rem dashed var(--blue);
         transition: 0.2s;
@@ -137,8 +140,10 @@ ul{
 
 .detail {
     display: flex;
-    margin: 2rem;
-    margin-left: 18rem;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    // margin: 2rem;
+    // margin-left: 18rem;
 }
 /*home*/
 .subjects_home {
@@ -150,7 +155,7 @@ ul{
     & .task-item{
         display: flex;
         align-items: center;
-        background-color: hsl(228, 87%, 91%);
+        background-color: var(--light-blue);
         padding: 0.3rem;
         width: 12rem;
         border: 0.1rem solid var(--blue);
@@ -181,9 +186,6 @@ ul{
 }
 
 /*subject-detail*/
-.right_title_teacher{
-    margin-left: 1rem;
-}
 
 /* Algemeen */
 
@@ -275,10 +277,10 @@ a {
     }
 
     & .nav_item:hover{
-    background-color: hsla(195, 53%, 79%, 0.604);
+        background-color: hsla(195, 53%, 79%, 0.604);
         cursor: pointer;
         transition: 0.2s;
-        width: 14.4rem;
+        
     }
 }
 
@@ -303,8 +305,10 @@ a {
 @media (min-width: 28.12rem){
     .nav {
         align-items: flex-start;
-        & ul {
+        width: 100%;
+        & > ul  {
             margin-left: 1.25rem;
+            width: 92%;
             & .item_link {
                 display: flex;
                 gap: .62rem;
@@ -534,12 +538,11 @@ a {
 /* Stijl voor de profielkaart */
 .profile-card {
     margin-top: 7rem;
-    width: 40rem;
-    height: 25rem;
     background-color: hsl(0, 0%, 98%);
     border-radius: .5rem;
     box-shadow: 0 .12rem .25rem hsla(0, 0%, 0%, 0.1);
     padding: 2rem;
+    padding: 20px 40px;
 }
 
 .profile-card .profile-image {
@@ -553,7 +556,6 @@ a {
 }
 
 .profile-info{
-    position: absolute;
     top: 12rem;
     display: flex;
     flex-direction: row;
@@ -576,16 +578,16 @@ a {
     width: 15rem;
 }
 
-.profile-card .profile-info p {
-    margin-bottom: 0.4rem;
-    }
+.profile-card .profile-info div {
+    margin-bottom: 20px;
+}
 
 .profile-card .profile-info label {
-font-weight: bold;
+    font-weight: bold;
 }
 
 .profile-card .profile-info .value {
-color: hsl(0, 0%, 47%);
+    color: hsl(0, 0%, 47%);
 }
 
 /* profile card register */
@@ -601,6 +603,10 @@ color: hsl(0, 0%, 47%);
 }
 }
 
+.section-document {
+    margin: 2rem;
+}
+
 .nav_dropdown{
     display: flex;
     flex-direction: column;
@@ -614,50 +620,55 @@ color: hsl(0, 0%, 47%);
 
 .documenten-word {
     display: flex;
+    justify-content: space-between;
     /*justify-content: center;*/
     margin: 1rem;
     border-bottom: .06rem solid var(--blue);
-    margin-left: 2rem;
     font-size: 1rem;
 }
 
 .documenten-word p {
-    margin: 2rem;
-    padding-left: 15rem;
+    margin-bottom: .62rem;
     font-weight: 800;
-    font-size: 1.50rem;
+    font-size: 1.25rem;
     color: var(--blue);
+    margin-left: 6%;
+    margin-right: 6%;
 }
 
 .documenten-text {
+    display: flex;
+    justify-content: space-between;
     border: 0.1rem  solid var(--blue);
     background-color: hsl(228, 100%, 94%);
-    border-radius: 1rem 1rem 1rem 1rem;
-    width: 70rem;
-    margin-left: 10rem;
+    border-radius: 1rem;
+    width: 90%;
+    margin: 0 auto;
     margin-bottom: 1.5rem;
 }
 
-.documenten-word p:nth-child(2) {
-    padding-left: 25rem;
+.documenten-text div {
+    display: flex;
 }
+
 
 .documenten-text p {
     display: flex;
-    font-size: 1.30rem;
-    padding:1.25rem 20rem 1.25rem 1.25rem;
+    font-size: 1.1rem;
+    padding: .62rem;
     font-weight: 600;
     color: var(--blue);
 }
 
-.documenten-text p:nth-child(1) {
-    padding-left: 6rem;
+.documenten-text > p:nth-child(2){
+    font-weight: 400;
 }
 
-.documenten-text p:nth-child(3) {
-
+.documenten-text > p:last-child{
     border-left: .06rem solid var(--blue);
+    padding-left: 20px;
 }
+
 .menu {
     position: absolute;
     display: none;
@@ -686,6 +697,21 @@ color: hsl(0, 0%, 47%);
 
 /*post*/
 
+.feedback-coach {
+    margin: 1.25rem;
+}
+
+.feedback-list {
+    overflow: auto;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.feedback-list::-webkit-scrollbar {
+    display: none;
+}
+
 .feedback-container{
     display: flex;
     align-items: center;
@@ -706,6 +732,7 @@ color: hsl(0, 0%, 47%);
         display: flex;
         flex-direction: column;
         padding: 1rem;
+        width: 100%;
     }
     & .teacher-profile{
         display:flex;
@@ -786,6 +813,7 @@ ul.feedback_recent li:not(:last-child) {
     margin-top: 2rem;
 }
 
+
 /* feedback form */
 
 .overlay {
@@ -846,22 +874,22 @@ ul.feedback_recent li:not(:last-child) {
 
 .mail-chat{
     display: flex;
-    height: 90%;
-animation: transitionIn 1s;
+    height: 85vh;
+    width: 75vw;
+    animation: transitionIn 1s;
+    margin: 20px;
+    color: var(--dark-blue);
 }
 
-.users-section{
-    width: 25%;
-}
 
 .scrollable-container {
     margin-top: 2rem;
     margin-left: 0.5rem;
-    height: 90%;
+    height: 94%;
     overflow-x: scroll;
     scrollbar-width: thin;
     scrollbar-color: hsl(0, 0%, 53%) hsl(0, 0%, 95%);
-animation: transitionIn 1s;
+    animation: transitionIn 1s;
 }
 
 .scrollable-container::-webkit-scrollbar {
@@ -927,8 +955,11 @@ animation: transitionIn 1s;
     justify-content: space-between;
 }
 
+.inbox-received {
+    width: 350%;
+}
+
 .user_mail {
-    width: 90rem;
     margin: 5px auto;
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -1004,9 +1035,9 @@ animation: transitionIn 1s;
 
 .chat-input button svg {
     transform: rotate(180deg);
-  width: 16px;
-  height: 16px;
-  fill: currentColor;
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
 }
 
 .chat-input button:hover {
@@ -1020,7 +1051,7 @@ animation: transitionIn 1s;
     position: absolute;
     bottom: 0rem;
     padding: 0.5rem;
-    width: 68%;
+    width: 65%;
     animation: transitionIn 1s;
 }
 
@@ -1073,13 +1104,14 @@ animation: transitionIn 1s;
 }
 
 .email-container {
-  width: 73rem;
+  width: 100%;
   margin: 0 auto;
+  margin: 0px 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
   padding: 20px;
   font-family: Arial, sans-serif;
-animation: transitionIn 1s;
+    animation: transitionIn 1s;
 }
 
 .email-header {
@@ -1094,6 +1126,9 @@ animation: transitionIn 1s;
 
 .form-group {
   margin-bottom: 15px;
+  & textarea {
+    width: 100%;
+  }
 }
 
 label {
@@ -1102,11 +1137,12 @@ label {
   margin-bottom: 5px;
 }
 
-input[type="email"],
-input[type="text"],
-textarea {
+.feedback-card input[type="email"],
+.feedback-card input[type="text"],
+.feedback-card textarea {
   width: 100%;
   padding: 10px;
+  margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 14px;
@@ -1157,18 +1193,22 @@ transition: transform 0.3s ease-in-out;
   display: none;
 }
 
-
 /* Absence page */
 
-.section-absence {
-    margin: 1.56rem 1.25rem;
-    & .article-form-absence {
-        margin-top: 1.25rem;
-    }
+.absence-content {
+    width: 50%;
+    background-color: var(--light-blue);
+    border-radius: 20px;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 10px;
 }
 
-.absence-img img{
-    height: 15.62rem;
+.absence-img{
+    height: 13rem;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
 }
 
 .form-bg-white {
@@ -1189,14 +1229,18 @@ transition: transform 0.3s ease-in-out;
         padding: .12rem .31rem;
         margin-bottom: .62rem;
     }
-    & textarea {
-        width: 100%;
-    }
+
+}
+
+.btn-absence {
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px;
+    margin-right: 10%;
 }
 
 .button-send {
     display: flex;
-
     margin-top: .62rem;
     justify-content: flex-end;
     max-width: 5.31rem;
@@ -1206,10 +1250,15 @@ transition: transform 0.3s ease-in-out;
     .form-absence{
         margin: 0rem 2.5rem;
     }
-    .section-absence {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    .form-absence textarea {
+        width: 100%;
+    }
+    .form-absence input, .form-absence textarea{
+        outline: 1px solid var(--blue);
+        border: none;
+    }
+    .form-absence input:focus, .form-absence textarea:focus{
+        outline: 2px dashed var(--blue)
     }
 }
 
@@ -1221,7 +1270,7 @@ transition: transform 0.3s ease-in-out;
 
 /* Register */
 .documenten-text {
-    padding-left: 5rem;
+    padding: 0rem 3rem;
 }
 
 .profile-image--register p {
@@ -1272,49 +1321,47 @@ transition: transform 0.3s ease-in-out;
 }
 
 /* afweziggeid*/
+.absence-list {
+    margin: 1.25rem;
+}
 
 .afwezigheid-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
     font-weight: 600;
-    font-size: 18px;
-    border: 0.1rem solid #0022A8;
+    border: 0.1rem solid var(--blue);
     background-color: #E1E7FF;
     border-radius: 1rem 1rem 1rem 1rem;
-    width: 70%;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    margin-left: 10rem;
+    padding: .62rem 1.25rem;
     margin-bottom: 1.50rem;
+    width: 90%;
 }
 
 .afwezigheid-text {
     display: flex;
+    align-items: center;
 }
 
 .afwezigheid-text p {
     padding-left: 2rem;
+    padding-right: 2rem;
 }
 
 .afwezigheid-text p:nth-child(2) {
-    padding-left: 4rem;
+    padding-left: 2rem;
+    border-left: 0.1rem solid var(--blue);
 }
 
-.afwezigheid-datum {
-    padding-left: 35rem;
+.afwezigheid-container div:first-child{
+    display: flex;
 }
-
-.afwezigheid-img {
-    padding-right: 1rem;
-    border-right: 1px solid #0022A8;
-
-}
-
 
 /*Rapport*/
 
 .rapport h1 {
-    color:#0022A8 ;
+    color:var(--blue) ;
     margin-left: 3rem;
     margin-top: 3rem;
     font-size: 2rem;

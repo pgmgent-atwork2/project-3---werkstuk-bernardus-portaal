@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-const mailChatArticle = document.querySelector('.inbox_inner');
+const mailChatArticle = document.querySelector('.inbox_side');
 const inboxReceivedArticle = document.querySelector('.inbox-received');
 const inboxContainer = document.querySelector('.scrollable-container');
 

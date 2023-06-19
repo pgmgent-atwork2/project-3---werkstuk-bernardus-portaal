@@ -4,6 +4,10 @@
     border: none;
     border-radius: 10px;
     padding: 5px 10px;
+    gap: 5px;
+    & p {
+        color: white;
+    }
 }
 
 .btn--feedback {
@@ -12,9 +16,6 @@
 
 .btn--upload {
     display: flex;
-    & p {
-        color: white;
-    }
 }
 
 .btn--send {
@@ -25,4 +26,19 @@
     background-color: transparent;
     color: var(--blue);
     border: 1px solid var(--blue);
+}
+
+.button-container {
+    display: flex;
+    gap: 10px;
+    margin-right: 10px;
+}
+
+.btn--toggle {
+    display: flex;
+}
+
+.container--upload {
+    display: flex;
+    justify-content: flex-end;
 }
