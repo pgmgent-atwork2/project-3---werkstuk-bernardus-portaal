@@ -29,14 +29,14 @@ export const saveAvatar = async (req, res, next) => {
 
       if (user) {
         // Use the username of the user as part of the filename
-        const originalFilename = `${user.firstname}`;
+        const originalFilename = `${user.firstname}${user.lastname}`;
 
         await sharp(file.buffer)
           .resize(128, 128, {
             fit: sharp.fit.cover,
             withoutEnlargement: true,
           })
-          .toFile(`${PUBLIC_PATH}/images/${originalFilename}.jpg`);
+          .toFile(`${PUBLIC_PATH}/images/avatars/${originalFilename}.jpg`);
           console.log(user)
       } else {
         console.log('User not found'); // console

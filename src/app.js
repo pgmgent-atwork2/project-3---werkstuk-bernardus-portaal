@@ -54,14 +54,13 @@ import { profile, profileDetail } from "./controllers/profile.js";
 
 import { getInbox } from "./controllers/inbox.js";
 
-import { teachers, students, coaches } from "./controllers/admin.js";
+import { teachers, students, coaches, getSubjectsForEdit, renameSubjects, newSubject, deleteSubject } from "./controllers/admin.js";
 
 
 
 dotenv.config();
 
 
-// import Users
 const app = express();
 
 app.use(express.static('public'));
@@ -103,6 +102,11 @@ app.get('/teachers', teachers);
 app.get('/students', students);
 app.get('/coaches', coaches);
 
+app.get('/editSubjects', getSubjectsForEdit);
+app.post('/editSubjects/:id', renameSubjects);
+app.post('/editSubjects/', newSubject);
+app.post('/deleteSubject/:id', deleteSubject);
+
 app.get('/documents', jwtAuth, getSubjectDocuments);
 
 
@@ -140,10 +144,10 @@ app.get('/inbox', jwtAuth, getInbox);
 
 
 // API routes
-app.get('/api/users',jwtAuth, getUsers);
-app.post('/api/user', jwtAuth, postUser);
-app.put('/api/user', jwtAuth, updateUser);
-app.get('/api/user/:id', jwtAuth, getUserById);
+app.get('/users',getUsers);
+app.post('/user', jwtAuth, postUser);
+app.put('/user', jwtAuth, updateUser);
+app.get('/user/:id', jwtAuth, getUserById);
 app.post('/user/:id', jwtAuth, deleteUserById);
 
 
@@ -159,3 +163,5 @@ DataSource.initialize()
   .catch((error) => {
     console.log('Error: ', error);
   });
+
+export default app;
