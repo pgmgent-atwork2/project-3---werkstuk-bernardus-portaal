@@ -34,8 +34,56 @@ const subjectsRepository = DataSource.getRepository('Subject')
 const users = await userRepository.find();
 
 const userRole = req.user?.role?.label;
+const userId = req.user.id;
 const {user} = req;
-console.log(user);
+
+
+const feedbackRepository = DataSource.getRepository('Feedback');
+
+const feedbackData = await feedbackRepository.find({
+    where: {
+    teacher:{id :userId} 
+  },
+  relations: ['subjects', 'student','teacher'],
+});
+
+const students = await userRepository.find({
+  where: {
+    role: {
+      id: 3
+    }
+  }
+})
+
+const subjects = await subjectsRepository.find({
+  where: {
+    teacher: {
+      id: user.id
+    }
+  }
+})
+
+console.log(feedbackData);
+
+const userFeedbackdata = feedbackData;
+userFeedbackdata.reverse();
+res.render('feedbackDashboard', {
+  user,
+  userFeedbackdata,
+  students,
+  subjects
+    });
+};
+
+export const getAllFeedbacksCoach = async (req, res) => {
+const userRepository = DataSource.getRepository('User');
+const subjectsRepository = DataSource.getRepository('Subject')
+const users = await userRepository.find();
+
+const userRole = req.user?.role?.label;
+const userId = req.user.id;
+const {user} = req;
+
 
 const feedbackRepository = DataSource.getRepository('Feedback');
 
@@ -58,6 +106,8 @@ const subjects = await subjectsRepository.find({
     }
   }
 })
+
+console.log(feedbackData);
 
 const userFeedbackdata = feedbackData;
 userFeedbackdata.reverse();

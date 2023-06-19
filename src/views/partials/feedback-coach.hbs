@@ -13,8 +13,7 @@
             <div class="feedback-text">
                 <form class="form-update" action="/feedbackDashboard/{{ id }}" method="post">
                     <input type="text" id="{{ id }}" name="text" value="{{ text }}"></input>
-                    <button class="btn btn-edit" type="submit" value="done">Bewerk
-                    </button>
+                    <button class="btn btn-edit" type="submit" value="done">Bewerk</button>
                 </form>
                 <form class="form-delete" action="/deleteFeedback/{{ id }}" method="post">
                     <input type="hidden" name="_method" value="DELETE"></input>
