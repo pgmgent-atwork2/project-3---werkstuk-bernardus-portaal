@@ -3,7 +3,7 @@
         <section class="section-profile">
             <div class="profile-icon">
                 <div class="profile-img">
-                    <img src="/images/{{user.firstname}}.jpg" alt="Profile icon">
+                    <img src="images/avatars/{{user.firstname}}{{user.lastname}}.jpg" alt="{{firstname}}">
                 </div>
             </div>
             <div>
@@ -20,7 +20,7 @@
     <ul>
         {{#ifEquals user.role.label "Coach"}}
             <li class="nav_item">
-                <a class="item_link" href="/feedbackDashboard">
+                <a class="item_link" href="/feedbackDashboardCoach">
                     <svg class="item_icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -86,6 +86,16 @@
                                 d="M12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14Z" />
                         </svg>
                     <span class="item_title">Coach</span>
+                </a>
+            </li>
+            <li class="nav_item">
+                <a class="item_link" href="/editSubjects">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M22 11V17C22 21 21 22 17 22H7C3 22 2 21 2 17V7C2 3 3 2 7 2H8.5C10 2 10.33 2.44 10.9 3.2L12.4 5.2C12.78 5.7 13 6 14 6H17C21 6 22 7 22 11Z"
+                            stroke-width="1.5" stroke-miterlimit="10" />
+                    </svg>
+                    <span class="item_title">Vakken</span>
                 </a>
             </li>
             <li class="nav_item">

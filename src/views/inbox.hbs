@@ -6,35 +6,37 @@
             <p>Zie mails</p>
         </button>
         <section class="inbox-received hidden">
-            <div class="user_mail">
-                <ul>
-                    <li class="user-item-mail">
-                        <div class="profile-img-user">
-                            <img src="/images/beheerder.jpg" alt="Teynur">
-                        </div>
-                        <div class="profile-content">
-                            <p class="user_name">Voornaam Naam</p>
-                            <p class="username">Hier komt de onderwerp van de mail</p>
-                        </div>
-                    </li>
-                </ul>
+            <div>
+                <div class="user_mail">
+                    <ul>
+                        <li class="user-item-mail">
+                            <div class="profile-img-user">
+                                <img src="/images/avatars/beheerder.jpg" alt="Teynur">
+                            </div>
+                            <div class="profile-content">
+                                <p class="user_name">Voornaam Naam</p>
+                                <p class="username">Hier komt de onderwerp van de mail</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </section>
         <div class="scrollable-container">
             <div>
                 <ul class="list-users">
                     {{#each users}}
-                        <li class="user-item">
-                            <a class="user-link" href="#">
-                                <div class="profile-img-user">
-                                    <img src="/images/{{firstname}}.jpg" alt="{{firstname}}">
-                                </div>
-                                <div class="profile-content">
-                                    <p class="user_name">{{firstname}} {{lastname}}</p>
-                                    <p class="username">{{username}}</p>
-                                </div>
-                            </a>
-                        </li>
+                    <li class="user-item">
+                        <a class="user-link" href="#">
+                            <div class="profile-img-user">
+                                <img src="images/avatars/{{firstname}}{{lastname}}.jpg" alt="{{firstname}}">
+                            </div>
+                            <div class="profile-content">
+                                <p class="user_name">{{firstname}} {{lastname}}</p>
+                                <p class="username">{{username}}</p>
+                            </div>
+                        </a>
+                    </li>
                     {{/each}}
                 </ul>
             </div>
@@ -45,7 +47,7 @@
             <div class="user_bar">
                 <li class="user-item" id="selected-user">
                     <div class="profile-img-user">
-                        <img src="/images/beheerder.jpg" alt="Teynur">
+                        <img src="/images/avatars/beheerder.jpg" alt="Teynur">
                     </div>
                     <div class="profile-content">
                         <p class="user_name">Selecteer een persoon</p>

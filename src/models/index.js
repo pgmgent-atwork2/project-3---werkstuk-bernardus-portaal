@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import User from './user.js';
 import Role from './roles.js';
 import Subject from './subjects.js';

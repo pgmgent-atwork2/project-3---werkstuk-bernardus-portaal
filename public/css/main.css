@@ -56,6 +56,7 @@ body {
 
 main{
     width: 90%;
+    height: 100vh;
     animation: transitionIn 1s;
 }
 
@@ -142,9 +143,10 @@ ul{
     display: flex;
     justify-content: space-between;
     margin-bottom: 3rem;
-    // margin: 2rem;
-    // margin-left: 18rem;
+    /* margin: 2rem;*/
+    /* margin-left: 18rem;*/
 }
+
 /*home*/
 .subjects_home {
     & .task-list {
@@ -244,8 +246,8 @@ a {
         gap: .62rem;
         & .profile_name {
             display: flex;
+            flex-direction: column;
             font-size: 1.25rem;
-            gap: .31rem;
         }
     }
 }
@@ -525,19 +527,11 @@ a {
     display: none;
 }
 
-/*Profile*/
-
-
-/* Maak een flex-container om de pagina-inhoud te centreren */
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 /* Stijl voor de profielkaart */
 .profile-card {
     margin-top: 7rem;
+    width: 40rem;
+    height: 40rem;
     background-color: hsl(0, 0%, 98%);
     border-radius: .5rem;
     box-shadow: 0 .12rem .25rem hsla(0, 0%, 0%, 0.1);
@@ -549,7 +543,6 @@ a {
     background-color: var(--blue);
     text-align: center;
     overflow: hidden;
-    margin-bottom: 1.25rem;
     border-radius: .5rem;
     height: 10rem;
     width: 10rem 
@@ -559,10 +552,10 @@ a {
     top: 12rem;
     display: flex;
     flex-direction: row;
-    align-items: flex-end;
     justify-content: space-between;
-    margin: 0 auto;
-    height: 20rem;
+    & p{
+        margin-bottom: 1rem;
+    }
 }
 
 .left_side{
@@ -588,6 +581,41 @@ a {
 
 .profile-card .profile-info .value {
     color: hsl(0, 0%, 47%);
+.container-adminUpdate{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+}
+
+
+/* Maak een flex-container om de pagina-inhoud te centreren */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card--register {
+    margin-top: 7rem;
+    width: 50rem;
+    height: 35rem;
+    background-color: hsl(0, 0%, 98%);
+    border-radius: .5rem;
+    box-shadow: 0 .12rem .25rem hsla(0, 0%, 0%, 0.1);
+    padding: 2rem;
+}
+
+.card--register .profile-info p {
+    margin-bottom: 0.4rem;
+    }
+
+.card--register .profile-info label {
+font-weight: bold;
+}
+
+.card--register .profile-info .value {
+color: hsl(0, 0%, 47%);
 }
 
 /* profile card register */
@@ -675,7 +703,7 @@ a {
     left: 14rem;
     top: 21.4rem;
     background-color: var(--blue);
-    width: 10rem;
+    width: 14.4rem;
     & li{
         margin-bottom: 1rem;
     }
@@ -1134,7 +1162,6 @@ ul.feedback_recent li:not(:last-child) {
 label {
   font-weight: bold;
   display: block;
-  margin-bottom: 5px;
 }
 
 .feedback-card input[type="email"],
@@ -1286,7 +1313,7 @@ transition: transform 0.3s ease-in-out;
         gap: 1.25rem;
         & input, select {
             border: none;
-            //border-bottom: 1px solid var(--darker-blue);
+            border-bottom: 1px solid var(--darker-blue);
             border: .06rem solid var(--blue);
             border-radius: .31rem;
             background-color: var(--light-blue);

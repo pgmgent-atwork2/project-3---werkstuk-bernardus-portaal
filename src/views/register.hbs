@@ -4,10 +4,7 @@
 <section class="auth-container register container">
         {{>form-errors this}}
     <form method="post" action="register" class="">
-        <div class="profile-card card--register">
-            <div class="profile-image profile-image--register">
-                <p>+ Voeg foto toe</p>
-            </div>
+        <div class="card--register">
             <div class="register--info">
                 <div class="info_left">
                     <div>
@@ -58,7 +55,6 @@
                         <label for="email">E-mail:</label>
                         <input type="text" name="email" id="email" placeholder="voorbeeld@bernardus.be" required>
                     </div>
-
                     <div>
                         <label for="username">Gebruikersnaam:</label>
                         <input type="text" name="username" id="" value="" required>
@@ -72,6 +68,15 @@
                         <select name="role" id="role">
                             {{#each roles}}
                             <option value="{{ id }}">{{ label }}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <div>
+                        <label for="subject">Leerkracht Vak:</label>
+                        <select name="subject" id="subject" required>
+                            <option value="">-- Selecteer vak --</option>
+                            {{#each subjects}}
+                            <option value="{{ id }}">{{ name }}</option>
                             {{/each}}
                         </select>
                     </div>

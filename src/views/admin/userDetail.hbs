@@ -1,4 +1,5 @@
-<div class="container">
+<div class="container-adminUpdate">
+    <div class="profile-container">
     <div class="profile-card">
         <div class="profile-image">
             <img src="/images/{{users.firstname}}.jpg" alt="{{firstname}}">
@@ -6,46 +7,68 @@
         <div class="profile-info">
             <div class="left_side">
                 <p>
-                    <label>Voornaam</label><br>
+                    <label>Voornaam</label>
                     <span class="value">{{users.firstname}}</span>
                 </p>
                 <p>
-                    <label>Achternaam</label><br>
+                    <label>Achternaam</label>
                     <span class="value">{{users.lastname}}</span>
                 </p>
                 <p>
-                    <label>Leerling niveau</label><br>
+                    <label>Leerling niveau</label>
                     <span class="value">{{users.level}}</span>
                 </p>
                 <p>
-                    <label>Geslacht</label><br>
+                    <label>Geslacht</label>
                     <span class="value">{{users.gender}}</span>
                 </p>
                 <p>
-                    <label>E-mail</label><br>
+                    <label>E-mail</label>
                     <span class="value">{{users.email}}</span>
                 </p>
             </div>
             <div class="right_side">
                 <p>
-                    <label>Stad</label><br>
+                    <label>Stad</label>
                     <span class="value">{{users.city}}</span>
                 </p>
                 <p>
-                    <label>Adres</label><br>
+                    <label>Adres</label>
                     <span class="value">{{users.address}}</span>
                 </p>
                 <p>
-                    <label>GSM-nummer</label><br>
+                    <label>GSM-nummer</label>
                     <span class="value">{{users.phone}}</span>
                 </p>
                 <p>
-                    <label>Land</label><br>
+                    <label>Land</label>
                     <span class="value">{{users.country}}</span>
                 </p>
             </div>
         </div>
     </div>
-        <button class="button-6" role="button">Bewerk</button>
+    <div class="delete_user">
+        <form action="/user/{{users.id}}" method="POST"
+            onsubmit="return confirm('Weet je zeker dat je deze gebruiker wilt verwijderen?');">
+            <input type="hidden" name="_method" value="DELETE">
+            <button class="button-6" role="button">Verwijder profiel</button>
+        </form>
+    </div>
+    </div>
+    <div class="upload_avatar">
+        <form method="post" id="uploadForm-{{users.id}}" class="upload-form" action="/uploadAvatar"
+            enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="avatar-{{users.id}}" class="upload-file-label">
+                    <h3>Kies een profiel afbeelding:</h3>
+                    </label>
+                <input id="avatar-{{users.id}}" class="upload-input" type="file" name="avatar">
+                <input type="hidden" name="userId" value="{{users.id}}">
+            </div>
+            <button type="submit" class="button-6 upload-button" role="button">Upload</button>
+        </form>
+    </div>
 </div>
+
+
 

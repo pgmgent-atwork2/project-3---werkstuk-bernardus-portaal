@@ -2,7 +2,7 @@
 import userResponse from '../responses/users.js';
 
 export default {
-  '/api/users': {
+  '/users': {
     summary: 'CRUD with users',
     description: 'Get all users in the database',
     get: {
@@ -53,7 +53,7 @@ export default {
       responses: userResponse,
     },
   },
-  '/api/user/{id}': {
+  '/user/{id}': {
     summary: 'Get one user with given id',
     description: 'Get one user with given id',
     get: {

@@ -1,9 +1,9 @@
+/* eslint-disable vars-on-top */
 /* eslint-disable no-var */
 /* eslint-disable prettier/prettier */
 // Haal het huidige pad op
 const currentPath = window.location.pathname;
 
-// Zoek de link die overeenkomt met het huidige pad
 const links = document.getElementsByClassName('item_link');
 for (let i = 0; i < links.length; i++) {
   const linkPath = links[i].getAttribute('href');
@@ -14,7 +14,6 @@ for (let i = 0; i < links.length; i++) {
   }
 }
 
-// Voeg een event listener toe aan de item_link elementen
 var itemLinks = document.getElementsByClassName("item_link");
 for (var i = 0; i < itemLinks.length; i++) {
     itemLinks[i].addEventListener("click", function() {
@@ -23,7 +22,6 @@ for (var i = 0; i < itemLinks.length; i++) {
     });
 }
 
-// Functie om het menu te openen/sluiten
 function toggleMenu(menu) {
     if (menu.style.display === "none") {
         menu.style.display = "block";
