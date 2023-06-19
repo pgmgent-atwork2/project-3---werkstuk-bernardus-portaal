@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import schemes from './schemes.js';
 import paths from './paths/index.js';
 
@@ -14,7 +15,7 @@ export default {
   },
   servers: [
     {
-      url: 'http://localhost:4000/api',
+      url: 'http://localhost:8080',
       description: 'This is the development server',
     },
   ],
