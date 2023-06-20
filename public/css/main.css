@@ -686,6 +686,15 @@ color: hsl(0, 0%, 47%);
     margin-bottom: 1.5rem;
 }
 
+.documenten{
+    overflow: auto;
+    height: 45rem;
+}
+
+.documenten::-webkit-scrollbar{
+    display: none;
+}
+
 .doc-text{
     color: var(--dark-blue);
 }

@@ -2,7 +2,7 @@ import DataSource from "../../lib/DataSource.js";
 import Factory from "./Factory.js";
 import { faker } from "@faker-js/faker";
 
-class PointFactory extends Factory {
+class FeedbackFactory extends Factory {
   async make() {
     const record = {
       text: faker.lorem.sentence(),
@@ -48,10 +48,10 @@ async getRandomSubjectId() {
 
 
   async insert(record) {
-    const repo = DataSource.getRepository("Point");
+    const repo = DataSource.getRepository("Feedback");
 
     // Check if feedback already exists in the database
-    let existingRecord = await repo.findOne({ where: { point: record.point } });
+    let existingRecord = await repo.findOne({ where: { text: record.text } });
     if (existingRecord) return existingRecord;
 
     // Save the feedback
@@ -61,4 +61,4 @@ async getRandomSubjectId() {
   }
 }
 
-export default PointFactory;
+export default FeedbackFactory;

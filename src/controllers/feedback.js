@@ -271,7 +271,7 @@ const students = await userRepository.find({
     feedback.text = updatedText;
 
     const updatedFeedback = await feedbackRepository.save(feedback);
-    res.redirect('/feedbackDashboardCoach')
+    res.redirect('/feedbackDashboard')
   } catch (error) {
     console.log('opsie daisy, er ging iets mis', error);
     next(error);
@@ -300,7 +300,7 @@ export const deleteFeedbackCoach = async (req, res, next) => {
     }
 
     await feedbackRepository.delete(feedbackId);
-    res.redirect('/feedbackDashboardCoach');
+    res.redirect('/feedbackDashboard');
   } catch (error) {
     console.log('Oopsie daisy, er ging iets mis', error);
     next(error);
