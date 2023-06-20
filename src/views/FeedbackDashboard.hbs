@@ -3,13 +3,18 @@
 </div>
 
 <section class="feedback-coach">
-    {{> post-feedback}} 
+    {{> post-feedback}}
     <ul class="feedback-list">
         {{#each userFeedbackdata}}
+        {{#ifEquals user.role.label "Teacher"}}
+        <li>
+            {{> feedback-teacher}}
+        </li>
+        {{else}}
         <li>
             {{> feedback-coach}}
         </li>
+        {{/ifEquals}}
         {{/each}}
     </ul>
 </section>
-

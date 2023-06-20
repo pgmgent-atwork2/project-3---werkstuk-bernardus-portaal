@@ -1,89 +1,42 @@
 {{> up-nav}}
 <article>
     <div class="page_title title--subject">
-        <h1>{{subject.name}}</h1> -
-        <p class="">{{subject.teacher.firstname}} {{subject.teacher.lastname}}</p>
-<div class="page_title">
-    <h1>{{subject.name}}</h1>
-    {{#each subject.teacher}}
-    <p class="right_title_teacher">{{firstname}} {{lastname}}</p>
-    {{/each}}
-</div>
-
-    <div class="points">
-        <h4>Gekregen punten:</h4>
-        {{#each points}}
-        <p>{{point}}</p>
-        <p>{{comment}}</p>
+        <h1>{{subject.name}}</h1> 
+    </div>
+    <div class="teachers_subject">
+        {{#each subject.teacher}}
+        <p class="right_title_teacher">{{firstname}} {{lastname}}</p>
         {{/each}}
     </div>
-
     {{#ifEquals user.role.label "Teacher"}}
-        <section class="section-document">
-            <div class="detail container--upload">
-                {{> upload}}
-            </div>
-            <section class="documenten documenten--docu">
-                <div class="documenten-word" >
-                    <p>Naam</h2>
-                    <p>Laatst gewijzigd</h2>
-                </div>
-
-                <div class="documenten-text">
-                    <div>
-                        <img src="/images/pdf.svg" alt="">
-                        <p>wat doet de Eu.pdf</p>
-                    </div>
-                    <p>23 mei 2023</p>
-                </div>
-
-                <div class="documenten-text">
-                    <div>
-                        <img src="/images/pdf.svg" alt="">
-                        <p>wat doet de Eu.pdf</p>
-                    </div>
-                    <p>23 mei 2023</p>
-                </div>
-
-                <div class="documenten-text">
-                    <div>
-                        <img src="/images/pdf.svg" alt="">
-                        <p>wat doet de Eu.pdf</p>
-                    </div>
-                    <p>23 mei 2023</p>
-                </div>
-            </section>
-        </section>
+    <section class="section-document">
+        <div class="detail container--upload">
+            {{> upload}}
+        </div>
+    </section>
     {{else}}
-        <section class="section-document">
-            <div class="detail">
-                {{> subject-buttons}}
-                {{> upload}}
-            </div>
-            <section class="documenten documenten--points">
-                {{#each points}}
-                    <div class="documenten-text">
-                        <div>
-                            <p>{{point}}</p>
-                            <p>Toets deel 1</p>
-                        </div>
-                        <p>{{comment}}</p>
-                        <p>23 mei 2023</p>
-                    </div>
-                {{/each}}
-
-                <div class="documenten-text">
-                    <div>
-                        <p>10/10</p>
-                        <p>Toets deel 1</p>
-                    </div>
-                    <P>Goed gedaan</P>
-                    <p>23 mei 2023</p>
+    <section class="section-document">
+        <div class="detail">
+            {{> subject-buttons}}
+            {{> upload}}
+        </div>
+        <section class="documenten documenten--points">
+            {{#each points}}
+            <div class="documenten-text">
+                <div>
+                    <p class="point_color" id="point">{{point}}/20</p>
                 </div>
-            </section>
+                <p>{{comment}}</p>
+                <p>23 mei 2023</p>
+            </div>
+            {{/each}}
 
-            <section class="documenten documenten--docu hidden">
-            <div class="documenten-word" >
+            <div class="documenten-text">
+            </div>
+        </section>
+
+        <section class="documenten documenten--docu hidden">
+            <div class="documenten-word">
                 <p>Naam</h2>
                 <p>Laatst gewijzigd</h2>
             </div>
@@ -91,26 +44,26 @@
             <div class="documenten-text">
                 <div>
                     <img src="/images/pdf.svg" alt="">
-                    <p>wat doet de Eu.pdf</p>
+                    <p>Cursus{{subject.name}}.pdf</p>
                 </div>
                 <p>23 mei 2023</p>
             </div>
             <div class="documenten-text">
                 <div>
                     <img src="/images/pdf.svg" alt="">
-                    <p>wat doet de Eu.pdf</p>
+                    <p>taak_opdrach2.pdf</p>
                 </div>
                 <p>23 mei 2023</p>
             </div>
             <div class="documenten-text">
                 <div>
                     <img src="/images/pdf.svg" alt="">
-                    <p>wat doet de Eu.pdf</p>
+                    <p>taak_semester1.pdf</p>
                 </div>
                 <p>23 mei 2023</p>
             </div>
-        </div>
-            </section>
+            </div>
         </section>
+    </section>
     {{/ifEquals}}
 </article>

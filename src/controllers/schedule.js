@@ -18,7 +18,7 @@ export const getSchedule = async (req, res) => {
   });
 
   const userSubjects = userData.subjects;
-  
+  console.log(userSubjects)
 
   res.render('schedule', {
     user: userData,

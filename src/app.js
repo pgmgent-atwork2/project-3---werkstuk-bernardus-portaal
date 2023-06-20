@@ -46,7 +46,7 @@ import { getSubjects, getSubjectDetails, getSubjectPoints, getSubjectDocuments, 
 
 import { getSchedule } from "./controllers/schedule.js";
 
-import { getFeedbacks,  postFeedbacks, getAllFeedbacks, updateFeedback, deleteFeedback, getAllFeedbacksCoach} from "./controllers/feedback.js";
+import { getFeedbacks,  postFeedbacks, getAllFeedbacks, updateFeedback, deleteFeedback, getAllFeedbacksCoach, updateFeedbackCoach, deleteFeedbackCoach} from "./controllers/feedback.js";
 
 import { getPoints, getAllPoints, postPoints, updatePointAndComment, deletePoint, } from "./controllers/rapport.js";
 
@@ -95,12 +95,12 @@ app.post('/uploadAvatar', multer().single('avatar'), saveAvatar, (req, res) => {
 
 app.get('/logout', logout);
 
-app.get('/absence', getAbsence);
+app.get('/absence', jwtAuth, getAbsence);
 
 
-app.get('/teachers', teachers);
-app.get('/students', students);
-app.get('/coaches', coaches);
+app.get('/teachers',jwtAuth, teachers);
+app.get('/students',jwtAuth, students);
+app.get('/coaches', jwtAuth, coaches);
 
 app.get('/editSubjects', getSubjectsForEdit);
 app.post('/editSubjects/:id', renameSubjects);
@@ -120,10 +120,13 @@ app.get('/subjects', jwtAuth, getSubjects);
 app.get('/feedback', jwtAuth, getFeedbacks, );
 
 app.get('/feedbackDashboard', jwtAuth, getAllFeedbacks)
-app.get('/feedbackDashboardCoach', jwtAuth, getAllFeedbacksCoach)
 app.post('/feedbackDashboard', jwtAuth, postFeedbacks,)
 app.post('/feedbackDashboard/:id', jwtAuth, updateFeedback);
 app.post('/deleteFeedback/:id', jwtAuth, deleteFeedback);
+
+app.get('/feedbackDashboardCoach', jwtAuth, getAllFeedbacksCoach)
+app.post('/feedbackDashboardCoach/:id', jwtAuth, updateFeedbackCoach)
+app.post('/deletefeedbackDashboardCoach/:id', jwtAuth, deleteFeedbackCoach)
 
 
 app.get('/rapport', jwtAuth, getPoints );

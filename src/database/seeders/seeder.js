@@ -12,7 +12,7 @@ const dbSeeder = new DatabaseSeeder(
   entities
 );
 
-const { factory, amount = 30 } = minimist(process.argv.slice(2));
+const { factory, amount = 50 } = minimist(process.argv.slice(2));
 
 const logResponse = (records) => {
   console.log(`${records.length} records inserted.`);

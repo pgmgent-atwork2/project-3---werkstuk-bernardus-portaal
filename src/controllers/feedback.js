@@ -66,7 +66,6 @@ const subjects = await subjectsRepository.find({
 console.log(feedbackData);
 
 const userFeedbackdata = feedbackData;
-userFeedbackdata.reverse();
 res.render('feedbackDashboard', {
   user,
   userFeedbackdata,
@@ -110,7 +109,6 @@ const subjects = await subjectsRepository.find({
 console.log(feedbackData);
 
 const userFeedbackdata = feedbackData;
-userFeedbackdata.reverse();
 res.render('feedbackDashboard', {
   user,
   userFeedbackdata,
@@ -229,6 +227,79 @@ export const deleteFeedback = async (req, res, next) => {
 
     await feedbackRepository.delete(feedbackId);
     res.redirect('/feedbackDashboard');
+  } catch (error) {
+    console.log('Oopsie daisy, er ging iets mis', error);
+    next(error);
+  }
+};
+
+export const updateFeedbackCoach = async (req, res, next) => {
+  console.log('updating');
+  try {
+    const feedbackId = req.params.id;
+    const updatedText = req.body.text;
+
+    if (!updatedText) {
+      throw new Error('Please provide a text for the updated feedback.');
+    }
+    const userRepository = DataSource.getRepository('User');
+    const feedbackRepository = DataSource.getRepository('Feedback');
+
+    const teacherId = req.user.id;
+
+    const feedback = await feedbackRepository.findOne({
+      where: {
+        id: feedbackId,
+        teacher: teacherId,
+      },
+    });
+
+const students = await userRepository.find({
+  where: {
+    role: {
+      id: 3
+    }
+  }
+});
+
+    if (!feedback) {
+      res.status(404).send({ error: 'Feedback not found.' });
+      return;
+    }
+
+    feedback.text = updatedText;
+
+    const updatedFeedback = await feedbackRepository.save(feedback);
+    res.redirect('/feedbackDashboardCoach')
+  } catch (error) {
+    console.log('opsie daisy, er ging iets mis', error);
+    next(error);
+  }
+};
+
+export const deleteFeedbackCoach = async (req, res, next) => {
+  console.log('deleting');
+  try {
+    const feedbackId = req.params.id;
+
+    const feedbackRepository = DataSource.getRepository('Feedback');
+
+    const teacherId = req.user.id;
+
+    const feedback = await feedbackRepository.findOne({
+      where: {
+        id: feedbackId,
+        teacher: teacherId,
+      },
+    });
+
+    if (!feedback) {
+      res.status(404).send({ error: 'Feedback not found.' });
+      return;
+    }
+
+    await feedbackRepository.delete(feedbackId);
+    res.redirect('/feedbackDashboardCoach');
   } catch (error) {
     console.log('Oopsie daisy, er ging iets mis', error);
     next(error);

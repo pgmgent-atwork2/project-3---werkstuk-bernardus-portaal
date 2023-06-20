@@ -12,13 +12,13 @@
                 </div>
             </div>
             <div class="feedback-content">
-                <form class="form-update" action="/feedbackDashboardCoach/{{ id }}" method="post">
+                <form class="form-update" action="/feedbackDashboard/{{ id }}" method="post">
                     <input type="text" id="{{ id }}" name="text" value="{{ text }}"></input>
                     <div class="button-container"> 
                         <button class="btn btn-edit" type="submit" value="done">Bewerken
                         </button>
                     </form>
-                    <form class="form-delete" action="/deletefeedbackDashboardCoach/{{ id }}" method="post">
+                    <form class="form-delete" action="/deleteFeedback/{{ id }}" method="post">
                         <input type="hidden" name="_method" value="DELETE"></input>
                         <button class="btn btn-delete btn--clear" type="submit" value="delete">Verwijderen</button>
                     </div>

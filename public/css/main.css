@@ -78,7 +78,13 @@ article {
 .title--subject {
     display: flex;
     align-items: center;
-    gap: 20px;
+}
+
+.teachers_subject{
+    display: flex;
+    margin: 2rem;
+    margin-top: -1.5rem;
+    flex-direction: column;
 }
 
 input:focus , textarea:focus{
@@ -100,6 +106,7 @@ ul{
 }
 
 .subjects {
+    animation: transitionIn 1s;
     & ul {
         display: flex;
         flex-direction: row;
@@ -655,13 +662,17 @@ color: hsl(0, 0%, 47%);
     font-size: 1rem;
 }
 
-.documenten-word p {
+.documenten-word {
     margin-bottom: .62rem;
     font-weight: 800;
     font-size: 1.25rem;
-    color: var(--blue);
+    color: white;
     margin-left: 6%;
     margin-right: 6%;
+}
+
+.point_color{
+    color: white;
 }
 
 .documenten-text {
@@ -679,13 +690,27 @@ color: hsl(0, 0%, 47%);
     display: flex;
 }
 
+.documenten{
+    animation: transitionIn 1s;
+    transition: transform 0.3s ease-in-out;
+}
+
 
 .documenten-text p {
     display: flex;
     font-size: 1.1rem;
     padding: .62rem;
     font-weight: 600;
-    color: var(--blue);
+    color: var(--white);
+}
+
+.documenten-text {
+    transition: transform 0.3s ease-in-out;
+}
+
+.documenten-text:hover {
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1.02);
 }
 
 .documenten-text > p:nth-child(2){
@@ -693,7 +718,7 @@ color: hsl(0, 0%, 47%);
 }
 
 .documenten-text > p:last-child{
-    border-left: .06rem solid var(--blue);
+    border-left: .06rem solid var(--white);
     padding-left: 20px;
 }
 
@@ -726,14 +751,14 @@ color: hsl(0, 0%, 47%);
 /*post*/
 
 .feedback-coach {
-    margin: 1.25rem;
+    margin: 2rem;
 }
 
 .feedback-list {
     overflow: auto;
     max-height: 80vh;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
 }
 
 .feedback-list::-webkit-scrollbar {
@@ -752,7 +777,7 @@ color: hsl(0, 0%, 47%);
     background-color: var(--white);
     border: 0.1rem solid var(--blue);
     border-radius: 1rem;
-    width: 100%;
+    width: 90%;
     margin: 1rem;
     padding: .31rem;
     transition: 0.3s;
@@ -903,7 +928,8 @@ ul.feedback_recent li:not(:last-child) {
 .mail-chat{
     display: flex;
     height: 85vh;
-    width: 75vw;
+    width: 80vw;
+    gap: 1rem;
     animation: transitionIn 1s;
     margin: 20px;
     color: var(--dark-blue);
@@ -918,6 +944,10 @@ ul.feedback_recent li:not(:last-child) {
     scrollbar-width: thin;
     scrollbar-color: hsl(0, 0%, 53%) hsl(0, 0%, 95%);
     animation: transitionIn 1s;
+}
+
+.users-section{
+    width: 20rem;
 }
 
 .scrollable-container::-webkit-scrollbar {
@@ -1477,4 +1507,73 @@ transition: transform 0.3s ease-in-out;
     border-right: 2px solid #000000;
     padding-right: 4rem;
 }
+
+.rapport, .info_rapport{
+    margin: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-right: 0.1rem solid #9badf9;
+    height: 40rem;
+}
+
+.raport_article{
+    display: flex;
+    flex-direction: row;
+}
+
+.section_result{
+    width: 60%;
+    height: 100%;
+}
+
+.info_rapport {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.rapport{
+    overflow: auto;
+}
+
+.rapport::-webkit-scrollbar {
+  display: none;
+}
+
+.info_rapport p {
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  color: #333;
+}
+
+.gemiddelde {
+  position: absolute;
+  bottom: -20px;
+  right: 10px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.rapport-teacher{
+    display: flex;
+    flex-direction: column;
+    height: 85%;
+}
+
+
+
+.dud{
+    display: none;
+}
+
+p.doc-name{
+    color: var(--blue);
+}
+
+p.doc-date{
+    color: var(--blue);
+}
+
 

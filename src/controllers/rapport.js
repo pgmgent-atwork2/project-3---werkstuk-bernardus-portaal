@@ -7,11 +7,10 @@ import DataSource from '../lib/DataSource.js';
 export const getPoints = async (req, res) => {
   const userRepository = DataSource.getRepository('User');
   const subjectsRepository = DataSource.getRepository('Subject')
-  
   const pointsRepository = DataSource.getRepository('Points');
+  const classRepository = DataSource.getRepository('Class')
 
   const { user } = req;
-  console.log(user);
 
   const pointsData = await pointsRepository.find({
     where: {
@@ -19,7 +18,7 @@ export const getPoints = async (req, res) => {
         id: user.id,
       },
     },
-    relations: ['teacher', 'subjects'],
+    relations: ['teacher', 'subjects', 'student','student.class'],
   });
 
   const students = await userRepository.find({
@@ -27,7 +26,8 @@ export const getPoints = async (req, res) => {
     role: {
       id: 3
     }
-  }
+  }, 
+  relations:['class']
 })
 
 const subjects = await subjectsRepository.find({
@@ -38,14 +38,23 @@ const subjects = await subjectsRepository.find({
   }
 })
 
+const className = await classRepository.findOne({
+  where: {
+    user: {
+      id: user.id
+    }
+  }
+})
+
 const userPoints = pointsData;
-console.log(userPoints)
+console.log(className)
 
 res.render('rapport', {
     user,
     userPoints,
     students,
     subjects,
+    className,
     title: "Rapport"
     });
 };

@@ -1,0 +1,48 @@
+<div class="overlay">
+        <div class="overlay-container">
+    <form action="/rapportDashboard" method="POST" class="form-feedback">
+        <button class="close">
+            <svg width="30" height="27" viewBox="0 0 30 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M24.9304 21.568C24.9122 21.7713 24.8068 21.966 24.6328 22.1157C24.4423 22.2806 24.1851 22.3746 23.9279 22.3746C23.6941 22.3746 23.4779 22.2987 23.3179 22.1612L15 14.9816L6.68141 22.1612C6.52204 22.2988 6.30583 22.3746 6.07262 22.3746C5.81481 22.3746 5.55758 22.2806 5.36715 22.1158C5.19313 21.9661 5.08766 21.7713 5.0695 21.5681C5.05016 21.346 5.13922 21.1321 5.31442 20.9814L13.633 13.8018L5.31442 6.62222C4.96637 6.32234 4.9904 5.81308 5.36715 5.48791C5.55758 5.32305 5.81481 5.22899 6.07262 5.22899C6.30583 5.22899 6.52204 5.30485 6.682 5.4424L15 12.622L23.3185 5.4424C23.478 5.30485 23.6941 5.22899 23.9279 5.22899C24.1851 5.22899 24.4423 5.32305 24.6328 5.48791C25.0101 5.81308 25.0336 6.32183 24.6855 6.62222L16.367 13.8018L24.6855 20.9814C24.8607 21.1321 24.9498 21.346 24.9304 21.568Z"
+                    fill="#0022A8" />
+            </svg>
+        </button>
+        <h2>Resultaat toevoegen</h2>
+        <div>
+            <label for="student">Voor welke student</label>
+            <select name="student" id="student" required>
+                <option disabled selected>Selecteer student ...</option>
+                {{#each students}}
+                <option value="{{id}}">{{firstname}} {{lastname}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div>
+            <label for="subjects">Voor welke vak</label>
+            <select name="subjects" id="subject" required>
+                <option disabled selected>Selecteer vak ...</option>
+                {{#each subjects}}
+                <option value="{{id}}">{{name}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div>
+            <label for="punt">Punt</label>
+            <input type="number" id="{{ id }}" name="point" value="{{ point }}" placeholder="Voer hier je punt in"
+                required>
+        </div>
+        <div>
+            <label for="comment">Commentaar</label>
+            <textarea name="comment" id="{{id}}" rows="5" placeholder="Voer hier je comment in" required></textarea>
+        </div>
+        <div class="btn--feedback">
+            <button class="btn" type="submit">Voeg toe</button>
+        </div>
+    </form>
+    </div>
+</div>
+
+<div>
+    <button class="btn add-feedback add--overlay">Voeg resultaat toe</button>
+</div>
