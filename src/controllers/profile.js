@@ -23,6 +23,7 @@ const userSubjects = userData.subjects;
 res.render('profile', {
     user: req.user,
     users,
+    title: "Profiel",
     });
 };
 
