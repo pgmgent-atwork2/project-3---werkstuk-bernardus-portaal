@@ -11,7 +11,8 @@ import multer from "multer";
 import HandlebarsHelpers from './lib/HandlebarsHelpers.js';
 import { VIEWS_PATH } from './consts.js';
 import DataSource from './lib/DataSource.js';
-import { saveAvatar } from "./middleware/saveAvatar.js";
+import { saveAvatar  } from "./middleware/saveAvatar.js";
+import { subjectAvatar  } from "./middleware/subjectFolder.js";
 
 
 import { jwtAuth } from './middleware/jwtAuth.js';
@@ -91,6 +92,10 @@ app.post("/logout", logout);
 
 app.post('/uploadAvatar', multer().single('avatar'), saveAvatar, (req, res) => {
   res.redirect('/')
+});
+
+app.post('/subjectAvatar', multer().single('avatar'), subjectAvatar, (req, res) => {
+  res.redirect('/editSubjects')
 });
 
 app.get('/logout', logout);

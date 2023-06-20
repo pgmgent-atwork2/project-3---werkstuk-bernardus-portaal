@@ -106,8 +106,7 @@
 
 .dashboard_users {
     overflow: auto;
-    max-height: 50rem;
-    height: 87vh;
+    max-height: 38rem;
 }
 
 .dashboard_users::-webkit-scrollbar,
@@ -149,3 +148,47 @@
   margin-bottom: 10px;
 }
 
+.addSubject{
+    margin: 1rem;
+}
+
+.edit_subjects{
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    flex-wrap: wrap;
+    gap: 6rem;
+    margin: 1rem;
+}
+
+.edit_subject{
+    background-color: white;
+    box-shadow: 0 0.12rem 0.25rem hsla(0, 0%, 0%, 0.1);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.edit_subject_img{
+    margin-bottom: 1rem;
+}
+
+
+.subject_input{
+    margin-bottom: 1rem;
+}
+
+.upload-form-subject{
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    margin-top: 1rem;
+}
+
+.upload-input-subject{
+    display: inline-block;
+    color: #333;
+    font-size: 10px;
+}

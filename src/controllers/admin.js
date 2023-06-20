@@ -19,6 +19,7 @@ export const teachers = async (req, res) => {
     layout: 'admin',
     user: adminUser,
     users,
+    title: "Leerkrachten",
   });
 };
 
@@ -37,6 +38,7 @@ export const students = async (req, res) => {
 res.render('admin/students', {
     layout: 'admin',
     user: adminUser,
+    title: "Studenten",
     users,
     });
 };
@@ -54,6 +56,7 @@ export const coaches = async (req, res) => {
 
 res.render('admin/coaches', {
     layout: 'admin',
+    title: "Coaches",
     user: adminUser,
     users,
     });
@@ -80,6 +83,7 @@ export const getSubjectsForEdit = async (req, res) => {
 
 res.render('admin/editSubjects', {
     layout: 'admin',
+    title: "Vakken bewerken",
     user: adminUser,
     subject: subjectData,
     users,

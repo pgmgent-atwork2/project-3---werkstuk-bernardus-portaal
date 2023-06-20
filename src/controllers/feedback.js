@@ -113,7 +113,8 @@ res.render('feedbackDashboard', {
   user,
   userFeedbackdata,
   students,
-  subjects
+  subjects,
+  title: "Dashboard"
     });
 };
 

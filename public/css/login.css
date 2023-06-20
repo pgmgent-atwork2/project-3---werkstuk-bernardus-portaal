@@ -121,6 +121,7 @@ body {
 }
 
 .bg-img {
+    box-shadow: 10px 0 15px rgba(0, 0, 0, 0.2);
     position: absolute;
     top: 0;
     left: 0;

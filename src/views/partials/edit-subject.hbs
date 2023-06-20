@@ -1,0 +1,31 @@
+
+<div id="{{id}}" class="edit_subject">
+    <div class="edit_subject_img">
+        <img src="/images/{{ name }}.svg" alt="">
+    </div>
+    <div class="edit_subject_name">
+        <form  class="form-update" action="/editSubjects/{{ id }}" method="post">
+            <input class="subject_input" type="text" id="{{ id }}" name="name" value="{{ name }}"></input>
+        <div class="button-container">
+            <button class="btn btn-edit" type="submit" value="done">Bewerken</button>
+        </form>
+        
+</div>
+<div>
+    <form method="post" id="uploadForm-{{id}}" class="upload-form-subject" action="/subjectAvatar" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="avatar-{{id}}" class="upload-file-label">
+                <h5>Kies een folder afbeelding:</h5>
+            </label>
+            <input id="avatar-{{id}}" class="upload-input-subject" type="file" name="avatar">
+            <input type="hidden" name="subjectId" value="{{id}}">
+        </div>
+        <button type="submit" class="button-6 upload-button" role="button">Upload</button>
+    </form>
+        <form class="form-delete" action="/deleteSubject/{{ id }}" method="post">
+            <input type="hidden" name="_method" value="DELETE"></input>
+        <button class="button-6 upload-button" type="submit" value="delete">Verwijderen</button>
+        </form>
+    </div>
+</div>
+

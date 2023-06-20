@@ -686,6 +686,13 @@ color: hsl(0, 0%, 47%);
     margin-bottom: 1.5rem;
 }
 
+.doc-text{
+    color: var(--dark-blue);
+}
+
+.comm_colo{
+    color: var(--white);
+}
 .documenten-text div {
     display: flex;
 }
@@ -701,7 +708,6 @@ color: hsl(0, 0%, 47%);
     font-size: 1.1rem;
     padding: .62rem;
     font-weight: 600;
-    color: var(--white);
 }
 
 .documenten-text {
@@ -1576,4 +1582,7 @@ p.doc-date{
     color: var(--blue);
 }
 
+.button_new_subject{
+    margin: 2rem;
+}
 

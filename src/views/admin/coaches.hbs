@@ -1,10 +1,14 @@
+<div class="page_title">
+    <h1>Coaches:</h1>
+</div>
+<div class="dashboard_users">
 <ul>
     {{#each users}}
     {{#ifEquals role.label "Coach"}}
     <a href="/user/{{id}}">
         <li class="profile_user">
             <div class="image_of_user">
-                <img src="images/avatars/{{user.firstname}}{{user.lastname}}.jpg" alt="{{firstname}}">
+                <img src="images/avatars/{{firstname}}{{lastname}}.jpg" alt="{{firstname}}">
             </div>
             <div class="user_info_profile">
                 <p>{{firstname}} {{lastname}}</p>
@@ -15,3 +19,4 @@
     {{/ifEquals}}
     {{/each}}
 </ul>
+</div>
